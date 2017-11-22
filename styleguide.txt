@@ -1,0 +1,21 @@
+camelCase voor namen van functies, variabelen, etc.
+dubbele aanhalingstekens "..." voor strings
+if() zonder spatie
+if() { en function() { met de accolade op dezelfde regel
+function a(var1, var2) met spaties na de komma's
+tabjes ipv spaties, weergegeven als 4 spaties
+variabelen altijd in de laagst mogelijke scope
+<?php altijd voluit schrijven
+?> alleen als het nog gevolgd word met html
+templates als include "templates/naam.inc";
+javascript in een self calling closure
+self generating php documentatie met phpDocumentator
+1 generic style sheet, dynamische stijlen in <style> tegs in de <head>
+functies gebruiken geen variables van buiten de eigen scope
+altijd op de juiste manier ; gebruiken
+} < enter, en dan > else {
+alleen === ipv ==
+comments als // SPATIE en dan de comment
+comments op eigen line
+niet meer dan 1 regel whitespace
+elk bestand eindigt met een \n, dus een witregel
