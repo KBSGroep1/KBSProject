@@ -14,16 +14,16 @@ var distanceY;
 var shrinkOn;
 
 //set scroll for desktop nav
-function nav_desktop_check() {
+function nav_desktop_check(){
     distanceY = window.pageYOffset || document.documentElement.scrollTop;
     shrinkOn = 100;
 
     //run the header script
-    if (distanceY > shrinkOn) {
-        if(nav_state === 0) {
+    if (distanceY > shrinkOn){
+        if(nav_state === 0){
             nav_hamburger();
         }
-    } else {
+    } else{
         if (nav_state === 1 ){
             if ($(window).width() >= 900){
                 nav_normal_desktop();
@@ -33,7 +33,7 @@ function nav_desktop_check() {
 }
 
 //tablet nav check
-function tablet_nav_check() {
+function tablet_nav_check(){
     if (nav_state === 0){
         if ($(window).width() <= 900){
         nav_hamburger();
@@ -44,11 +44,11 @@ tablet_nav_check()
 
 
 //hambutton onclikc
-hamburger.click(function() {
+hamburger.click(function(){
     if (nav_state === 1){
         if ($(window).width() >= 900){
         nav_normal_desktop();
-        } else {
+        } else{
             nav_normal_mobile();
         }
 
@@ -59,11 +59,11 @@ hamburger.click(function() {
 });
 
 //nav to hamburger
-function nav_hamburger() {
+function nav_hamburger(){
     hamburger.removeClass("active")
         navOverflow.animate({
         width: 0
-      }, nav_ani_speed, function() {
+      }, nav_ani_speed, function(){
             hamburger.addClass("active")
       });
     nav_state = 1;
@@ -71,7 +71,7 @@ function nav_hamburger() {
 }
 
 //hamburger to nav
-function nav_normal_desktop() {
+function nav_normal_desktop(){
     hamburger.addClass("active");
     hamburger.removeClass("active");
     navOverflow.css("width", "auto");
@@ -79,16 +79,16 @@ function nav_normal_desktop() {
     navOverflow.css("width", 0);
     navOverflow.animate({
         width: nav_witdh
-    }, nav_ani_speed, function() {
+    }, nav_ani_speed, function(){
         hamburger.removeClass("active")
     });
     nav_state = 0;
 
 }
-function nav_normal_mobile() {
+function nav_normal_mobile(){
     navOverflow.animate({
         width: "100%"
-    }, nav_ani_speed, function() {
+    }, nav_ani_speed, function(){
         hamburger.removeClass("active")
     });
     nav_state = 0;
@@ -99,19 +99,19 @@ function logo_animation(){
     if (page_end_logo_nav === false){
         if ($(window).width() >= 1500){
                 logoContainer.addClass("active")
-        } else {
+        } else{
             if (nav_state === 0){
                 logoContainer.removeClass("active")
-            } else {
+            } else{
                 logoContainer.addClass("active")
             }
 
         }
 
-    } else {
+    } else{
         if ($(window).width() >= 1500){
             logoContainer.removeClass("active")
-        } else {
+        } else{
             if (nav_state === 1){
                 logoContainer.removeClass("active")
             }

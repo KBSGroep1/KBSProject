@@ -8,6 +8,16 @@
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet" >
     </head>
+    <style media="screen">
+      .contactIcon i,
+      .contact h3:after{
+          background-color: #e95b12;
+      }
+
+      .sendButton{
+        background-color: #e95b12;
+      }
+    </style>
     <body>
         <?php include 'include/menu.php'; ?>
         <?php include 'include/home.php'; ?>
