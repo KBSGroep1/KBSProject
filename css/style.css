@@ -1,0 +1,344 @@
+@import url("../css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Martel+Sans:200,300,400,600,700,800,900');
+
+
+
+body {
+    font-family: 'Martel Sans', sans-serif;
+    font-size: 16px;
+    color: #777;
+    line-height: 24px;
+    background: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    position: relative;
+    font-weight: 600;
+    margin: 0px;
+    font-weight: bold;
+    background: none;
+    line-height: 1.6em;
+    font-family: 'Montserrat', sans-serif;
+    color: #000;
+    text-transform: initial;
+}
+
+input {
+    padding: 5px 20px;
+    border: 0;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    outline: none;
+    height: 40px;
+    font-size: 13px;
+    color: #777;
+}
+textarea {
+    padding: 5px 20px;
+    border: 0;
+    display: inline-block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    outline: none;
+    font-size: 13px;
+    color: #777;
+    resize: none;
+}
+
+/*Navigatie/menu*/
+
+.hamburgerMenu{
+    height: 68px;
+    width: 68px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 9999;
+    z-index: -1
+
+}
+
+.hamburger{
+  width: 40px;
+}
+
+.hamburgerMenu.active {
+    opacity: 1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 2
+}
+
+.logoContainer{
+    height: 40px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 0;
+
+}
+.logoContainer.active{
+    opacity: 1;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.logoContainer img{
+    height: 100%;
+}
+
+.navContainer{
+    display: block;
+    margin-left: 30px;
+    height: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    z-index: 9;
+    width: auto;
+    min-width: 400px;
+}
+
+.navOverflow{
+    height: 55px;
+    overflow: hidden;
+    position: absolute;
+    z-index: 1
+}
+.navContainer ul{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100%;
+}
+.navContainer ul li {
+    font-family: 'Montserrat';
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+    padding: 15px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.navContainer a.active{
+    font-family: 'Montserrat';
+    color: #36a9e1;
+    border-bottom: solid 2px;
+}
+.navContainer a{
+    font-family: 'Montserrat';
+    color: #fff;
+    border-bottom: none;
+
+}
+.navPadding{
+    width: 100%;
+}
+
+.fixedContentContainer{
+    position: fixed;
+    width: 100vw;
+    z-index: 2;
+    top: 0;
+
+}
+
+/*home*/
+
+.home{
+  height: 100%;
+  min-height: 100vh;
+  background-color: #333;
+  position: relative;
+}
+
+
+/*about*/
+
+.about{
+  min-height: 400px;
+  position: relative;
+}
+
+.black_layer{
+  background-color: rgb(0, 0, 0);
+  opacity: 0.659;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.para_container{
+  min-height:  100%;
+  position: absolute;
+  background: transparent;
+  width: 100%;
+  z-index: -7;
+  -webkit-transform: translateZ();
+  -moz-transform: translateZ();
+  transform: translateZ();
+  display: block;
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
+}
+
+/*products*/
+
+.products{
+  min-height: 100vh;
+  background-color: #324;
+}
+
+
+/*Footer*/
+
+.contact {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+.detailsBackground {
+    float: left;
+    width: 100%;
+    position: relative;
+    background-color: #333;
+    min-height: 100vh;
+}
+.contactDetail {
+    position: relative;
+    width: 100%;
+    float: left;
+}
+.contact h3 {
+    color: #fff;
+    text-transform: uppercase;
+}
+.contact h3:after {
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+}
+.contact p {
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.contact input {
+    margin-bottom: 15px;
+}
+.contact textarea {
+    margin-bottom: 10px;
+}
+.contactIcon {
+    color: #fff;
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.contactIcon i {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+}
+
+/*margin & padding enzo*/
+
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+
+.marginBottom30 {
+    margin-bottom: 30px;
+}
+
+.marginBottom50 {
+    margin-bottom: 50px;
+}
+
+.paddingBottom70 {
+    padding-bottom: 70px;
+}
+
+.paddingTop100 {
+    padding-top: 100px;
+}
+
+/*buttons*/
+
+.sendButton {
+    font-size: 14px;
+    color: #fff;
+    padding: 12px 30px;
+    display: inline-block;
+    outline: none;
+    line-height: 1.4em;
+    text-transform: capitalize;
+    border: 0;
+    -webkit-transition: all 0.45s ease-in-out;
+    -moz-transition: all 0.45s ease-in-out;
+    -o-transition: all 0.45s ease-in-out;
+    -ms-transition: all 0.45s ease-in-out;
+    transition: all 0.45s ease-in-out;
+    font-family: 'Montserrat', sans-serif;
+}
+.sendButton:hover {
+    color: #fff;
+    opacity: 0.7;
+}
+.sendButton {
+    width: 100%;
+}
