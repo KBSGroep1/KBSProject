@@ -14,8 +14,17 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		exit;
 	}
 
-	// TODO: delete old failed attempts
-	// TODO: check if client IP is in failed attempts table too much
+	$dbh->query("DELETE FROM failedLogin WHERE timestamp < CURRENT_TIMESTAMP - 3600");
+
+	$antibruteforceStmt = $dbh->prepare("SELECT COUNT(*) FROM failedLogin WHERE ip = :ip");
+	$antibruteforceStmt->bindParam(":ip", $_SERVER["REMOTE_ADDR"]);
+	$antibruteforceStmt->execute();
+
+	$antibruteforceResult = $antibruteforceStmt->fetch();
+	if($antibruteforceResult["COUNT(*)"] > 5) {
+		echo "you are doing this too much, screw off";
+		exit;
+	}
 
 	$submittedUsername = trim($_POST["username"]);
 	$submittedPassword = $_POST["password"];
@@ -43,7 +52,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	else {
 		$updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");
 		$updateStatement->bindParam(":username", $submittedUsername);
-		$updateStatement->bindParam(":ip", $_SERVER['REMOTE_ADDR']);
+		$updateStatement->bindParam(":ip", $_SERVER["REMOTE_ADDR"]);
 		$updateStatement->execute();
 	}
 
