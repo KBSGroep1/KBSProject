@@ -1,3 +1,52 @@
+<?php
+// TODO: prevent brute force attacks
+
+session_start();
+
+var_dump($_SESSION);
+
+$loginFailed = false;
+
+if(isset($_POST['username']) && isset($_POST['password'])) {
+	$config = parse_ini_file("config.ini");
+
+	try {
+		$dbh = new PDO("mysql:host=" . $config["host"] . ";port=" . $config["port"] . ";dbname=" . $config["db"], $config["username"], $config["password"]);
+	}
+	catch(PDOException $e) {
+		echo "Failed to connect to database";
+		exit;
+	}
+
+	$submittedUsername = trim($_POST["username"]);
+	$submittedPassword = $_POST["password"];
+
+	// Is this save?
+	$stmt = $dbh->prepare("SELECT userID, username, role FROM user WHERE username = :username AND password = SHA2(CONCAT(:password, salt), 512)");
+	$stmt->bindParam(":username", $submittedUsername);
+	$stmt->bindParam(":password", $submittedPassword);
+	$stmt->execute();
+
+	if($stmt->rowCount() === 1) {
+		$result = $stmt->fetch();
+
+		$_SESSION["loggedIn"] = true;
+		$_SESSION["userID"] = intval($result["userID"]);
+		$_SESSION["username"] = $result["username"];
+		$_SESSION["userRole"] = intval($result["role"]);
+
+		$dbh = null;
+		$stmt = null;
+
+		header("Location: /cms.php");
+		exit;
+	}
+
+	$dbh = null;
+	$stmt = null;
+	$loginFailed = true;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -26,11 +75,27 @@
 				margin-bottom: 8px;
 			}
 
+			.error {
+				background-color: red;
+				padding: 8px;
+				max-width: 250px;
+				color: white;
+				font-weight: bold;
+				margin-bottom: 8px;
+			}
+
 		</style>
 	</head>
 	<body>
 		<h1>Log in to CMS</h1>
 		<form method="POST">
+<?php
+if($loginFailed) {
+?>
+			<div class="error">Incorrect username/password</div>
+<?php
+}
+?>
 			<label for="username">
 				Username: <br />
 				<input type="text" id="username" name="username" autofocus required />
@@ -38,7 +103,7 @@
 			<br />
 			<label for="password">
 				Password: <br />
-				<input type="text" id="password" name="password" autofocus required />
+				<input type="password" id="password" name="password" required />
 			</label>
 			<br />
 			<input type="submit" value="Login" />

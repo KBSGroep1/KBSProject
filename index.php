@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
+	$_SESSION["loggedIn"] = false;
+	$_SESSION["userID"] = -1;
+	$_SESSION["username"] = null;
+	$_SESSION["role"] = 0;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
