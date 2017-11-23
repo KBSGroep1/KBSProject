@@ -1,5 +1,5 @@
 <div class="about" id="pageAbout">
-  <div id="aboutContainer" class="para_container"></div>
+  <div id="aboutContainer" class="paraContainer"></div>
   <div class="textContainer">
       <h1 class="titleAbout">About Toolwelle</h1>
       <p class="bodyText">
@@ -14,5 +14,5 @@
         Meanwhile Toolwelle provides quality tools through various outlets.
       </p>
   </div>
-  <div class="black_layer"></div>
+  <div class="blackLayer"></div>
 </div>

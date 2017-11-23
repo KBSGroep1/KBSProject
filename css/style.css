@@ -191,8 +191,13 @@ textarea {
 .home{
   height: 100%;
   min-height: 100vh;
-  background-color: #333;
   position: relative;
+}
+
+.introContainer{
+  text-align: right;
+  color: white;
+  font-size: 48px;
 }
 
 
@@ -234,7 +239,7 @@ textarea {
 }
 
 
-.black_layer{
+.blackLayer{
   background-color: rgb(0, 0, 0);
   opacity: 0.659;
   height: 100%;
@@ -245,7 +250,7 @@ textarea {
   z-index: -1;
 }
 
-.para_container{
+.paraContainer{
   min-height:  100%;
   position: absolute;
   background: transparent;
@@ -265,7 +270,6 @@ textarea {
 
 .products{
   min-height: 100vh;
-  background-color: #324;
 }
 
 
