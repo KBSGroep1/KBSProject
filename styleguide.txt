@@ -19,3 +19,4 @@ comments als // SPATIE en dan de comment
 comments op eigen line
 niet meer dan 1 regel whitespace
 elk bestand eindigt met een \n, dus een witregel
+probeer regels korter dan 120 karakters te houden, zodat je twee files naast elkaar kan zien

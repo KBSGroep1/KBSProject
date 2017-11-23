@@ -7,7 +7,11 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	$config = parse_ini_file("config/config.ini");
 
 	try {
-		$dbh = new PDO("mysql:host=" . $config["host"] . ";port=" . $config["port"] . ";dbname=" . $config["db"], $config["username"], $config["password"]);
+		$dbh = new PDO("mysql:"
+			. "host=" . $config["host"]
+			. ";port=" . $config["port"]
+			. ";dbname=" . $config["db"],
+			$config["username"], $config["password"]);
 	}
 	catch(PDOException $e) {
 		echo "Failed to connect to database";
@@ -29,10 +33,21 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	$submittedUsername = trim($_POST["username"]);
 	$submittedPassword = $_POST["password"];
 
-	// Is this save?
-	$stmt = $dbh->prepare("SELECT userID, username, role FROM user WHERE username = :username AND password = SHA2(CONCAT(:password, salt), 512)");
+	$acquiredSalt = "";
+	$saltyStmt = $dbh->prepare("SELECT salt FROM user WHERE username = :username");
+	$saltyStmt->bindParam(":username", $submittedUsername);
+	$saltyStmt->execute();
+	if($saltyStmt->rowCount() === 1) {
+		$acquiredSalt = $saltyStmt->fetch()["salt"];
+		$hashedPassword = hash('sha512', $submittedPassword . $acquiredSalt);
+	}
+
+	$stmt = $dbh->prepare("
+		SELECT userID, username, role
+		FROM user
+		WHERE username = :username AND password = :password");
 	$stmt->bindParam(":username", $submittedUsername);
-	$stmt->bindParam(":password", $submittedPassword);
+	$stmt->bindParam(":password", $hashedPassword);
 	$stmt->execute();
 
 	if($stmt->rowCount() === 1) {
@@ -45,6 +60,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
 		$dbh = null;
 		$stmt = null;
+		$saltyStmt = null;
+		$antibruteforceStmt = null;
 
 		header("Location: /cms.php");
 		exit;
@@ -59,6 +76,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	$dbh = null;
 	$stmt = null;
 	$updateStatement = null;
+	$antibruteforceStmt = null;
+	$saltyStmt = null;
 	$loginFailed = true;
 }
 ?>
