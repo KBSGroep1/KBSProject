@@ -4,7 +4,7 @@ session_start();
 $loginFailed = false;
 
 if(isset($_POST['username']) && isset($_POST['password'])) {
-	$config = parse_ini_file("config.ini");
+	$config = parse_ini_file("config/config.ini");
 
 	try {
 		$dbh = new PDO("mysql:host=" . $config["host"] . ";port=" . $config["port"] . ";dbname=" . $config["db"], $config["username"], $config["password"]);
@@ -22,7 +22,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 
 	$antibruteforceResult = $antibruteforceStmt->fetch();
 	if($antibruteforceResult["COUNT(*)"] > 5) {
-		echo "you are doing this too much, screw off";
+		echo "You are doing this too much.";
 		exit;
 	}
 
