@@ -14,8 +14,6 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 		<title>Toolwelle</title>
 		<meta charset="utf-8" />
 		<link href="css/style.css" rel="stylesheet" />
-		<link href="css/color.css" rel="stylesheet" />
-		<link href="css/responsive.css" rel="stylesheet" />
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 
 		<style media="screen">
@@ -27,6 +25,13 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 			.sendButton{
 				background-color: #e95b12;
 			}
+      .bodyText{
+        color: #fff;
+      }
+      .titleAbout {
+        color: #e95b12;
+      }
+
 
 		</style>
 	</head>
