@@ -1,9 +1,5 @@
 <?php
-// TODO: prevent brute force attacks
-
 session_start();
-
-var_dump($_SESSION);
 
 $loginFailed = false;
 
@@ -17,6 +13,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		echo "Failed to connect to database";
 		exit;
 	}
+
+	// TODO: delete old failed attempts
+	// TODO: check if client IP is in failed attempts table too much
 
 	$submittedUsername = trim($_POST["username"]);
 	$submittedPassword = $_POST["password"];
@@ -41,9 +40,16 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		header("Location: /cms.php");
 		exit;
 	}
+	else {
+		$updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");
+		$updateStatement->bindParam(":username", $submittedUsername);
+		$updateStatement->bindParam(":ip", $_SERVER['REMOTE_ADDR']);
+		$updateStatement->execute();
+	}
 
 	$dbh = null;
 	$stmt = null;
+	$updateStatement = null;
 	$loginFailed = true;
 }
 ?>
