@@ -33,51 +33,40 @@ try {
   			<div class="container-fluid">
     			<div class="navbar-header">
     		  		<a class="navbar-brand" href="#"><img id="logoWilpe"src="img/cms/wilpeLogo.jpg"></a>
+                    <a class="navbar-brand" href="#">Website Editor</a>
    				</div>
-    		  		<p id="username">Ingelogd als: <a href="users.php"><?php print($_SESSION["username"]) ?></a><br>
-    		  			<a href="logout.php">Uitloggen</a></p>
-  			</div>
-		</nav>
-  <div id="sidebar">
-            <nav id="spy">
-                <ul class="sidebar-nav nav">
-                    <li class="sidebar-brand">
-                    	<select id="websiteSelect">
-							<option value="">Selecteer een site</option>
-							<?php
-								$stmt = $dbh->prepare("SELECT websiteID, name FROM website");
-								$stmt->execute();
-								while ($result = $stmt->fetch()) {
-									print("<option value='" . $result["websiteID"] . "'>" . $result["name"] . "</option>");
-								}
-							?>
-						</select>
-                    </li>
-                    <li>
-                        <a href="producten.php" data-scroll>
-                            <span class="fa fa-anchor solo">Producten</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="website.php" data-scroll>
-                            <span class="fa fa-anchor solo">Website</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="users.php" data-scroll>
-                            <span class="fa fa-anchor solo">Gebruikers</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="messages.php" data-scroll>
-                            <span class="fa fa-anchor solo">Berichten</span>
-                        </a>
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <?php
+                                $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
+                                $stmt->execute();
+                                while ($result = $stmt->fetch()) {
+                                    print("<li><a href='#''>" . $result["name"] . "</a></li>");
+                                }
+                            ?>
+                        </ul>
                     </li>
                 </ul>
-            </nav>
-        </div>
-
-		<br>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Ingelogd als: <?php print($_SESSION["username"]) ?></a></li>
+                    <li><a href="logout.php">Uitloggen</a></li>
+                </ul>
+  			</div>
+		</nav>
+  <nav class="navbar navbar-default sidebar" role="navigation">
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Producten</a></li>        
+        <li ><a href="#">Website</a></li>        
+        <li ><a href="#">Gebruikers</a></li>
+        <li ><a href="#">Berichten</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 	</body>
 </html>
 <?php
