@@ -1,3 +1,30 @@
 #username {
 	float: right;
+	color: white;
+	margin-top: 4px;
+}
+#logoWilpe {
+	height: 200%;
+	margin-top: -10px;
+}
+
+#sidebar {
+	width: 10%;
+	background-color: #222;
+	margin-top: -20px;
+	width: 160px;
+	position: fixed;
+	padding-bottom: 100%;
+}
+
+.navbar {
+	border-bottom-style: none;
+	border-left-style: none;
+	border-radius: 0px;
+
+}
+
+#websiteSelect {
+	margin-top: 8px;
+	margin-left: 6px;
 }
