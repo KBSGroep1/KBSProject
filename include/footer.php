@@ -16,7 +16,7 @@
                         <input type="text" name="full name" placeholder="Name">
                         <input type="text" name="email address" placeholder="Email">
                         <textarea placeholder="Message" rows="6"></textarea>
-                        <button type="submit" class="sendButton marginBottom30">Verstuur</button>
+                        <button type="submit" class="sendButton buttonColor marginBottom30">Verstuur</button>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12 col-xs-12">

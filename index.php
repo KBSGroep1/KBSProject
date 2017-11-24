@@ -22,7 +22,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 				background-color: #e95b12;
 			}
 
-			.sendButton{
+			.buttonColor{
 				background-color: #e95b12;
 			}
       .bodyText{
