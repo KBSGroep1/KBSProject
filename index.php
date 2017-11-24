@@ -34,6 +34,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 
 		</style>
+
 	</head>
 	<body>
 		<?php include 'include/menu.php'; ?>
@@ -52,5 +53,20 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 		<!-- Own scripts-->
 		<script src="js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+      $('#aboutContainer').parallax({
+        imageSrc: 'img/bg/729674.jpg'
+      });
+
+      $('#homeContainer').parallax({
+        imageSrc: 'img/bg/tools.jpg'
+      });
+
+      $('#productsContainer').parallax({
+        imageSrc: 'img/bg/default.jpg'
+      });
+
+    </script>
 	</body>
 </html>

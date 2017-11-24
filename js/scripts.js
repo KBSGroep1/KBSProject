@@ -1,15 +1,3 @@
-$('#aboutContainer').parallax({
-	imageSrc: 'img/bg/729674.jpg'
-});
-
-$('#homeContainer').parallax({
-	imageSrc: 'img/bg/tools.jpg'
-});
-
-$('#productsContainer').parallax({
-	imageSrc: 'img/bg/default.jpg'
-});
-
 // Scrolling
 var nav = $("#navId");
 var navOverflow = $("#navOverflow");
