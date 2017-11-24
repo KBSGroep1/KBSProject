@@ -7,7 +7,6 @@ body {
     font-family: 'Martel Sans', sans-serif;
     font-size: 16px;
     color: #777;
-    line-height: 24px;
     background: #ffffff;
     -webkit-font-smoothing: antialiased;
     max-width: 100%;
@@ -195,13 +194,6 @@ textarea {
   position: relative;
 }
 
-.introContainer{
-  text-align: right;
-  color: white;
-  font-size: 48px;
-}
-
-
 .homeContent {
   position: relative;
   height: 100vh;
@@ -215,8 +207,33 @@ textarea {
 .contentCentered {
   position: absolute;
   top: 50%;
-  left:50%;
+  right:0%;
+  width: 40%;
+  text-align: right;
+  color: white;
+  font-size: 48px;
   transform: translate(-50%,-50%);
+}
+
+.containerArrow{
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 48px;
+}
+
+.downArrow{
+  color: black;
+  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
 }
 
 /*about*/
@@ -372,7 +389,7 @@ textarea {
 
 /*buttons*/
 
-.sendButton {
+.sendButton,.discoverButton {
     font-size: 14px;
     color: #fff;
     padding: 12px 30px;
@@ -388,6 +405,7 @@ textarea {
     transition: all 0.45s ease-in-out;
     font-family: 'Montserrat', sans-serif;
 }
+
 .sendButton:hover {
     color: #fff;
     opacity: 0.7;
