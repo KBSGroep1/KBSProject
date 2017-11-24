@@ -26,7 +26,9 @@ try {
 		<title>Wilpe CMS</title>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/cms.css">	
+		<link rel="stylesheet" type="text/css" href="css/cms.css">
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>	
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
@@ -37,7 +39,7 @@ try {
    				</div>
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Selecteer website
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <?php
@@ -59,7 +61,7 @@ try {
   <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Producten</a></li>        
+        <li ><a href="#">Producten</a></li>        
         <li ><a href="#">Website</a></li>        
         <li ><a href="#">Gebruikers</a></li>
         <li ><a href="#">Berichten</a></li>
