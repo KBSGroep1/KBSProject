@@ -18,6 +18,13 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		exit;
 	}
 
+	/* Brute force prevention:
+	1. Delete failed login attempts that are too old too matter
+	2. Check how many failed attempts have been made from this IP in the last hour.
+	   If this IP has tried more than 5 times, the request wil not be processed.
+	3. Check if the user/password combination is correct
+	4. If incorrect, add this failed attempt to the database. */
+
 	$dbh->query("DELETE FROM failedLogin WHERE timestamp < CURRENT_TIMESTAMP - 3600");
 
 	$antibruteforceStmt = $dbh->prepare("SELECT COUNT(*) FROM failedLogin WHERE ip = :ip");

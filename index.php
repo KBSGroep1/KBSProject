@@ -7,6 +7,27 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 	$_SESSION["username"] = null;
 	$_SESSION["role"] = 0;
 }
+
+$config = parse_ini_file("config/config.ini");
+
+$requestedWebsite = "debananenwinkel.nl";
+
+try {
+	$dbh = new PDO("mysql:"
+		. "host=" . $config["host"]
+		. ";port=" . $config["port"]
+		. ";dbname=" . $config["db"],
+		$config["username"], $config["password"]);
+}
+catch(PDOException $e) {
+	echo "Failed to connect to database";
+	exit;
+}
+
+$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name");
+$stmt->bindParam(":name", $requestedWebsite);
+$stmt->execute();
+$result = $stmt->fetch();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,20 +74,20 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 		<!-- Own scripts-->
 		<script src="js/scripts.js" type="text/javascript"></script>
-    <script type="text/javascript">
+	    <script type="text/javascript">
 
-      $('#aboutContainer').parallax({
-        imageSrc: 'img/bg/729674.jpg'
-      });
+			$('#aboutContainer').parallax({
+				imageSrc: 'img/<?php echo $result["bg1Path"]; ?>'
+			});
 
-      $('#homeContainer').parallax({
-        imageSrc: 'img/bg/tools.jpg'
-      });
+			$('#homeContainer').parallax({
+				imageSrc: 'img/<?php echo $result["bg2Path"]; ?>'
+			});
 
-      $('#productsContainer').parallax({
-        imageSrc: 'img/bg/default.jpg'
-      });
+			$('#productsContainer').parallax({
+				imageSrc: 'img/<?php echo $result["bg3Path"]; ?>'
+			});
 
-    </script>
+	    </script>
 	</body>
 </html>
