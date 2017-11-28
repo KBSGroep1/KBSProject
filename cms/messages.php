@@ -19,7 +19,7 @@ include 'include/topBar.php';
   $stmt->bindParam(":id", $_GET["site"]);
   $stmt->execute();
   while ($result = $stmt->fetch()) {
-      print("<li><a href='?message=" . $result['contactID'] . "'>" . $result["customerName"] . ":\n" . substr($result["text"],0,100) . "\n" . $result["timestamp"] . "</a></li>");
+      print("<li><a href='?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . $result["customerName"] . ":\n" . substr($result["text"],0,100) . "\n" . $result["timestamp"] . "</a></li>");
   }
  ?>
 </div>
