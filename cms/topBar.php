@@ -19,8 +19,6 @@ try {
 		echo "Failed to connect to database";
 		exit;
 	}
-
-$requestURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,8 +34,8 @@ $requestURL = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'];
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
-    		  		<a class="navbar-brand" href="#"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
-                    <a class="navbar-brand" href="#">Website Editor</a>
+    		  		<a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
+                    <a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website Editor</a>
    				</div>
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
