@@ -27,7 +27,24 @@ catch(PDOException $e) {
 $stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name");
 $stmt->bindParam(":name", $requestedWebsite);
 $stmt->execute();
+
+if($stmt->rowCount() !== 1) {
+	http_response_code(404);
+	echo "Page not found";
+	exit;
+}
+
 $result = $stmt->fetch();
+
+$stmt2 = $dbh->prepare("SELECT * FROM text WHERE websiteID = :id");
+$stmt2->bindParam(":id", $result["websiteID"]);
+$stmt2->execute();
+
+$texts = [];
+
+while($t = $stmt2->fetch()) {
+	$texts[$t["textName"]] = $t["text"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,16 +63,16 @@ $result = $stmt->fetch();
 			.buttonColor{
 				background-color: #e95b12;
 			}
-      .bodyText{
-        color: #fff;
-      }
-      .titleAbout {
-        color: #e95b12;
-      }
+			
+			.bodyText{
+				color: #fff;
+			}
+			.titleAbout {
+				color: #e95b12;
+			}
 
 
 		</style>
-
 	</head>
 	<body>
 		<?php include 'include/menu.php'; ?>

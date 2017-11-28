@@ -3,10 +3,9 @@
   <div class="homeContent">
     <div class="contentCentered floatRight">
       <div class="introText">
-        Lorem ipsum<br>
-        Nog iets
+        <?php echo $texts["largeTitle"]; ?>
       </div>
-      <a href="#pageProducts"><div class="discoverButton buttonColor">Discover our products</div></a>
+      <a href="#pageProducts"><div class="discoverButton buttonColor"><?php echo $texts["scrollDownButton"]; ?></div></a>
     </div>
     <div class="containerArrow">
       <a href="#pageAbout">
