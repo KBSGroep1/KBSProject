@@ -13,16 +13,35 @@ include 'include/topBar.php';
     </div>
   </div>
 </nav>
-<div>
- <?php
-  $stmt = $dbh->prepare("SELECT contactID, customerName, text, timestamp, C.websiteID FROM contact C WHERE C.websiteID = :id ORDER BY timestamp DESC");
-  $stmt->bindParam(":id", $_GET["site"]);
-  $stmt->execute();
-  while ($result = $stmt->fetch()) {
-      print("<li><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . $result["customerName"] . ":\n" . substr($result["text"],0,100) . "\n" . $result["timestamp"] . "</a></li>");
-  }
- ?>
-</div>
+  <div class="messageHome">
+    <?php 
+      if (empty($_GET['site'])){
+        $stmt = $dbh->prepare("SELECT contactID, customerName, text, timestamp, C.websiteID FROM contact C ORDER BY timestamp DESC");
+        $stmt->bindParam(":id", $_GET["site"]);
+      }else {
+        $stmt = $dbh->prepare("SELECT contactID, customerName, text, timestamp, C.websiteID FROM contact C WHERE C.websiteID = :id ORDER BY timestamp DESC");
+        $stmt->bindParam(":id", $_GET["site"]);
+      }
+      $stmt->execute();
+      print("
+            <table> 
+                <tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr>");
+      while ($result = $stmt->fetch()) {
+        print(" 
+              <tr>
+                <td class=\"tableNaam\">" . substr($result["customerName"],0,20). "</td>\n
+                <td class=\"tableBericht\"><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,35)); 
+                    if (strlen($result["text"]) >=35){ 
+                      print("...");
+                  } 
+        print("
+                </td>\n
+                <td>" . $result["timestamp"] . "
+                </td></a>
+              </tr>");
+      }
+    ?>
+  </div>
 	</body>
 </html>
 <?php
