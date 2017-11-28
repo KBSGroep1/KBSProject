@@ -19,6 +19,12 @@
   border-radius: 0px;
 }
 
+.list-group {
+ margin-top: 20px;
+  margin-left: 230px;
+  width: 230px;
+}
+
 body,html{
     height: 100%;
   }

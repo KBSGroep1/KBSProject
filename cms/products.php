@@ -13,7 +13,16 @@ include 'include/topBar.php';
     </div>
   </div>
 </nav>
-	</body>
+<div class="list-group">
+    <?php
+      $stmt = $dbh->prepare("SELECT productID, name, price, description FROM product");
+      $stmt->execute();
+      while ($result = $stmt->fetch()) {
+          print("<a class='list-group-item' href='editProduct.php?site=" . $_GET['site'] . "&product=" . $result["productID"] . "'>" . $result["name"] . "</a>");
+      }
+    ?>
+</div>
+</body>
 </html>
 <?php
 	$dbh = null;
