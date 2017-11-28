@@ -4,7 +4,7 @@ session_start();
 $loginFailed = false;
 
 if(isset($_POST['username']) && isset($_POST['password'])) {
-	$config = parse_ini_file("config/config.ini");
+	$config = parse_ini_file("../config/config.ini");
 
 	try {
 		$dbh = new PDO("mysql:"
@@ -70,7 +70,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 		$saltyStmt = null;
 		$antibruteforceStmt = null;
 
-		header("Location: /cms.php");
+		header("Location: cms.php");
 		exit;
 	}
 	else {

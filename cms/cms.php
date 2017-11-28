@@ -6,7 +6,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 	exit;
 }
 
-$config = parse_ini_file("config/config.ini");
+$config = parse_ini_file("../config/config.ini");
 
 try {
 		$dbh = new PDO("mysql:"
@@ -25,16 +25,16 @@ try {
 	<head>
 		<title>Wilpe CMS</title>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/cms.css">
-		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>	
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/cms.css">
+		<script type="text/javascript" src="../js/jquery-1.11.3.min.js"></script>	
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
-    		  		<a class="navbar-brand" href="#"><img id="logoWilpe"src="img/cms/wilpeLogo.jpg"></a>
+    		  		<a class="navbar-brand" href="#"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
                     <a class="navbar-brand" href="#">Website Editor</a>
    				</div>
                 <ul class="nav navbar-nav">
