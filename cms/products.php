@@ -1,4 +1,7 @@
-<?php include 'topBar.php'; ?>
+<?php
+include 'include/init.php';
+include 'include/topBar.php'; 
+?>
   <nav class="navbar navbar-default sidebar" role="navigation">
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
