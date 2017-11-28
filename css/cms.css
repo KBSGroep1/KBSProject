@@ -145,3 +145,13 @@ body,html{
     padding-left: 15px;
   }
   
+  .massage{
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px;
+    margin-left: 202px;
+    margin-right: 2px;
+    margin-top: 2px;
+    padding-left: 2px;
+  }

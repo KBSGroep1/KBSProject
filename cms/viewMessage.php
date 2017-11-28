@@ -13,18 +13,18 @@ include 'include/topBar.php';
     </div>
   </div>
 </nav>
-<div>
+<div class="massage">
  <?php
-  $stmt = $dbh->prepare("SELECT contactID, customerName, text, timestamp, C.websiteID FROM contact C WHERE C.websiteID = :id ORDER BY timestamp DESC");
+  $stmt = $dbh->prepare("SELECT * FROM contact C WHERE C.contactID = :id ");
   $stmt->bindParam(":id", $_GET["site"]);
   $stmt->execute();
   while ($result = $stmt->fetch()) {
-      print("<li><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . $result["customerName"] . ":\n" . substr($result["text"],0,100) . "\n" . $result["timestamp"] . "</a></li>");
+      print("<h3>" . $result["customerName"] . "\n" . $result["timestamp"] . "</h3> <p> <a>". $result["email"] . "</a><br>" . $result["text"] . "\n" .  "</p>");
   }
  ?>
 </div>
-	</body>
+  </body>
 </html>
 <?php
-	$dbh = null;
-	$stmt = null;
+  $dbh = null;
+  $stmt = null;
