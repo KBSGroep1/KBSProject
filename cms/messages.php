@@ -13,6 +13,16 @@ include 'include/topBar.php';
     </div>
   </div>
 </nav>
+<div>
+ <?php
+  $stmt = $dbh->prepare("SELECT contactID, customerName, text, timestamp, C.websiteID FROM contact C WHERE C.websiteID = :id ORDER BY timestamp DESC");
+  $stmt->bindParam(":id", $_GET["site"]);
+  $stmt->execute();
+  while ($result = $stmt->fetch()) {
+      print("<li><a href='?message=" . $result['contactID'] . "'>" . $result["customerName"] . ":\n" . substr($result["text"],0,100) . "\n" . $result["timestamp"] . "</a></li>");
+  }
+ ?>
+</div>
 	</body>
 </html>
 <?php
