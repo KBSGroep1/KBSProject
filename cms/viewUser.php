@@ -24,12 +24,7 @@ include 'include/topBar.php';
   $stmt->execute();
   while ($result = $stmt->fetch()) {
       print("<tr><td>" . $result["userID"] . "</td>\n<td>" . $result["username"] . "</td>\n<td>" . $result["role"] ."</td>\n<td>");
-      if ($result["active"] == 1) {
-        $active = "ja";
-      }else{
-        $active = "nee";
-      }
-      print($active . "</td></tr></table><a href='editUser.php?userID=" . $result['userID'] ."'>gebruiker wijzigen</a>");
+      print($result["active"] . "</td></tr></table><a href='editUser.php?userID=" . $result['userID'] ."'>gebruiker wijzigen</a>");
   }
  ?>
 </div>

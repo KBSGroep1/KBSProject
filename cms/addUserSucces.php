@@ -13,17 +13,22 @@ include 'include/topBar.php';
     </div>
   </div>
 </nav>
-<div>
-	<form method="post" action="addUsersucces.php?userID=">
-		<input type="text" name="addUserID" placeholder="Gebruikersnummer">
-		<input type="text" name="addUsername" placeholder="Gebruikersnaam">
-		<input type="password" name="addPassword" placeholder="Wachtwoord">
-		<input type="text" name="addSalt" placeholder="Salt?">
-		<input type="number" name="addRole" placeholder="Rol">
-		<input type="checkbox" name="addActive">
-		<button type="submit" value="Submit">Opslaan</button>
-	</form>
-</div>
+<?php
+  $stmt = $dbh->prepare("INSERT INTO user (userID,username,password,salt,role,active) VALUES (:id1,:id2,:id3,:id4,:id5,:id6)");
+  $stmt->bindParam("id1", $_POST["addUserID"]);
+  $stmt->bindParam("id2", $_POST["addUsername"]);
+  $stmt->bindParam("id3", $_POST["addPassword"]);
+  $stmt->bindParam("id4", $_POST["addSalt"]);
+  $stmt->bindParam("id5", $_POST["addRole"]);
+  if(empty($_POST["addActive"])){  
+    $active = 0;
+  }else{
+  if($_POST["addActive"] == "on"){
+  $active = 1;
+  }}
+  $stmt->bindParam("id6", $active);
+  $stmt->execute();  
+?>
   </body>
 </html>
 <?php

@@ -34,11 +34,11 @@ include 'include/topBar.php';
  ?>
 </div>
 <div>
-	<form method="post" action="editUser.php?userID=5">
+	<form method="post" action="editUsersucces.php?userID=<?php print($_GET['userID'])?>">
 		<input type="text" name="userID" placeholder="Gebruikersnummer">
 		<input type="text" name="username" placeholder="Gebruikersnaam">
-		<input type="text" name="role" placeholder="Rol">
-		<input type="text" name="active" placeholder="Actief">
+		<input type="number" name="role" placeholder="Rol">
+		<input type="checkbox" name="active">
 		<button type="submit" value="Submit">Opslaan</button>
 	</form>
 </div>

@@ -30,8 +30,10 @@ include 'include/topBar.php';
                 </td></a>");
       if ($result["active"] == 1) {
         $active = "ja";
-      }else{
+      }elseif ($result["active"] == 0) {
         $active = "nee";
+      }else {
+        $active = $result["active"];
       }
       print("<td>" . $active . "</td></tr>");
   }
