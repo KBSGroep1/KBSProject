@@ -14,7 +14,7 @@ include 'include/topBar.php';
   </div>
 </nav>
 <div>
-	<form method="post" action="addUsersucces.php?userID=">
+	<form method="post" action="addUserSucces.php?userID=">
 		<input type="text" name="addUserID" placeholder="Gebruikersnummer">
 		<input type="text" name="addUsername" placeholder="Gebruikersnaam">
 		<input type="password" name="addPassword" placeholder="Wachtwoord">
