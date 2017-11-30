@@ -10,7 +10,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = "debananenwinkel.nl";
+$requestedWebsite = "toolwelle.com";
 
 try {
 	$dbh = new PDO("mysql:"
@@ -64,7 +64,7 @@ while($t = $stmt2->fetch()) {
 			.buttonColor{
 				background-color: #e95b12;
 			}
-			
+
 			.bodyText{
 				color: #fff;
 			}

@@ -307,6 +307,80 @@ textarea {
   min-height: 100vh;
 }
 
+.containerProducts{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.productCard {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: left;
+  color: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-perspective: 20em;
+  perspective: 20em;
+}
+
+.productCard img {
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+
+.productText{
+  width: 70%;
+  display: inline-block;
+}
+
+.productCard figcaption {
+  padding: 20px;
+  border-top: 3px solid #e95b12;
+}
+.productCard h3,
+.productCard p {
+  margin: 0;
+}
+.productCard h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.productCard p {
+  font-size: 12px;
+}
+.productCard .price {
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 48px;
+  letter-spacing: 1px;
+}
+.productCard .price s {
+  margin-right: 5px;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+.price{
+  width: 30%;
+  float: right;
+  display: inline-block;
+  color: #e95b12;
+}
+
+
+
 
 /*Footer*/
 
