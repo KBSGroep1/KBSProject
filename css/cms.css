@@ -20,7 +20,7 @@
 }
 
 .list-group {
- margin-top: 20px;
+  margin-top: 20px;
   margin-left: 230px;
   width: 230px;
 }
@@ -163,15 +163,26 @@ body,html{
     padding-left: 2px;
   }
 
-  .tableNaam{
-    width: 150px;
-  }
-  
-  .tableBericht{
-    max-width: 500px;
-    padding-right: 5px;
-  }
-
   .table {
     max-width: 80%;
+    margin-left: 12px;
+  }
+
+  .tableUser{
+    margin-left: 204px;
+    margin-top: 2px;
+    padding-left: 2px;
+  }
+
+  .userRowTable{
+    color: red;
+  }
+
+  .tableUserEdit{
+    margin-top: 2px;
+    padding-left: 2px;    
+  }
+
+  .buttonOpslaan{
+    margin-left: 8px;
   }
