@@ -25,6 +25,10 @@
   width: 230px;
 }
 
+.form-control {
+  width: 500px;
+}
+
 body,html{
     height: 100%;
   }

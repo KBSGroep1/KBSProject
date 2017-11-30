@@ -12,18 +12,18 @@
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
-    		  		<a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
-                    <a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website Editor</a>
+    		  		<a class="navbar-brand" href="cms.php"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
+                    <a class="navbar-brand" href="cms.php">Website Editor</a>
    				</div>
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <?php
-                                if (isset($_GET["site"])) {
+                                if (isset($_SESSION["site"])) {
                                     $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
                                     $stmt->execute();
                                     while ($result = $stmt->fetch()) {
-                                        if ($result["websiteID"] === $_GET["site"]) {
+                                        if ($result["websiteID"] === $_SESSION["site"]) {
                                             print($result["name"]);
                                         }
                                     }

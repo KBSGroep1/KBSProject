@@ -19,4 +19,9 @@ catch(PDOException $e) {
 	echo "Failed to connect to database";
 	exit;
 }
+
+if (isset($_GET['site'])) {
+	$_SESSION['site'] = $_GET['site'];
+	header("Location: /cms/index.php");
+}
 ?>
