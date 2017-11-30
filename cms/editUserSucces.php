@@ -19,7 +19,7 @@ if (empty(($_POST["active"]))) {
   }else{
   $postactive = "ja";  
   }
-print( $_POST["username"] . $_POST["role"] . $postactive);
+print( $_POST["username"] . $_POST["addRole"] . $postactive);
 if (empty($_POST["username"])) {
 }else{
   $stmt = $dbh->prepare("UPDATE user SET username=:id4 WHERE userID=:iduser ");
@@ -28,16 +28,16 @@ if (empty($_POST["username"])) {
   $stmt->execute(); 
 }
 
-if (empty($_POST["role"])){
-  if ($_POST["role"] === 0) {
-  if (isset($_POST["role"])) {
+if (empty($_POST["addRole"])){
+  if ($_POST["addRole"] === 0) {
+  if (isset($_POST["addRole"])) {
   $stmt = $dbh->prepare("UPDATE user SET role=:id5 WHERE userID=:iduser ");
-  $stmt->bindParam(":id5", $_POST["role"]);
+  $stmt->bindParam(":id5", $_POST["addRole"]);
   $stmt->bindParam(":iduser", $_GET["userID"]);
   $stmt->execute();  
 }}}else{
   $stmt = $dbh->prepare("UPDATE user SET role=:id5 WHERE userID=:iduser ");
-  $stmt->bindParam(":id5", $_POST["role"]);
+  $stmt->bindParam(":id5", $_POST["addRole"]);
   $stmt->bindParam(":iduser", $_GET["userID"]);
   $stmt->execute();  
 }

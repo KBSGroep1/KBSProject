@@ -36,9 +36,11 @@ include 'include/topBar.php';
 <tr>
 	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
     <td><input type="text" name="username" placeholder="Gebruikersnaam"></td>
-		<td><input type="number" name="role" placeholder="Rol"></td>
+		<td><input type="radio" name="addRole" value="1"> Rol 1<br>
+    <input type="radio" name="addRole" value="2"> Rol 2<br>
+    <input type="radio" name="addRole" value="3"> Rol 3</td>
 		<td><input type="checkbox" name="active"></td></tr></table>
-		<button class='buttonOpslaan' type="submit" value="Submit">Opslaan</button>
+		<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Opslaan</button>
 	</form>
 </div>
   </body>

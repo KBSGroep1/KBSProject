@@ -14,21 +14,30 @@ include 'include/topBar.php';
   </div>
 </nav>
 <div>
-  <table class='table table-hover tableUser'> 
-                <thead><tr><th class='tableUsername'>Gebruikersnaam</th><th>Wachtwoord</th><th>Rol</th><th>Actief</th></tr></thead>
-	<tr><form method="post" action="addUserProcces.php?userID=">
-		<td><input type="text" name="addUsername" placeholder="Gebruikersnaam"></td>
-		<td><input type="password" name="addPassword" placeholder="Wachtwoord">
-        <input type="password" name="addPassword1" placeholder="Wachtwoord"></td>
-		<td><input type="radio" name="addRole" value="1"> Rol 1<br>
-    <input type="radio" name="addRole" value="2"> Rol 2<br>
-    <input type="radio" name="addRole" value="3"> Rol 3</td>
-		<td><input type="checkbox" name="addActive"></td></tr></table>
-		<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Opslaan</button>
-	</form>
+	
+<?php
+  if ($_POST["addPassword"] === $_POST["addPassword1"]){
+  $stmt = $dbh->prepare("INSERT INTO user (username,password,role,active) VALUES (:id2,:id3,:id5,:id6)");
+  $stmt->bindParam("id2", $_POST["addUsername"]);
+  $stmt->bindParam("id3", $_POST["addPassword"]);
+  $stmt->bindParam("id5", $_POST["addRole"]);
+  if(empty($_POST["addActive"])){  
+    $active = 0;
+  }else{
+  if($_POST["addActive"] == "on"){
+  $active = 1;
+  }}
+  $stmt->bindParam("id6", $active);
+  $stmt->execute();
+  print("Gebruiker toegevoegd: <br>Gebruikersnaam: " . $_POST["addUsername"] . "<br>Rol: " . $_POST["addRole"] . "<br>Actief: " . $_POST["addActive"]);
+  }else {
+    print("Wachtwoord komt niet overeen");
+  }
+
+
+?>
+<br><a href="users.php?userID=">Doorgaan</a>	
 </div>
-
-
   </body>
 </html>
 <?php 

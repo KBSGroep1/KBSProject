@@ -41,7 +41,9 @@ include 'include/topBar.php';
  ?>
 </div>
 <div class="addUser">
-  <a href="addUser.php">gebruiker toevoegen</a>
+  <form action='addUser.php'>
+    <button class='buttonOpslaan btn-primary' type="submit" value="Submit">Gebruiker toevoegen</button>
+  </form>
 </div>
 	</body>
 </html>

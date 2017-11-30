@@ -26,6 +26,7 @@ include 'include/topBar.php';
   }}
   $stmt->bindParam("id6", $active);
   $stmt->execute();  
+  print("Gebruiker toegevoegd: <br>Gebruikersnaam" . $_POST["addUsername"] . "<br>Rol" . $_POST["addRole"] . "<br>Actief" . $active)
 ?>
   </body>
 </html>

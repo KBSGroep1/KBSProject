@@ -158,7 +158,6 @@ body,html{
   }
 
   .messageHome{
-    margin-left: 202px;
     margin-top: 2px;
     padding-left: 2px;
   }
@@ -169,7 +168,7 @@ body,html{
   }
 
   .tableUser{
-    margin-left: 204px;
+    margin-left: 4px;
     margin-top: 2px;
     padding-left: 2px;
   }
@@ -184,5 +183,9 @@ body,html{
   }
 
   .buttonOpslaan{
+    margin-left: 8px;
+  }
+
+  .addUser{
     margin-left: 8px;
   }
