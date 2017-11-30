@@ -19,26 +19,26 @@ include 'include/topBar.php';
   $stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID = :id ");
   $stmt->bindParam(":id", $_GET["userID"]);
   print("
-            <table> 
-                <tr><th>Gebruikersnummer</th><th>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr>");  
+            <table class='table table-hover tableUserEdit'> 
+                <thead><tr><th>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr></thead>");  
   $stmt->execute();
   while ($result = $stmt->fetch()) {
-      print("<tr><td>" . $result["userID"] . "</td>\n<td>" . $result["username"] . "</td>\n<td>" . $result["role"] ."</td>\n<td>");
+      print("<tr><td>" . $result["username"] . "</td>\n<td>" . $result["role"] ."</td>\n<td>");
       if ($result["active"] == 1) {
         $active = "ja";
       }else{
         $active = "nee";
       }
-      print($active . "</td></tr></table>");
+      print($active . "</td></tr>");
   }
  ?>
-</div>
-<div>
+</div><div>
+<tr>
 	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
-		<input type="text" name="username" placeholder="Gebruikersnaam">
-		<input type="number" name="role" placeholder="Rol">
-		<input type="checkbox" name="active">
-		<button type="submit" value="Submit">Opslaan</button>
+    <td><input type="text" name="username" placeholder="Gebruikersnaam"></td>
+		<td><input type="number" name="role" placeholder="Rol"></td>
+		<td><input type="checkbox" name="active"></td></tr></table>
+		<button class='buttonOpslaan' type="submit" value="Submit">Opslaan</button>
 	</form>
 </div>
   </body>

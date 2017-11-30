@@ -19,7 +19,7 @@ if (empty(($_POST["active"]))) {
   }else{
   $postactive = "ja";  
   }
-print($_POST["userID"] . $_POST["username"] . $_POST["role"] . $postactive);
+print( $_POST["username"] . $_POST["role"] . $postactive);
 if (empty($_POST["username"])) {
 }else{
   $stmt = $dbh->prepare("UPDATE user SET username=:id4 WHERE userID=:iduser ");

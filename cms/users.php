@@ -17,14 +17,14 @@ include 'include/topBar.php';
   <?php
   $stmt = $dbh->prepare("SELECT userID, username, role, active FROM user ");
   print("
-            <table class='table table-hover'> 
+            <table class='table table-hover tableUser'> 
                 <thead><tr><th class='tableUserID'>Gebruikersnummer</th><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr></thead>");
   $stmt->execute();
   while ($result = $stmt->fetch()) {
       print(" 
               <tr>
                 <td>" . $result["userID"]. "</td>\n
-                <td class=\"tableUsername\"><a href='viewUser.php?userID=" . $result['userID'] . "'>" . $result["username"]." 
+                <td class=\"tableUsername\"><a href='editUser.php?userID=" . $result['userID'] . "'>" . $result["username"]." 
                 </td>\n
                 <td>" . $result["role"] . "
                 </td></a>");
