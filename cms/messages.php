@@ -7,7 +7,13 @@ include 'include/topBar.php';
       <ul class="nav navbar-nav">
         <li ><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>        
         <li ><a href="sites.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website</a></li>        
-        <li ><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
+        <?php
+          if ($_SESSION["userRole"] == 3) {
+        ?> 
+          <li ><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>  
+        <?php  
+          }
+        ?>
         <li class="active"><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
       </ul>
     </div>
@@ -23,22 +29,13 @@ include 'include/topBar.php';
         $stmt->bindParam(":id", $_GET["site"]);
       }
       $stmt->execute();
-      print("
-            <table class='table table-hover'> 
-                <thead><tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr></thead>");
+      print("<table class='table table-hover'><thead><tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr></thead>");
       while ($result = $stmt->fetch()) {
-        print(" 
-              <tr>
-                <td class='tableNaam'>" . substr($result["customerName"],0,15). "</td>\n
-                <td class='tableBericht'><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,50)); 
-                    if (strlen($result["text"]) >=50){ 
-                      print("...");
-                  } 
-        print("
-                </td>\n
-                <td>" . $result["timestamp"] . "
-                </td></a>
-              </tr>");
+        print("<tr><td class='tableNaam'>" . substr($result["customerName"],0,15). "</td>\n<td class='tableBericht'><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,50)); 
+        if (strlen($result["text"]) >=50){ 
+          print("...");
+        } 
+        print("</td>\n<td>" . $result["timestamp"] . "</td></a></tr>");
       }
     ?>
   </div>
