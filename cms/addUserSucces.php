@@ -7,14 +7,28 @@ include 'include/topBar.php';
       <ul class="nav navbar-nav">
         <li ><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>        
         <li ><a href="sites.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website</a></li>        
-        <li ><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
+        <li class="active"><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
         <li ><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
       </ul>
     </div>
   </div>
 </nav>
-	</body>
+<?php
+  $stmt = $dbh->prepare("INSERT INTO user (username,password,role,active) VALUES (:id2,:id3,:id5,:id6)");
+  $stmt->bindParam("id2", $_POST["addUsername"]);
+  $stmt->bindParam("id3", $_POST["addPassword"]);
+  $stmt->bindParam("id5", $_POST["addRole"]);
+  if(empty($_POST["addActive"])){  
+    $active = 0;
+  }else{
+  if($_POST["addActive"] == "on"){
+  $active = 1;
+  }}
+  $stmt->bindParam("id6", $active);
+  $stmt->execute();  
+?>
+  </body>
 </html>
 <?php
-	$dbh = null;
-	$stmt = null;
+  $dbh = null;
+  $stmt = null;

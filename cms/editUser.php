@@ -14,37 +14,35 @@ include 'include/topBar.php';
   </div>
 </nav>
 <div>
-  <?php
-  $stmt = $dbh->prepare("SELECT userID, username, role, active FROM user ");
+ <?php
+
+  $stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID = :id ");
+  $stmt->bindParam(":id", $_GET["userID"]);
   print("
-            <table class='table table-hover'> 
-                <thead><tr><th class='tableUserID'>Gebruikersnummer</th><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr></thead>");
+            <table> 
+                <tr><th>Gebruikersnummer</th><th>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr>");  
   $stmt->execute();
   while ($result = $stmt->fetch()) {
-      print(" 
-              <tr>
-                <td>" . $result["userID"]. "</td>\n
-                <td class=\"tableUsername\"><a href='viewUser.php?userID=" . $result['userID'] . "'>" . $result["username"]." 
-                </td>\n
-                <td>" . $result["role"] . "
-                </td></a>");
+      print("<tr><td>" . $result["userID"] . "</td>\n<td>" . $result["username"] . "</td>\n<td>" . $result["role"] ."</td>\n<td>");
       if ($result["active"] == 1) {
         $active = "ja";
-      }elseif ($result["active"] == 0) {
+      }else{
         $active = "nee";
-      }else {
-        $active = $result["active"];
       }
-      print("<td>" . $active . "</td></tr>");
+      print($active . "</td></tr></table>");
   }
-  print("</table>")
  ?>
 </div>
-<div class="addUser">
-  <a href="addUser.php">gebruiker toevoegen</a>
+<div>
+	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
+		<input type="text" name="username" placeholder="Gebruikersnaam">
+		<input type="number" name="role" placeholder="Rol">
+		<input type="checkbox" name="active">
+		<button type="submit" value="Submit">Opslaan</button>
+	</form>
 </div>
-	</body>
+  </body>
 </html>
 <?php
-	$dbh = null;
-	$stmt = null;
+  $dbh = null;
+  $stmt = null;

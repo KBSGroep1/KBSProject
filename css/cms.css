@@ -16,6 +16,13 @@
 
 .navbar {
 	margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.list-group {
+ margin-top: 20px;
+  margin-left: 230px;
+  width: 230px;
 }
 
 body,html{
@@ -134,7 +141,37 @@ body,html{
   nav:hover .forAnimate{
     opacity: 1;
   }
+
   section{
     padding-left: 15px;
   }
+
+  .message{
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px;
+    margin-left: 202px;
+    margin-right: 2px;
+    margin-top: 2px;
+    padding-left: 2px;
+  }
+
+  .messageHome{
+    margin-left: 202px;
+    margin-top: 2px;
+    padding-left: 2px;
+  }
+
+  .tableNaam{
+    width: 150px;
+  }
   
+  .tableBericht{
+    max-width: 500px;
+    padding-right: 5px;
+  }
+
+  .table {
+    max-width: 80%;
+  }

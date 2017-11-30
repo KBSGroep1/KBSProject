@@ -126,7 +126,7 @@ textarea {
     transition: all 0.5s;
     z-index: 9;
     width: auto;
-    min-width: 400px;
+    min-width: 400px;    
 }
 
 .navOverflow{
@@ -153,6 +153,7 @@ textarea {
     -ms-flex-align: center;
     align-items: center;
     height: 100%;
+    list-style: none;
 }
 .navContainer ul li {
     font-family: 'Montserrat';

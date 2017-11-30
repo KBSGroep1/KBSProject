@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if($_SESSION["loggedIn"] === true) {
+	header("Location: /cms/cms.php");
+}
+
 $loginFailed = false;
 
 if(isset($_POST['username']) && isset($_POST['password'])) {

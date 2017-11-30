@@ -7,14 +7,23 @@ include 'include/topBar.php';
       <ul class="nav navbar-nav">
         <li ><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>        
         <li ><a href="sites.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website</a></li>        
-        <li ><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
+        <li class="active"><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
         <li ><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
       </ul>
     </div>
   </div>
 </nav>
-	</body>
+<div>
+	<form method="post" action="addUserSucces.php?userID=">
+		<input type="text" name="addUsername" placeholder="Gebruikersnaam">
+		<input type="password" name="addPassword" placeholder="Wachtwoord">
+		<input type="number" name="addRole" placeholder="Rol">
+		<input type="checkbox" name="addActive">
+		<button type="submit" value="Submit">Opslaan</button>
+	</form>
+</div>
+  </body>
 </html>
 <?php
-	$dbh = null;
-	$stmt = null;
+  $dbh = null;
+  $stmt = null;
