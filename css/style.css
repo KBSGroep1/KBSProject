@@ -126,7 +126,7 @@ textarea {
     transition: all 0.5s;
     z-index: 9;
     width: auto;
-    min-width: 400px;    
+    min-width: 400px;
 }
 
 .navOverflow{
@@ -305,15 +305,16 @@ textarea {
 /*products*/
 
 .products{
-  min-height: 100vh;
-}
+  height: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
 
 .containerProducts{
   width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
-
 
 .productCard {
   position: relative;
