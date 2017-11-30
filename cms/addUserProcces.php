@@ -17,9 +17,11 @@ include 'include/topBar.php';
 	
 <?php
   if ($_POST["addPassword"] === $_POST["addPassword1"]){
-  $stmt = $dbh->prepare("INSERT INTO user (username,password,role,active) VALUES (:id2,:id3,:id5,:id6)");
+  $stmt = $dbh->prepare("INSERT INTO user (username,password,role,active,salt) VALUES (:id2,:id3,:id5,:id6,'poep')");
+  $password = ($_POST["addPassword"] . "poep");
+  $hashedPasword = (openssl_digest($password, 'sha512'));
   $stmt->bindParam("id2", $_POST["addUsername"]);
-  $stmt->bindParam("id3", $_POST["addPassword"]);
+  $stmt->bindParam("id3", $hashedPasword);
   $stmt->bindParam("id5", $_POST["addRole"]);
   if(empty($_POST["addActive"])){  
     $active = 0;
@@ -33,8 +35,6 @@ include 'include/topBar.php';
   }else {
     print("Wachtwoord komt niet overeen");
   }
-
-
 ?>
 <br><a href="users.php?userID=">Doorgaan</a>	
 </div>

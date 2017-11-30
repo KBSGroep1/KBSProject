@@ -27,8 +27,11 @@ include 'include/topBar.php';
 		<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Opslaan</button>
 	</form>
 </div>
-
-
+<?php 
+$pass = "caviapoep";
+$hashedpass = openssl_digest($pass, 'sha512');
+print($hashedpass);
+?>
   </body>
 </html>
 <?php 
