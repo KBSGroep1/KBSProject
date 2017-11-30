@@ -24,14 +24,14 @@ include 'include/topBar.php';
       }
       $stmt->execute();
       print("
-            <table> 
-                <tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr>");
+            <table class='table table-hover'> 
+                <thead><tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr></thead>");
       while ($result = $stmt->fetch()) {
         print(" 
               <tr>
-                <td class=\"tableNaam\">" . substr($result["customerName"],0,20). "</td>\n
-                <td class=\"tableBericht\"><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,35)); 
-                    if (strlen($result["text"]) >=35){ 
+                <td class='tableNaam'>" . substr($result["customerName"],0,15). "</td>\n
+                <td class='tableBericht'><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,50)); 
+                    if (strlen($result["text"]) >=50){ 
                       print("...");
                   } 
         print("

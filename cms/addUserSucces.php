@@ -14,11 +14,9 @@ include 'include/topBar.php';
   </div>
 </nav>
 <?php
-  $stmt = $dbh->prepare("INSERT INTO user (userID,username,password,salt,role,active) VALUES (:id1,:id2,:id3,:id4,:id5,:id6)");
-  $stmt->bindParam("id1", $_POST["addUserID"]);
+  $stmt = $dbh->prepare("INSERT INTO user (username,password,role,active) VALUES (:id2,:id3,:id5,:id6)");
   $stmt->bindParam("id2", $_POST["addUsername"]);
   $stmt->bindParam("id3", $_POST["addPassword"]);
-  $stmt->bindParam("id4", $_POST["addSalt"]);
   $stmt->bindParam("id5", $_POST["addRole"]);
   if(empty($_POST["addActive"])){  
     $active = 0;

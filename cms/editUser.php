@@ -35,7 +35,6 @@ include 'include/topBar.php';
 </div>
 <div>
 	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
-		<input type="text" name="userID" placeholder="Gebruikersnummer">
 		<input type="text" name="username" placeholder="Gebruikersnaam">
 		<input type="number" name="role" placeholder="Rol">
 		<input type="checkbox" name="active">

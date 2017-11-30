@@ -15,10 +15,8 @@ include 'include/topBar.php';
 </nav>
 <div>
 	<form method="post" action="addUserSucces.php?userID=">
-		<input type="text" name="addUserID" placeholder="Gebruikersnummer">
 		<input type="text" name="addUsername" placeholder="Gebruikersnaam">
 		<input type="password" name="addPassword" placeholder="Wachtwoord">
-		<input type="text" name="addSalt" placeholder="Salt?">
 		<input type="number" name="addRole" placeholder="Rol">
 		<input type="checkbox" name="addActive">
 		<button type="submit" value="Submit">Opslaan</button>

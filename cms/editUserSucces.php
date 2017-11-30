@@ -50,13 +50,6 @@ if (empty(($_POST["active"]))) {
     $stmt->bindParam(":iduser", $_GET["userID"]);
     $stmt->execute();
 }
-if (empty($_POST["userID"])) {
-}else{
-$stmt = $dbh->prepare("UPDATE user SET userID=:id7 WHERE userID=:iduser ");
-$stmt->bindParam(":id7", $_POST["userID"]);
-$stmt->bindParam(":iduser", $_GET["userID"]);
-$stmt->execute();  
-}
 ?>
   </body>
 </html>
