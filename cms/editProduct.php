@@ -1,6 +1,7 @@
 <?php
 	include 'include/init.php';
 	include 'include/topBar.php';
+	include 'include/sideBar.php';
 
 	$success = false;
 
@@ -19,17 +20,6 @@
 	$stmt->execute();
 	$result = $stmt->fetch();
 ?>
-	<nav class="navbar navbar-default sidebar" role="navigation">
-	<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-		<li class="active"><a href="products.php">Producten</a></li>        
-		<li ><a href="sites.php">Website</a></li>        
-		<li ><a href="users.php">Gebruikers</a></li>
-		<li ><a href="messages.php">Berichten</a></li>
-		</ul>
-	</div>
-	</div>
-</nav>
 <form action="" method="POST">
 	<div class="form-group">
 		<label for="name">Productnaam</label>
