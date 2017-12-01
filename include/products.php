@@ -5,6 +5,8 @@
       <p class="bodyText">
         <?php echo $texts["productText"]; ?>
       </p>
+  </div>
+  <div class="textContainer2">  
       <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
         <figcaption>
           <div class="productText">
