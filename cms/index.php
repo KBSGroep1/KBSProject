@@ -25,7 +25,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	/* Brute force prevention:
 	1. Delete failed login attempts that are too old too matter
 	2. Check how many failed attempts have been made from this IP in the last hour.
-	   If this IP has tried more than 5 times, the request wil not be processed.
+		 If this IP has tried more than 5 times, the request wil not be processed.
 	3. Check if the user/password combination is correct
 	4. If incorrect, add this failed attempt to the database. */
 
