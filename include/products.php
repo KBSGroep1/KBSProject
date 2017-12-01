@@ -6,15 +6,29 @@
         <?php echo $texts["productText"]; ?>
       </p>
   </div>
-  <div class="textContainer2">  
+  <div class="textContainer2">
+    <div class="test_layer">
       <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
         <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
           </div>
           <div class="price">
-            €19.00
+            €1699,-
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+
+      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+        <figcaption>
+          <div class="productText">
+            <h3>Toolwelle trolley</h3>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
+          </div>
+          <div class="price">
+            €1699,-
           </div>
         </figcaption>
       </figure>
@@ -22,10 +36,10 @@
         <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
           </div>
           <div class="price">
-            €19.00
+            €1699,-
           </div>
         </figcaption>
       </figure>
@@ -33,21 +47,10 @@
         <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
           </div>
           <div class="price">
-            €19.00
-          </div>
-        </figcaption>
-      </figure>
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
-        <figcaption>
-          <div class="productText">
-            <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
-          </div>
-          <div class="price">
-            €19.00
+            €1699,-
           </div>
         </figcaption>
       </figure>
@@ -55,10 +58,10 @@
         <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
           </div>
           <div class="price">
-            €19.00
+            €1699,-
           </div>
         </figcaption>
       </figure>
@@ -66,10 +69,10 @@
         <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
-            <p>Black edition</p>
+            <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
           </div>
           <div class="price">
-            €19.00
+            €1699,-
           </div>
         </figcaption>
       </figure>
