@@ -318,6 +318,11 @@ textarea {
     position: relative;
   }
 
+.paddingTopBottom30{
+  padding-top: 30px;
+  padding-bottom: : 30px;
+}
+
 .containerProducts{
   width: 90%;
   margin-left: auto;

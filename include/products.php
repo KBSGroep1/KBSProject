@@ -1,6 +1,6 @@
 <div class="products" id="pageProducts">
   <div id="productsContainer" class="paraContainer"><div class="blackLayer"></div></div>
-  <div class="textContainer">
+  <div class="textContainer paddingTopBottom30">
       <h1 class="titleAbout"><?php echo $texts["productTitle"]; ?></h1>
       <p class="bodyText">
         <?php echo $texts["productText"]; ?>
