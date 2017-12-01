@@ -23,7 +23,7 @@
 		$success = true;
 	}
 	elseif (isset($_POST['submit'])) {
-		$stmt = $dbh->prepare("INSERT INTO product (name, description, price, websiteID) VALUES (:name, :description, :price * 100, :websiteID); SELECT productID FROM product WHERE name = :name, description = :description, price = :price, websiteID = :websiteID");
+		$stmt = $dbh->prepare("INSERT INTO product (name, description, price, websiteID) VALUES (:name, :description, :price * 100, :websiteID)");
 		$stmt->bindParam(":name", $_POST["name"]);
 		$stmt->bindParam(":description", $_POST["description"]);
 		$stmt->bindParam(":price", $_POST["price"]);
@@ -41,7 +41,9 @@
 		$success = true;
 	}
 
-	
+	if ($success) {
+		print("<div class='alert alert-success' role='alert'>Het product is <strong>opgeslagen</strong></div>");
+	}
 
 	$stmt = $dbh->prepare("SELECT productID, name, price, description FROM product where productID = :productID");
 	$stmt->bindParam(":productID", $_GET["product"]);
@@ -71,11 +73,6 @@
 	</div>
 	<input type="submit" name="submit" class="btn btn-default" value="Opslaan">
 </form>
-<?php
-	if ($success) {
-		print("Opgeslagen");
-	}
-?>
 </body>
 </html>
 <?php
