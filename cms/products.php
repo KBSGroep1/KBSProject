@@ -1,6 +1,7 @@
 <?php
 include 'include/init.php';
 include 'include/topBar.php'; 
+include 'include/sideBar.php';
 ?>
 <table class="table table-hover">
   <thead>
