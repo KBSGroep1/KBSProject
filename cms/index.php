@@ -54,28 +54,30 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 	}
 
 	$stmt = $dbh->prepare("
-		SELECT userID, username, role
+		SELECT userID, username, role, active
 		FROM user
 		WHERE username = :username AND password = :password");
 	$stmt->bindParam(":username", $submittedUsername);
 	$stmt->bindParam(":password", $hashedPassword);
 	$stmt->execute();
 
-	if($stmt->rowCount() === 1) {
+	if($stmt->rowCount() === 1){
 		$result = $stmt->fetch();
 
-		$_SESSION["loggedIn"] = true;
-		$_SESSION["userID"] = intval($result["userID"]);
-		$_SESSION["username"] = $result["username"];
-		$_SESSION["userRole"] = intval($result["role"]);
+		if ($result["active"] == 1) {
+			$_SESSION["loggedIn"] = true;
+			$_SESSION["userID"] = intval($result["userID"]);
+			$_SESSION["username"] = $result["username"];
+			$_SESSION["userRole"] = intval($result["role"]);
 
-		$dbh = null;
-		$stmt = null;
-		$saltyStmt = null;
-		$antibruteforceStmt = null;
+			$dbh = null;
+			$stmt = null;
+			$saltyStmt = null;
+			$antibruteforceStmt = null;
 
-		header("Location: cms.php");
-		exit;
+			header("Location: cms.php");
+			exit;
+		}
 	}
 	else {
 		$updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");
