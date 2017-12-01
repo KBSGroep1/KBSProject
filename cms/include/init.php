@@ -22,6 +22,5 @@ catch(PDOException $e) {
 
 if (isset($_GET['site'])) {
 	$_SESSION['site'] = $_GET['site'];
-	header("Location: /cms/index.php");
+	header("Location: ") . $_SERVER['PHP_SELF'];
 }
-?>
