@@ -13,7 +13,7 @@ include 'include/topBar.php';
           <li ><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>  
         <?php  
           }
-        ?>
+        ?> 
         <li class="active"><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
       </ul>
     </div>

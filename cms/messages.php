@@ -31,7 +31,7 @@ include 'include/topBar.php';
       $stmt->execute();
       print("<table class='table table-hover'><thead><tr><th>Naam</th><th>Bericht</th><th>Datum</th></tr></thead>");
       while ($result = $stmt->fetch()) {
-        print("<tr><td class='tableNaam'>" . substr($result["customerName"],0,15). "</td>\n<td class='tableBericht'><a href='viewMessage.php?site=" . $_GET['site'] . "&message=" . $result['contactID'] . "'>" . substr($result["text"],0,50)); 
+        print("<tr><td class='tableNaam'>" . substr($result['customerName'],0,15) . "</td>\n<td class='tableBericht'><a href='viewMessage.php?message=" . $result['contactID'] . "'>" . substr($result["text"],0,50)); 
         if (strlen($result["text"]) >=50){ 
           print("...");
         } 
