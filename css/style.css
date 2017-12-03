@@ -374,7 +374,7 @@ textarea {
   position: relative;
   float: left;
   overflow: hidden;
-  margin: 10px 1%;
+  margin: 10px;
   min-width: 230px;
   max-width: 315px;
   width: 100%;
@@ -535,7 +535,7 @@ textarea {
     font-family: 'Montserrat', sans-serif;
 }
 
-.sendButton:hover {
+.sendButton:hover,.discoverButton:hover {
     color: #fff;
     opacity: 0.7;
 }
