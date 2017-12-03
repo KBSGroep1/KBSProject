@@ -319,6 +319,7 @@ textarea {
     position: absolute;
     padding: 19px;
     z-index: 999;
+    font-size: 15px;
     background: black;
     opacity: 0.8;
     color: white;
@@ -337,6 +338,7 @@ textarea {
   color: white;
   opacity: 1.0;
   width: 100%;
+  font-size: 24px;
   position: relative;
   margin-bottom: 20px;
 }
@@ -613,6 +615,19 @@ textarea {
         padding-left: 100px;
         padding-right: 20px;
     }
+    .textContainer {
+      width: 95%;
+    }
+    .contentCentered {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 80%;
+    text-align: right;
+    color: white;
+    font-size: 48px;
+    transform: translate(-10%,-50%);
+}
 }
 
 @media screen and (max-width: 500px){

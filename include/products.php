@@ -43,8 +43,7 @@
       <figure class="productCard">
         <div class="productInfoLayer visiblepanel" id="product3">
           <h2 class="productName">Toolwelle trolley</h2>
-          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
-        </div>
+This includes the most comprehensive set of the professional line and stands for ease with this high-quality ring spanners with on one side a ring spanner and a wrench on the other side of the same size. This means you are provided with all standard sizes and this set is a must in every vehicle, home and workshop. The entire set is made ​​of high quality Chrome Vanadium steel and made to last forever and endure large forces. It meets the highest standards and is set with DIN 3113a mark.        </div>
         <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
         <figcaption id="hoverProduct3">
 
