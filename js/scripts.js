@@ -1,7 +1,7 @@
 // Scrolling
 var nav = $("#navId");
 var navOverflow = $("#navOverflow");
-var page_end_logo_nav = $("#page_end_logo_nav").visible();
+var pageEndLogo = $("#pageEndLogo").visible();
 var logoContainer = $("#logoContainer");
 var nav_ani_speed = 200; // In ms
 var nav_state = 0; // 0 is nav, 1 is hamburger visable
@@ -94,7 +94,7 @@ function nav_normal_mobile() {
 
 // Logo aperances
 function logo_animation() {
-	if(page_end_logo_nav === false) {
+	if(pageEndLogo === false) {
 		if($(window).width() >= 1500) {
 			logoContainer.addClass("active")
 		}
@@ -123,7 +123,7 @@ logo_animation();
 
 // Event listeners
 $(window).scroll(function() {
-	page_end_logo_nav = $("#page_end_logo_nav").visible();
+	pageEndLogo = $("#pageEndLogo").visible();
 	// Logo animation
 	logo_animation();
 	// Check if desktop is activated

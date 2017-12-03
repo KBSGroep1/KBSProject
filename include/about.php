@@ -6,5 +6,4 @@
         <?php echo $texts["aboutText"]; ?>
       </p>
   </div>
-
 </div>

@@ -1,6 +1,6 @@
 <div class="fixedContentContainer">
     <nav>
-        <div id="navId">
+        <div class="navGradiant" id="navId">
             <div id="hamburgermenu" class="hamburgerMenu"><i class="fa fa-bars hamburger"></i></div>
             <div id="navAbfix" class="navAbfix">
             <div id="navOverflow" class="navOverflow">

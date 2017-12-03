@@ -2,6 +2,7 @@
   <div id="homeContainer" class="paraContainer"></div>
   <div class="homeContent">
     <div class="contentCentered floatRight">
+      <div id="pageEndLogo" class="pageEndLogo"></div>
       <div class="introText">
         <?php echo $texts["largeTitle"]; ?>
       </div>
