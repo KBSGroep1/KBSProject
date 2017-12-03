@@ -7,9 +7,13 @@
       </p>
   </div>
   <div class="textContainer2">
-    <div class="test_layer">
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
-        <figcaption>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product1">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+        <figcaption id="hoverProduct1">
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -19,10 +23,14 @@
           </div>
         </figcaption>
       </figure>
-    </div>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product2">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+        <figcaption id="hoverProduct2">
 
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
-        <figcaption>
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -32,8 +40,14 @@
           </div>
         </figcaption>
       </figure>
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
-        <figcaption>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product3">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+        <figcaption id="hoverProduct3">
+
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -43,8 +57,14 @@
           </div>
         </figcaption>
       </figure>
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product1"/>
-        <figcaption>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product4">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+        <figcaption id="hoverProduct4">
+
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -54,8 +74,14 @@
           </div>
         </figcaption>
       </figure>
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product2"/>
-        <figcaption>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product5">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product2"/>
+        <figcaption id="hoverProduct5">
+
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -65,8 +91,14 @@
           </div>
         </figcaption>
       </figure>
-      <figure class="productCard"><img src="img/testafbeeldingen/1.jpg" alt="product3"/>
-        <figcaption>
+      <figure class="productCard">
+        <div class="productInfoLayer visiblepanel" id="product6">
+          <h2 class="productName">Toolwelle trolley</h2>
+          This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
+        </div>
+        <img src="img/testafbeeldingen/1.jpg" alt="product3"/>
+        <figcaption id="hoverProduct6">
+
           <div class="productText">
             <h3>Toolwelle trolley</h3>
             <p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
@@ -77,6 +109,5 @@
         </figcaption>
       </figure>
       <div class="invisible">...</div>
-
   </div>
 </div>

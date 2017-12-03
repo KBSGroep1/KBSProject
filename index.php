@@ -61,6 +61,10 @@ while($t = $stmt2->fetch()) {
 				background-color: #e95b12;
 			}
 
+			.productName{
+				border-bottom: 2px solid #e95b12;
+			}
+
 			.buttonColor{
 				background-color: #e95b12;
 			}
@@ -106,6 +110,24 @@ while($t = $stmt2->fetch()) {
 				imageSrc: 'img/<?php echo $result["bg3Path"]; ?>'
 			});
 
-	    </script>
+			$('#hoverProduct1, #product1').hover(function() {
+			  $('#product1').toggle();
+			});
+			$('#hoverProduct2, #product2').hover(function() {
+				$('#product2').toggle();
+			});
+			$('#hoverProduct3, #product3').hover(function() {
+				$('#product3').toggle();
+			});
+			$('#hoverProduct4, #product4').hover(function() {
+				$('#product4').toggle();
+			});
+			$('#hoverProduct5, #product5').hover(function() {
+				$('#product5').toggle();
+			});
+			$('#hoverProduct6, #product6').hover(function() {
+				$('#product6').toggle();
+			});
+			</script>
 	</body>
 </html>
