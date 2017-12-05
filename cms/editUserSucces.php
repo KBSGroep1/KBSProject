@@ -8,6 +8,7 @@ function generateRandomString($length = 10) {
 		return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 	}
 if ($_SESSION["userRole"] == 3) {
+	if (empty($_POST["delete"])) {
 	$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID=:iduser");
 	$stmt->bindParam("iduser", $_GET["userID"]);
 	$stmt->execute();
@@ -78,8 +79,15 @@ if ($_SESSION["userRole"] == 3) {
 		$stmt->execute();
 		$showActive = $_POST["active"];
 	}
+print("Gebruiker gewijzigd: <br>Gebruikersnaam: " . $showUsername . "<br>Rol: " . $showRole . "<br>Actief: " . $showActive);	
+}elseif ($_POST["delete"]){
+		$stmt = $dbh->prepare("DELETE FROM user WHERE userID=:iduser ");
+		$stmt->bindParam(":iduser", $_GET["userID"]);
+		$stmt->execute();
+		print("Username =". $_GET['userID']);
 }
-print("Gebruiker gewijzigd: <br>Gebruikersnaam: " . $showUsername . "<br>Rol: " . $showRole . "<br>Actief: " . $showActive);
+}
+
 ?>
 	</body>
 </html>
