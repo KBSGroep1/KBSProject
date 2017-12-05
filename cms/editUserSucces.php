@@ -8,7 +8,7 @@ function generateRandomString($length = 10) {
 		return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
 	}
 if ($_SESSION["userRole"] == 3) {
-	if (empty($_POST["delete"])) {
+	if ($_GET["del"]  == 0) {
 	$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID=:iduser");
 	$stmt->bindParam("iduser", $_GET["userID"]);
 	$stmt->execute();
@@ -79,15 +79,58 @@ if ($_SESSION["userRole"] == 3) {
 		$stmt->execute();
 		$showActive = $_POST["active"];
 	}
-print("Gebruiker gewijzigd: <br>Gebruikersnaam: " . $showUsername . "<br>Rol: " . $showRole . "<br>Actief: " . $showActive);	
-}elseif ($_POST["delete"]){
+	?>
+		<table class="table table-hover">
+			<tr>
+				<thead><th>Gebruiker gewijzigd</th>
+				<th></th></thead>
+			</tr>
+			<tr>
+				<td>Gebruikersnaam</td> 
+				<td><?php print($showUsername); ?></td>
+			</tr>
+			<tr>
+				<td>Rol</td>
+				<td><?php print($showRole); ?></td>
+			</tr>
+			<tr>	
+				<td>Actief</td>
+				<td><?php print($postactive); ?></td>
+			</tr>
+		</table>
+	<?php
+}elseif ($_GET["del"] == 1){		
 		$stmt = $dbh->prepare("DELETE FROM user WHERE userID=:iduser ");
 		$stmt->bindParam(":iduser", $_GET["userID"]);
-		$stmt->execute();
-		print("Username =". $_GET['userID']);
+		$stmt->execute();	
+		if($_GET["rl"] == 1){
+				$_GET["rl"] = "Grafisch ontwerper";
+		}elseif($_GET["rl"] == 2){
+				$_GET["rl"] = "Contentbeheerder";
+		}elseif($_GET["rl"] == 3){
+				$_GET["rl"] = "Beheerder";
+		}else{
+				$_GET["rl"] = "";
+		}		
+?>
+		<table class="table table-hover">
+			<tr>
+				<thead><th>Gebruiker verwijderd</th>
+				<th></th></thead>
+			</tr>
+			<tr>
+				<td>Gebruikersnaam</td> 
+				<td><?php print($_GET["un"]); ?></td>
+			</tr>
+			<tr>
+				<td>Rol</td>
+				<td><?php print($_GET["rl"]); ?></td>
+			</tr>
+		</table>
+<?php
 }
+print("<a class='btn-primary btn' href='users.php'>Doorgaan</a>");
 }
-
 ?>
 	</body>
 </html>

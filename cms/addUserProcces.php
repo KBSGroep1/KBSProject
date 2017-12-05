@@ -27,12 +27,45 @@ if ($_SESSION["userRole"] == 3) {
 		}
 		$stmt->bindParam("id6", $active);
 		$stmt->execute();
-		print("Gebruiker toegevoegd: <br>Gebruikersnaam: " . $_POST["addUsername"] . "<br>Rol: " . $_POST["addRole"] . "<br>Actief: " . $_POST["addActive"]);
+		if ($_POST["addActive"] == 'on'){
+			$active = "ja";
+		}elseif ($_POST["addActive"] == 0){
+			$active = "nee";
+		}
+		if($_POST['addRole'] == 1){
+				$role = "Grafisch ontwerper";
+		}elseif($_POST['addRole'] == 2){
+				$role = "Contentbeheerder";
+		}elseif($_POST['addRole'] == 3){
+				$role = "Beheerder";
+		}else{
+				$role = "";
+		}
+		?>
+		<table class="table table-hover">
+			<tr>
+				<thead><th>Gebruiker toegevoegd</th>
+				<th></th></thead>
+			</tr>
+			<tr>
+				<td>Gebruikersnaam</td> 
+				<td><?php print($_POST['addUsername']); ?></td>
+			</tr>
+			<tr>
+				<td>Rol</td>
+				<td><?php print($role); ?></td>
+			</tr>
+			<tr>	
+				<td>Actief</td>
+				<td><?php print($active); ?></td>
+			</tr>
+		</table>
+		<?php 
 	}else {
-		print("Wachtwoorden komen niet overeen");
+		print("Wachtwoorden komen niet overeen"); 
 	}
 ?>
-<br><a href="users.php?userID=">Doorgaan</a>	
+<br><a class="btn-primary btn" href="users.php?userID=">Doorgaan</a>	
 </div>
 <?php
 	}
