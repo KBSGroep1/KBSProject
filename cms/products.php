@@ -24,7 +24,7 @@ if (isset($_SESSION['site'])) {
 			elseif ($result["active"] == 0) {
 				print("Nee");
 			}
-			print("</td></tr>");
+			print("<td><a class='btn btn-primary' href='delProduct.php?product=" . $result["productID"] . "'>Verwijder</a></td></tr>");
 		}
 		?>
 </table>
