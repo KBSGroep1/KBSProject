@@ -165,10 +165,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         .error {
             background-color: red;
             padding: 8px;
-            max-width: 250px;
+            max-width: auto;
             color: white;
             font-weight: bold;
             margin-bottom: 8px;
+            text-align: center;
         }
 
         form {
@@ -186,7 +187,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         <?php
         if ($loginFailed) {
             ?>
-            <div class="error">Incorrect username/password</div>
+            <div class="error">Incorrect username/password!!!</div>
             <?php
         }
         ?>

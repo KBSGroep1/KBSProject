@@ -49,14 +49,14 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cms/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="634">
-              <caret line="198" column="6" lean-forward="false" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
+            <state relative-caret-position="424">
+              <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
               <folding>
-                <marker date="1512489803250" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-                <marker date="1512489803250" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-                <marker date="1512489803250" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-                <marker date="1512489803250" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-                <marker date="1512489803250" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+                <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+                <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+                <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+                <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+                <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
               </folding>
             </state>
           </provider>
@@ -181,16 +181,15 @@
       <updated>1512137704868</updated>
       <workItem from="1512137710317" duration="2472000" />
       <workItem from="1512466702613" duration="5499000" />
-      <workItem from="1512480590161" duration="8120000" />
+      <workItem from="1512480590161" duration="9796000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16091000" />
+    <option name="totallyTimeSpent" value="17767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -255,11 +254,11 @@
         <state relative-caret-position="567">
           <caret line="27" column="60" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="60" />
           <folding>
-            <marker date="1512489803250" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-            <marker date="1512489803250" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-            <marker date="1512489803250" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-            <marker date="1512489803250" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-            <marker date="1512489803250" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+            <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+            <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+            <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+            <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+            <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
           </folding>
         </state>
       </provider>
@@ -297,6 +296,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -351,14 +351,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="198" column="6" lean-forward="false" selection-start-line="198" selection-start-column="6" selection-end-line="198" selection-end-column="6" />
+        <state relative-caret-position="424">
+          <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
           <folding>
-            <marker date="1512489803250" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-            <marker date="1512489803250" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-            <marker date="1512489803250" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-            <marker date="1512489803250" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-            <marker date="1512489803250" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+            <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+            <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+            <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+            <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+            <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
           </folding>
         </state>
       </provider>
