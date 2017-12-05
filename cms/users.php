@@ -7,7 +7,7 @@ include 'include/sideBar.php';
 	<?php
 	if($_SESSION["userRole"] == 3){
 		$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user ");
-		print("<table class='table table-hover tableUser'><thead><tr><th class='tableUserID'>Gebruikersnummer</th><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr></thead>");
+		print("<table class='table table-hover tableUser'><thead><tr><th class='tableUserID'>Gebruikersnummer</th><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th><th>Verwijderen</th></tr></thead>");
 		$stmt->execute();
 		$roleName = "Unkown";
 		while ($result = $stmt->fetch()) {
@@ -28,15 +28,19 @@ include 'include/sideBar.php';
 			}else {
 				$active = $result["active"];
 			}
-			print("<td>" . $active . "</td></tr>");
-		}
-		print("</table>");
-	?>
+			print("<td>" . $active); ?>
+			</td><td><a href="deleteUser.php?userID=<?php print($result['userID']); ?>" class='btn-primary btn' type='submit' value='Submit'>Verwijderen</button></td></tr>
+			</form>
+<?php 
+}
+?>
 
 </div>
+</table>
+
 <div class="addUser">
 	<form action='addUser.php'>
-		<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Gebruiker toevoegen</button>
+		<button class='buttonOpslaan btn-primary btn' type="submit" value="Submit">Gebruiker toevoegen</button>
 	</form>
 <?php 
 	}
