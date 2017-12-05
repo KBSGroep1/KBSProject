@@ -21,7 +21,7 @@ include 'include/sideBar.php';
 	}
  ?>
 <tr>
-	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
+	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'] . "&del=0")?>">
 		<td>
 			<input type="text" name="username" placeholder="Gebruikersnaam"></td>
 		<td>
@@ -35,7 +35,7 @@ include 'include/sideBar.php';
 			<input type="checkbox" name="active"></td>
 		</tr>
 	</table>
-		<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Opslaan</button>
+		<button class='btn btn-primary' type="submit" value="Submit">Opslaan</button>
 	</form>
 	<?php  
 		}

@@ -24,7 +24,7 @@
 		$success = true;
 	}
 	elseif (isset($_POST['submit'])) {
-		$stmt = $dbh->prepare("INSERT INTO product (name, description, price, websiteID) VALUES (:name, :description, :price * 100, :websiteID)");
+		$stmt = $dbh->prepare("INSERT INTO product (name, description, price, websiteID, active) VALUES (:name, :description, :price * 100, :websiteID, :active)");
 		$stmt->bindParam(":name", $_POST["name"]);
 		$stmt->bindParam(":description", $_POST["description"]);
 		$stmt->bindParam(":price", $_POST["price"]);

@@ -30,7 +30,7 @@ include 'include/sideBar.php';
 						<input type="checkbox" name="addActive"></td>
 					</tr>
 				</table>
-			<button class='buttonOpslaan btn-primary' type="submit" value="Submit">Opslaan</button>
+			<button class='btn-primary btn' type="submit" value="Submit">Opslaan</button>
 		</form>
 	<?php 
 		}
