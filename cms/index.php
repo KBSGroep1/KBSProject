@@ -109,12 +109,13 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 			}
 
 			body {
-				font-family: Arial; /* todo */
+                font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 				padding: 64px;
 			}
 
 			h1 {
 				margin-bottom: 8px;
+                text-align: center;
 			}
 
 			input {
@@ -131,9 +132,19 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
 				margin-bottom: 8px;
 			}
 
+            form {
+                text-align: center;
+            }
+            #Wilpelogo {
+                max-height: 200px;
+                max-weight: 100px;
+                float:left;
+            }
+
 		</style>
 	</head>
 	<body>
+    <img id="Wilpelogo"src="../img/logo/wilpe_com_logo.png">
 		<h1>Log in to CMS</h1>
 		<form method="POST">
 <?php
@@ -143,7 +154,8 @@ if($loginFailed) {
 <?php
 }
 ?>
-			<label for="username">
+			<div id="login">
+            <label for="username">
 				Username: <br />
 				<input type="text" id="username" name="username" autofocus required />
 			</label>
@@ -156,6 +168,7 @@ if($loginFailed) {
 			<input type="submit" value="Login" />
 		</form>
 		<br />
-		Forgotten your password? Sucks to be you.
-	</body>
+    <center>Forgotten your password? Sucks to be you.</center>
+    </div>
+    </body>
 </html>
