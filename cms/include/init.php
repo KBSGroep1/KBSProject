@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 session_start();
 
 if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
@@ -19,4 +21,6 @@ catch(PDOException $e) {
 	echo "Failed to connect to database";
 	exit;
 }
-?>
+
+// TODO: remove
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
