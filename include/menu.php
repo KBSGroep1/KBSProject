@@ -25,7 +25,7 @@
             </div>
           </div>
             <div id="logoContainer" class="logoContainer">
-                <img alt="logo" src="img/logo/toolwelle.png">
+                <img alt="logo" src="img/logo/1-largeLogo.svg">
             </div>
         </div>
     </nav>
