@@ -305,7 +305,18 @@ textarea {
 
 .blackLayer{
   background-color: rgb(0, 0, 0);
-  opacity: 0.659;
+  opacity: 0.689;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.blackLayerProducts{
+  background-color: rgb(0, 0, 0);
+  opacity: 0.859;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -382,12 +393,7 @@ textarea {
   background: #ffffff;
   text-align: left;
   color: #000000;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
   font-size: 16px;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-perspective: 20em;
-  perspective: 20em;
 }
 
 .productCard img {
@@ -434,8 +440,6 @@ textarea {
   display: inline-block;
   color: #e95b12;
 }
-
-
 
 
 /*Footer*/
@@ -539,13 +543,19 @@ textarea {
     color: #fff;
     opacity: 0.7;
 }
+
+.downArrow:hover {
+    color: #000;
+    opacity: 0.7;
+}
+
 .sendButton {
     width: 100%;
 }
 
 @media screen and (max-width: 1040px) {
   .textContainer2 {
-      width: 657px;
+      width: 680px;
       text-align: center;
       margin-left: auto;
       margin-right: auto;

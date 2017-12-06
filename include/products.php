@@ -1,5 +1,5 @@
 <div class="products" id="pageProducts">
-  <div id="productsContainer" class="paraContainer"><div class="blackLayer"></div></div>
+  <div id="productsContainer" class="paraContainer"><div class="blackLayerProducts"></div></div>
   <div class="textContainer paddingTopBottom30">
       <h1 class="titleAbout"><?php echo $texts["productTitle"]; ?></h1>
       <p class="bodyText">
@@ -43,7 +43,8 @@
       <figure class="productCard">
         <div class="productInfoLayer visiblepanel" id="product3">
           <h2 class="productName">Toolwelle trolley</h2>
-This includes the most comprehensive set of the professional line and stands for ease with this high-quality ring spanners with on one side a ring spanner and a wrench on the other side of the same size. This means you are provided with all standard sizes and this set is a must in every vehicle, home and workshop. The entire set is made ​​of high quality Chrome Vanadium steel and made to last forever and endure large forces. It meets the highest standards and is set with DIN 3113a mark.        </div>
+              This includes the most comprehensive set of the professional line and stands for ease with this high-quality ring spanners with on one side a ring spanner and a wrench on the other side of the same size. This means you are provided with all standard sizes and this set is a must in every vehicle, home and workshop. The entire set is made ​​of high quality Chrome Vanadium steel and made to last forever and endure large forces. It meets the highest standards and is set with DIN 3113a mark.
+        </div>
         <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
         <figcaption id="hoverProduct3">
 
