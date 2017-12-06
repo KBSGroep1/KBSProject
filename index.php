@@ -100,15 +100,15 @@ while($t = $stmt2->fetch()) {
 	    <script type="text/javascript">
 
 			$('#aboutContainer').parallax({
-				imageSrc: 'img/bg/<?= $websiteID ?>-bg1.jpg'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
 			});
 
 			$('#homeContainer').parallax({
-				imageSrc: 'img/bg/<?= $websiteID ?>-bg2.jpg'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg2.jpg'
 			});
 
 			$('#productsContainer').parallax({
-				imageSrc: 'img/bg/<?= $websiteID ?>-bg3.jpg'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
 			});
 
 			$('#hoverProduct1, #product1').hover(function() {
