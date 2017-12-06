@@ -202,3 +202,7 @@ body,html{
 	.addUser{
 		margin-left: 8px;
 	}
+
+  .topTextView{
+    margin-top: 15px;
+  }

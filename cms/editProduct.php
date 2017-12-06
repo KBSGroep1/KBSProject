@@ -52,6 +52,7 @@
 	$stmt->execute();
 	$result = $stmt->fetch();
 ?>
+<div class="topTextView">
 <form action="" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="name">Productnaam</label>
@@ -81,6 +82,7 @@
 	</div>
 	<input type="submit" name="submit" class="btn btn-default" value="Opslaan">
 </form>
+</div>
 </body>
 </html>
 <?php
