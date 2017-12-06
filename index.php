@@ -10,7 +10,8 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = "toolwelle.com";
+$requestedWebsite = "dankmemes.com";
+$websiteID = 3;
 
 try {
 	$dbh = new PDO("mysql:"
@@ -99,15 +100,15 @@ while($t = $stmt2->fetch()) {
 	    <script type="text/javascript">
 
 			$('#aboutContainer').parallax({
-				imageSrc: 'img/<?php echo $result["bg1Path"]; ?>'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
 			});
 
 			$('#homeContainer').parallax({
-				imageSrc: 'img/<?php echo $result["bg2Path"]; ?>'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg2.jpg'
 			});
 
 			$('#productsContainer').parallax({
-				imageSrc: 'img/<?php echo $result["bg3Path"]; ?>'
+				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
 			});
 
 			$('#hoverProduct1, #product1').hover(function() {

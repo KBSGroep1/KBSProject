@@ -1,5 +1,6 @@
 <?php
 // TODO: use correct websiteID
+// TODO: actually send emails
 
 session_start();
 

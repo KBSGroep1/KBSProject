@@ -15,6 +15,7 @@ include 'include/sideBar.php';
 			$active = $result["active"];
 	}
  ?>
+ <div class="topTextView">
 	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'] . "&del=0")?>">
 		<div class="form-group">
 			<label>Gebruikersnaam</label><br>
@@ -38,6 +39,7 @@ include 'include/sideBar.php';
 			?>></div>
 		<button class='btn btn-primary' type="submit" value="Submit">Opslaan</button>
 	</form>
+</div>
 	<?php  
 		}
 	?>

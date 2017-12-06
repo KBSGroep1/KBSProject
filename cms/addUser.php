@@ -7,6 +7,7 @@ include 'include/sideBar.php';
 	<?php 
 		if ($_SESSION["userRole"] == 3) {
 	?>
+	<div class="topTextView">
 				<form method="post" action="addUserProcces.php?userID=">
 				<div class="form-group">
 					<label>Gebruikersnaam</label><br>
@@ -26,6 +27,7 @@ include 'include/sideBar.php';
 						<input type="checkbox" name="addActive"></div>
 			<button class='btn-primary btn' type="submit" value="Submit">Opslaan</button>
 		</form>
+	</div>
 	<?php 
 		}
 	?>

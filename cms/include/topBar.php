@@ -20,11 +20,16 @@
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <?php
                                 if (isset($_SESSION["site"])) {
-                                    $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
-                                    $stmt->execute();
-                                    while ($result = $stmt->fetch()) {
-                                        if ($result["websiteID"] === $_SESSION["site"]) {
-                                            print($result["name"]);
+                                    if ($_SESSION["site"] == 0) {
+                                        print("Alle websites");
+                                    }
+                                    else {
+                                        $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
+                                        $stmt->execute();
+                                        while ($result = $stmt->fetch()) {
+                                            if ($result["websiteID"] === $_SESSION["site"]) {
+                                                print($result["name"]);
+                                            }
                                         }
                                     }
                                 }
@@ -34,6 +39,7 @@
                             ?>
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href='?site=0'>Alle websites</a></li>
                             <?php
                                 $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
                                 $stmt->execute();

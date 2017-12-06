@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+
 session_start();
 
 if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
@@ -20,7 +22,10 @@ catch(PDOException $e) {
 	exit;
 }
 
-if (isset($_GET['site'])) {
-	$_SESSION['site'] = $_GET['site'];
-	header("Location: ") . $_SERVER['PHP_SELF'];
+// TODO: remove
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(isset($_GET["site"])) {
+	$_SESSION["site"] = $_GET["site"];
+	header("Location: " . $_SERVER["PHP_SELF"]);
 }
