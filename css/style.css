@@ -80,6 +80,7 @@ textarea {
 .hamburgerMenu.active {
     opacity: 1;
     color: white;
+    font-size: 32px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -103,6 +104,26 @@ textarea {
     z-index: 0;
 
 }
+.pageEndLogo {
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    z-index: 9999;
+}
+
+.navGradiant {
+    width: 100%;
+    height: 130px;
+    background-image: -moz-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background-image: -webkit-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background-image: -ms-linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
 .logoContainer.active{
     opacity: 1;
     -webkit-transition: all 0.5s;
@@ -110,6 +131,7 @@ textarea {
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
+
 .logoContainer img{
     height: 100%;
 }
@@ -126,7 +148,7 @@ textarea {
     transition: all 0.5s;
     z-index: 9;
     width: auto;
-    min-width: 400px;    
+    min-width: 400px;
 }
 
 .navOverflow{
@@ -257,7 +279,6 @@ textarea {
   -moz-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  z-index: 9999;
   position: relative;
 }
 
@@ -268,7 +289,14 @@ textarea {
   text-shadow: 0px 0px 59px rgba(0, 0, 0, 0.49);
 }
 .textContainer{
-    width: 80%;
+    width: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textContainer2{
+    width: 1006px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -277,7 +305,18 @@ textarea {
 
 .blackLayer{
   background-color: rgb(0, 0, 0);
-  opacity: 0.659;
+  opacity: 0.689;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.blackLayerProducts{
+  background-color: rgb(0, 0, 0);
+  opacity: 0.859;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -303,9 +342,103 @@ textarea {
 }
 
 /*products*/
-
 .products{
-  min-height: 100vh;
+  height: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+  .productInfoLayer {
+    position: absolute;
+    padding: 19px;
+    z-index: 999;
+    font-size: 15px;
+    background: black;
+    opacity: 0.8;
+    color: white;
+    width: 100%;
+    height: 100%;
+  }
+
+.paddingTopBottom30{
+  padding-top: 30px;
+  padding-bottom: : 30px;
+}
+.visiblepanel{
+  display: none;
+}
+.productName{
+  color: white;
+  opacity: 1.0;
+  width: 100%;
+  font-size: 24px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.containerProducts{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.productCard {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: left;
+  color: #000000;
+  font-size: 16px;
+}
+
+.productCard img {
+  max-width: 100%;
+  vertical-align: top;
+  position: relative;
+}
+
+.productText{
+  width: 70%;
+  display: inline-block;
+}
+
+.productCard figcaption {
+  padding: 20px;
+  border-top: 3px solid #e95b12;
+}
+.productCard h3,
+.productCard p {
+  margin: 0;
+}
+.productCard h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.productCard p {
+  font-size: 12px;
+}
+.productCard .price {
+  font-weight: 500;
+  font-size: 1.5em;
+  line-height: 48px;
+  letter-spacing: 1px;
+}
+.productCard .price s {
+  margin-right: 5px;
+  opacity: 0.5;
+  font-size: 0.9em;
+}
+
+.price{
+  width: 30%;
+  float: right;
+  display: inline-block;
+  color: #e95b12;
 }
 
 
@@ -321,7 +454,6 @@ textarea {
     width: 100%;
     position: relative;
     background-color: #333;
-    min-height: 100vh;
 }
 .contactDetail {
     position: relative;
@@ -407,17 +539,28 @@ textarea {
     font-family: 'Montserrat', sans-serif;
 }
 
-.sendButton:hover {
+.sendButton:hover,.discoverButton:hover {
     color: #fff;
     opacity: 0.7;
 }
+
+.downArrow:hover {
+    color: #000;
+    opacity: 0.7;
+}
+
 .sendButton {
     width: 100%;
 }
 
-
-
-
+@media screen and (max-width: 1040px) {
+  .textContainer2 {
+      width: 680px;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
 
 @media screen and (max-width: 900px) {
     /*nav container*/
@@ -486,6 +629,16 @@ textarea {
       width: 48px;
   }
 }
+
+@media screen and (max-width: 685px) {
+  .textContainer2 {
+    width: 325px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+}
+
 @media screen and (max-width: 620px) {
     .navPadding{
         position: absolute;
@@ -493,6 +646,19 @@ textarea {
         padding-left: 100px;
         padding-right: 20px;
     }
+    .textContainer {
+      width: 95%;
+    }
+    .contentCentered {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 80%;
+    text-align: right;
+    color: white;
+    font-size: 48px;
+    transform: translate(-10%,-50%);
+}
 }
 
 @media screen and (max-width: 500px){
@@ -529,4 +695,8 @@ textarea {
         padding-right: 20px;
 
     }
+}
+
+.textCollorEmail{
+  color: white;
 }

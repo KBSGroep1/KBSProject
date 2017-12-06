@@ -1,6 +1,6 @@
 <div class="fixedContentContainer">
     <nav>
-        <div id="navId">
+        <div class="navGradiant" id="navId">
             <div id="hamburgermenu" class="hamburgerMenu"><i class="fa fa-bars hamburger"></i></div>
             <div id="navAbfix" class="navAbfix">
             <div id="navOverflow" class="navOverflow">
@@ -25,7 +25,7 @@
             </div>
           </div>
             <div id="logoContainer" class="logoContainer">
-                <img alt="logo" src="img/logo/toolwelle.png">
+                <img alt="logo" src="img/logo/1-largeLogo.svg">
             </div>
         </div>
     </nav>

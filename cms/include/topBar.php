@@ -12,19 +12,24 @@
 		<nav class="navbar navbar-inverse">
   			<div class="container-fluid">
     			<div class="navbar-header">
-    		  		<a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
-                    <a class="navbar-brand" href="cms.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website Editor</a>
+    		  		<a class="navbar-brand" href="cms.php"><img id="logoWilpe"src="../img/cms/wilpeLogo.jpg"></a>
+                    <a class="navbar-brand" href="cms.php">Website Editor</a>
    				</div>
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <?php
-                                if (isset($_GET["site"])) {
-                                    $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
-                                    $stmt->execute();
-                                    while ($result = $stmt->fetch()) {
-                                        if ($result["websiteID"] === $_GET["site"]) {
-                                            print($result["name"]);
+                                if (isset($_SESSION["site"])) {
+                                    if ($_SESSION["site"] == 0) {
+                                        print("Alle websites");
+                                    }
+                                    else {
+                                        $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
+                                        $stmt->execute();
+                                        while ($result = $stmt->fetch()) {
+                                            if ($result["websiteID"] === $_SESSION["site"]) {
+                                                print($result["name"]);
+                                            }
                                         }
                                     }
                                 }
@@ -34,6 +39,7 @@
                             ?>
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                            <li><a href='?site=0'>Alle websites</a></li>
                             <?php
                                 $stmt = $dbh->prepare("SELECT websiteID, name FROM website");
                                 $stmt->execute();

@@ -24,3 +24,8 @@ catch(PDOException $e) {
 
 // TODO: remove
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+if(isset($_GET["site"])) {
+	$_SESSION["site"] = $_GET["site"];
+	header("Location: " . $_SERVER["PHP_SELF"]);
+}

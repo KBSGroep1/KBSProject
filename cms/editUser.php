@@ -1,49 +1,51 @@
 <?php
 include 'include/init.php';
-include 'include/topBar.php'; 
+include 'include/topBar.php';
+include 'include/sideBar.php'; 
 ?>
-  <nav class="navbar navbar-default sidebar" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>        
-        <li ><a href="sites.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website</a></li>        
-        <li class="active"><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
-        <li ><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <div>
  <?php
-
-  $stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID = :id ");
-  $stmt->bindParam(":id", $_GET["userID"]);
-  print("
-            <table> 
-                <tr><th>Gebruikersnummer</th><th>Gebruikersnaam</th><th>Rol</th><th>Actief</th></tr>");  
-  $stmt->execute();
-  while ($result = $stmt->fetch()) {
-      print("<tr><td>" . $result["userID"] . "</td>\n<td>" . $result["username"] . "</td>\n<td>" . $result["role"] ."</td>\n<td>");
-      if ($result["active"] == 1) {
-        $active = "ja";
-      }else{
-        $active = "nee";
-      }
-      print($active . "</td></tr></table>");
-  }
+	if ($_SESSION["userRole"] == 3) {
+	$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user WHERE userID = :id ");
+	$stmt->bindParam(":id", $_GET["userID"]);
+	$stmt->execute();
+	while ($result = $stmt->fetch()) {
+			$placeName = $result["username"];
+			$placeRole = $result["role"];
+			$active = $result["active"];
+	}
  ?>
-</div>
-<div>
-	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'])?>">
-		<input type="text" name="userID" placeholder="Gebruikersnummer">
-		<input type="text" name="username" placeholder="Gebruikersnaam">
-		<input type="number" name="role" placeholder="Rol">
-		<input type="checkbox" name="active">
-		<button type="submit" value="Submit">Opslaan</button>
+ <div class="topTextView">
+	<form method="post" action="editUserSucces.php?userID=<?php print($_GET['userID'] . "&del=0")?>">
+		<div class="form-group">
+			<label>Gebruikersnaam</label><br>
+			<input type="text" name="username" placeholder="<?php print($placeName); ?>"><br></div>
+		<div class="form-group">
+			<label>Wachtwoord</label><br>
+			<input type="password" name="editPassword" placeholder="Wachtwoord"><br></div>
+		<div class="form-group">
+			<input type="password" name="editPassword1" placeholder="Wachtwoord"><br></div>
+		<div class="form-group">
+			<label>Rol</label><br>
+			<input type="radio" name="addRole" value="1" <?php if($placeRole == 1){print("checked");}
+			?>> Grafisch ontwerper<br>
+			<input type="radio" name="addRole" value="2" <?php if($placeRole == 2){print("checked");}
+			?>> Contentbeheerder<br>
+			<input type="radio" name="addRole" value="3" <?php if($placeRole == 3){print("checked");}
+			?>> Beheerder<br></div>
+		<div class="form-group">
+			<label>Actief</label><br>
+			<input type="checkbox" name="active"  <?php if($active == 1){print("checked");}
+			?>></div>
+		<button class='btn btn-primary' type="submit" value="Submit">Opslaan</button>
 	</form>
 </div>
-  </body>
+	<?php  
+		}
+	?>
+</div>
+	</body>
 </html>
 <?php
-  $dbh = null;
-  $stmt = null;
+	$dbh = null;
+	$stmt = null;

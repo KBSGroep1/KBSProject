@@ -1,31 +1,39 @@
 <?php
 include 'include/init.php';
-include 'include/topBar.php'; 
+include 'include/topBar.php';
+include 'include/sideBar.php';
 ?>
-  <nav class="navbar navbar-default sidebar" role="navigation">
-    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li ><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>        
-        <li ><a href="sites.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Website</a></li>        
-        <li class="active"><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
-        <li ><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <div>
-	<form method="post" action="addUserSucces.php?userID=">
-		<input type="text" name="addUserID" placeholder="Gebruikersnummer">
-		<input type="text" name="addUsername" placeholder="Gebruikersnaam">
-		<input type="password" name="addPassword" placeholder="Wachtwoord">
-		<input type="text" name="addSalt" placeholder="Salt?">
-		<input type="number" name="addRole" placeholder="Rol">
-		<input type="checkbox" name="addActive">
-		<button type="submit" value="Submit">Opslaan</button>
-	</form>
+	<?php 
+		if ($_SESSION["userRole"] == 3) {
+	?>
+	<div class="topTextView">
+				<form method="post" action="addUserProcces.php?userID=">
+				<div class="form-group">
+					<label>Gebruikersnaam</label><br>
+						<input type="text" name="addUsername" placeholder="Gebruikersnaam"><br></div>
+				<div class="form-group">
+					<label>Wachtwoord</label><br>
+						<input type="password" name="addPassword" placeholder="Wachtwoord"></div>
+				<div class="form-group">
+						<input type="password" name="addPassword1" placeholder="Wachtwoord"></div>
+				<div class="form-group">
+					<label>Rol</label><br>
+						<input type="radio" name="addRole" value="1"> Grafisch ontwerper<br>
+						<input type="radio" name="addRole" value="2"> Contentbeheerder<br>
+						<input type="radio" name="addRole" value="3"> Beheerder<br></div>
+				<div class="form-group">
+					<label>Actief</label><br>
+						<input type="checkbox" name="addActive"></div>
+			<button class='btn-primary btn' type="submit" value="Submit">Opslaan</button>
+		</form>
+	</div>
+	<?php 
+		}
+	?>
 </div>
-  </body>
+	</body>
 </html>
-<?php
-  $dbh = null;
-  $stmt = null;
+<?php 
+	$dbh = null;
+	$stmt = null;
