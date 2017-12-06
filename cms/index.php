@@ -110,6 +110,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             padding: 64px;
             font-color: black;
+            background-image: url("../img/cms/Stock.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
         }
 
         h1 {
@@ -130,6 +134,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             width: 320px;
             box-shadow: 3px 3px 32px rgba(0, 0, 0, .25);
             perspective: 1000;
+            background-color: white;
         }
 
         input {
@@ -179,8 +184,20 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             z-index: 2;
             text-align: center;
         }
+        #blackLayer {
+            background-color: #ffffff;
+            opacity: 0.3;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        }
     </style>
 </head>
+<body>
+<div id="blackLayer"></div>
 <div id="testLogin">
     <h1>CMS login</h1>
     <form method="POST">
@@ -198,5 +215,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             <button type="submit" id="login-button">Login</button>
         </form>
 </div>
+
 </body>
 </html>

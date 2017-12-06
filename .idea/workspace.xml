@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9917f6c2-2464-48fb-9539-96ef2cac8045" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/cms/index.php" afterPath="$PROJECT_DIR$/cms/index.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,8 +17,8 @@
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="380" column="2" lean-forward="false" selection-start-line="380" selection-start-column="2" selection-end-line="380" selection-end-column="22" />
+            <state relative-caret-position="286">
+              <caret line="306" column="0" lean-forward="false" selection-start-line="306" selection-start-column="0" selection-end-line="313" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -49,14 +50,14 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cms/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
+            <state relative-caret-position="919">
+              <caret line="188" column="24" lean-forward="false" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
               <folding>
-                <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-                <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-                <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-                <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-                <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+                <marker date="1512571891647" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+                <marker date="1512571891647" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+                <marker date="1512571891647" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+                <marker date="1512571891647" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+                <marker date="1512571891647" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
               </folding>
             </state>
           </provider>
@@ -69,6 +70,7 @@
       <find>p</find>
       <find>profile</find>
       <find>cms</find>
+      <find>blackla</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,25 +123,14 @@
             <path>
               <item name="KBSProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="KBSProject" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="cms" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="KBSProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KBSProject" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="KBSProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KBSProject" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="img" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="logo" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -182,24 +173,37 @@
       <workItem from="1512137710317" duration="2472000" />
       <workItem from="1512466702613" duration="5499000" />
       <workItem from="1512480590161" duration="9796000" />
+      <workItem from="1512567102695" duration="4553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17767000" />
+    <option name="totallyTimeSpent" value="22320000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3393057" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32922733" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22717509" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3393057" sideWeight="0.49785176" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -207,7 +211,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -222,6 +225,47 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7980">
+          <caret line="380" column="2" lean-forward="false" selection-start-line="380" selection-start-column="2" selection-end-line="380" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/cms.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/include/topBar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="99" lean-forward="false" selection-start-line="14" selection-start-column="99" selection-end-line="14" selection-end-column="99" />
+          <folding>
+            <marker date="1512469819121" expanded="true" signature="1030:1065" ph="SELECT websi... website" />
+            <marker date="1512469819121" expanded="true" signature="1830:1865" ph="SELECT websi... website" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cms/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3969">
+          <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
+          <folding>
+            <marker date="1512571891647" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+            <marker date="1512571891647" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+            <marker date="1512571891647" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+            <marker date="1512571891647" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+            <marker date="1512571891647" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -254,11 +298,11 @@
         <state relative-caret-position="567">
           <caret line="27" column="60" lean-forward="false" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="60" />
           <folding>
-            <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-            <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-            <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-            <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-            <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+            <marker date="1512571891647" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+            <marker date="1512571891647" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+            <marker date="1512571891647" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+            <marker date="1512571891647" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+            <marker date="1512571891647" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
           </folding>
         </state>
       </provider>
@@ -333,32 +377,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cms/testindex.php" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="380" column="2" lean-forward="false" selection-start-line="380" selection-start-column="2" selection-end-line="380" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cms/testindex.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3024">
-          <caret line="144" column="0" lean-forward="false" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+        <state relative-caret-position="286">
+          <caret line="306" column="0" lean-forward="false" selection-start-line="306" selection-start-column="0" selection-end-line="313" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cms/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="189" column="61" lean-forward="false" selection-start-line="189" selection-start-column="61" selection-end-line="189" selection-end-column="61" />
+        <state relative-caret-position="919">
+          <caret line="188" column="24" lean-forward="false" selection-start-line="188" selection-start-column="24" selection-end-line="188" selection-end-column="24" />
           <folding>
-            <marker date="1512490952699" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
-            <marker date="1512490952699" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
-            <marker date="1512490952699" expanded="true" signature="1558:1606" ph="SELECT salt user" />
-            <marker date="1512490952699" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
-            <marker date="1512490952699" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
+            <marker date="1512571891647" expanded="true" signature="964:1030" ph="DELETE FROM failedLogin... " />
+            <marker date="1512571891647" expanded="true" signature="1076:1123" ph="SELECT COUNT... failedLogin" />
+            <marker date="1512571891647" expanded="true" signature="1558:1606" ph="SELECT salt user" />
+            <marker date="1512571891647" expanded="true" signature="1905:2008" ph="SELECT userI... user" />
+            <marker date="1512571891647" expanded="true" signature="2719:2781" ph="INSERT INTO failedLogin... " />
           </folding>
         </state>
       </provider>
