@@ -35,6 +35,6 @@ else {
 Weet u zeker dat u de website met ID <?= $_GET["websiteID"] ?> wil verwijderen?<br />
 <a href="deleteWebsite.php?websiteID=<?= $_GET["websiteID"] ?>&sure&deleteProducts" class="btn-primary btn">Ja, verwijder website + producten</a><br />
 <a href="deleteWebsite.php?websiteID=<?= $_GET["websiteID"] ?>&sure" class="btn-primary btn">Ja, verwijder website, laat producten bestaan</a><br />
-<a href="sites.php?site=<?= $_GET["websiteID"] ?>" class="btn-primary btn">Nee, verwijder niks</a><br />
+<a href="sites.php?websiteID=<?= $_GET["websiteID"] ?>" class="btn-primary btn">Nee, verwijder niks</a><br />
 <?php
 }

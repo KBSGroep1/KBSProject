@@ -87,4 +87,4 @@ $statement = null;
 $stmt = null;
 $dbh = null;
 
-header("Location: sites.php?site=$websiteID");
+header("Location: sites.php?websiteID=$websiteID");

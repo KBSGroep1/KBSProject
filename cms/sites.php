@@ -8,8 +8,8 @@ $websiteID = -1;
 $viewingSingleWebsite = false;
 $existingWebsite = false;
 
-if(isset($_GET["site"]) && is_numeric($_GET["site"])) {
-	$websiteID = $_GET["site"];
+if(isset($_GET["websiteID"]) && is_numeric($_GET["websiteID"])) {
+	$websiteID = $_GET["websiteID"];
 
 	$statement = $dbh->prepare("SELECT * FROM website WHERE websiteID = :id");
 	$statement->bindParam(":id", $websiteID);
@@ -27,10 +27,10 @@ if(isset($_GET["site"]) && is_numeric($_GET["site"])) {
 <nav class="navbar navbar-default sidebar" role="navigation">
 	<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="products.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Producten</a></li>
+			<li><a href="products.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Producten</a></li>
 			<li class="active"><a href="sites.php">Websites</a></li>
-			<li><a href="users.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Gebruikers</a></li>
-			<li><a href="messages.php<?php if (isset($_GET["site"])) { print("?site=" . $_GET["site"]); } ?>">Berichten</a></li>
+			<li><a href="users.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Gebruikers</a></li>
+			<li><a href="messages.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Berichten</a></li>
 		</ul>
 	</div>
 </nav>
@@ -42,7 +42,7 @@ if($viewingSingleWebsite) {
 else {
 	$query = $dbh->query("SELECT * FROM website");
 ?>
-	<a href="sites.php?site=<?php echo $query->rowCount() + 1; ?>">Nieuwe website</a>
+	<a href="sites.php?websiteID=<?php echo $query->rowCount() + 1; ?>">Nieuwe website</a>
 	<table class="table">
 		<tr>
 			<th>Naam</th>
@@ -51,7 +51,7 @@ else {
 <?php
 	while($row = $query->fetch()) {
 		echo "<tr>";
-		echo "<td><a href=\"sites.php?site=" . $row["websiteID"] . "\">" . $row["name"] . "</a></td>";
+		echo "<td><a href=\"sites.php?websiteID=" . $row["websiteID"] . "\">" . $row["name"] . "</a></td>";
 		echo "<td><a href=\"deleteWebsite.php?websiteID=" . $row["websiteID"] . "\">Delete</a></td>";
 		echo "</tr>";
 	}
