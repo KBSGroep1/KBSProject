@@ -7,7 +7,7 @@ include 'include/sideBar.php';
 	<?php
 	if($_SESSION["userRole"] == 3){
 		$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user ");
-		print("<table class='table table-hover tableUser'><thead><tr><th class='tableUserID'>Gebruikersnummer</th><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th><th>Verwijderen</th></tr></thead>");
+		print("<table class='table table-hover tableUser'><thead><tr><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th><th>Verwijderen</th></tr></thead>");
 		$stmt->execute();
 		$roleName = "Unkown";
 		while ($result = $stmt->fetch()) {
@@ -20,7 +20,7 @@ include 'include/sideBar.php';
 			}else{
 				$result['role'] = "";
 			}
-			print("<tr><td>" . $result["userID"]. "</td>\n<td class=\"tableUsername\"><a href='editUser.php?userID=" . $result['userID'] . "'>" . $result["username"]."</td>\n<td>" . $result['role'] . "</td></a>");
+			print("<tr></td>\n<td class=\"tableUsername\"><a href='editUser.php?userID=" . $result['userID'] . "'>" . $result["username"]."</td>\n<td>" . $result['role'] . "</td></a>");
 			if ($result["active"] == 1) {
 				$active = "ja";
 			}elseif ($result["active"] == 0) {
