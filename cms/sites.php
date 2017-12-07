@@ -2,7 +2,11 @@
 include "include/init.php";
 include "include/topBar.php";
 
-// TODO: check role
+if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 2) {
+	http_send_status(401);
+	echo "401 Unauthorized";
+	exit;
+}
 
 $websiteID = -1;
 $viewingSingleWebsite = false;
@@ -42,21 +46,25 @@ if($viewingSingleWebsite) {
 else {
 	$query = $dbh->query("SELECT * FROM website");
 ?>
-	<a href="sites.php?websiteID=<?php echo $query->rowCount() + 1; ?>">Nieuwe website</a>
 	<table class="table">
-		<tr>
-			<th>Naam</th>
-			<th></th>
-		</tr>
+		<thead>
+			<tr>
+				<th>Naam</th>
+				<th>Actief</th>
+				<th>Verwijderen</th>
+			</tr>
+		</thead>
 <?php
 	while($row = $query->fetch()) {
 		echo "<tr>";
 		echo "<td><a href=\"sites.php?websiteID=" . $row["websiteID"] . "\">" . $row["name"] . "</a></td>";
-		echo "<td><a href=\"deleteWebsite.php?websiteID=" . $row["websiteID"] . "\">Delete</a></td>";
+		echo "<td>" . ($row["active"] ? "ja" : "nee") . "</td>";
+		echo "<td><a href=\"deleteWebsite.php?websiteID=" . $row["websiteID"] . "\" class=\"btn-primary btn\">Delete</a></td>";
 		echo "</tr>";
 	}
 ?>
 	</table>
+	<a href="sites.php?websiteID=<?php echo $query->rowCount() + 1; ?>" class="btn-primary btn">Nieuwe website</a>
 <?php
 }
 ?>
