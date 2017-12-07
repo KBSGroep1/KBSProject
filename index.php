@@ -10,7 +10,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = "dankmemes.com";
+$requestedWebsite = "toolwelle.com";
 
 try {
 	$dbh = new PDO("mysql:"
@@ -91,7 +91,6 @@ while($t = $stmt2->fetch()) {
 		<script src="js/jquery.visible.min.js" type="text/javascript"></script>
 		<script src="js/modernizr.js" type="text/javascript"></script>
 		<script src="js/parallax.min.js" type="text/javascript"></script>
-		<script src="js/scroll_anchor.js" type="text/javascript"></script>
 		<script src="js/smoothscroll.js" type="text/javascript"></script>
 
 		<!-- Own scripts-->

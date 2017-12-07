@@ -12,7 +12,7 @@
           <h2 class="productName">Toolwelle trolley</h2>
           This is the Black Edition of the tool carts from Toolwelle. It has 2 inlays fully filled with tools. It's possible to remove the inlays and use them as cases. The top part of the cart is removable and can be put inside the cart, that so you can take it everywhere you want. It also has a full lock-down, so nobody can touch your tools.
         </div>
-        <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
+          <img src="img/testafbeeldingen/1.jpg" alt="product1"/>
         <figcaption id="hoverProduct1">
           <div class="productText">
             <h3>Toolwelle trolley</h3>
