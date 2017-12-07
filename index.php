@@ -10,8 +10,8 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = "dankmemes.com";
-$websiteID = 3;
+$requestedWebsite = "toolwelle.com";
+$websiteID = 1;
 
 try {
 	$dbh = new PDO("mysql:"
@@ -25,7 +25,7 @@ catch(PDOException $e) {
 	exit;
 }
 
-$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name");
+$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name AND active");
 $stmt->bindParam(":name", $requestedWebsite);
 $stmt->execute();
 
