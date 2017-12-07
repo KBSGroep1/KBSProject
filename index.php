@@ -93,6 +93,7 @@ while($t = $stmt2->fetch()) {
 		<script src="js/jquery.visible.min.js" type="text/javascript"></script>
 		<script src="js/modernizr.js" type="text/javascript"></script>
 		<script src="js/parallax.min.js" type="text/javascript"></script>
+		<script src="js/scroll_anchor.js" type="text/javascript"></script>
 		<script src="js/smoothscroll.js" type="text/javascript"></script>
 
 		<!-- Own scripts-->
