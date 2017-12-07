@@ -53,6 +53,7 @@ textarea {
 .hamburgerMenu{
     height: 68px;
     width: 68px;
+    font-size: 22px;
     position: absolute;
     left: 0;
     top: 0;
@@ -80,7 +81,7 @@ textarea {
 .hamburgerMenu.active {
     opacity: 1;
     color: white;
-    font-size: 32px;
+    font-size: 22px;
     -webkit-transition: all 0.5s;
     -moz-transition: all 0.5s;
     -o-transition: all 0.5s;
@@ -360,8 +361,8 @@ textarea {
   }
 
 .paddingTopBottom30{
-  padding-top: 30px;
-  padding-bottom: : 30px;
+  padding-top: 100px;
+  padding-bottom: 30px;
 }
 .visiblepanel{
   display: none;
@@ -551,6 +552,10 @@ textarea {
 
 .sendButton {
     width: 100%;
+}
+
+.marginTop12px {
+    margin-top: 12px;
 }
 
 @media screen and (max-width: 1040px) {

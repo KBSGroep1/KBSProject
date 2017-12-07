@@ -57,7 +57,7 @@ body,html{
 
 		.main{
 			position: absolute;
-			width: calc(100% - 40px); 
+			width: calc(100% - 40px);
 			margin-left: 40px;
 			float: right;
 		}
@@ -75,7 +75,7 @@ body,html{
 			width: 100%;
 			margin-left: 0px;
 		}
-		
+
 		nav.sidebar a{
 			padding-right: 13px;
 		}
@@ -110,7 +110,7 @@ body,html{
 		nav.sidebar{
 			width: 200px;
 			height: 100%;
-			margin-left: -160px;
+			margin-left: 0px;
 			float: left;
 			margin-bottom: 0px;
 			margin-top: 0px;
@@ -128,7 +128,7 @@ body,html{
 			opacity: 0;
 		}
 	}
-	 
+
 	@media (min-width: 1330px) {
 
 		.main{
@@ -192,7 +192,7 @@ body,html{
 
 	.tableUserEdit{
 		margin-top: 2px;
-		padding-left: 2px;    
+		padding-left: 2px;
 	}
 
 	.buttonOpslaan{
