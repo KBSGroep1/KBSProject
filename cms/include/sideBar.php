@@ -15,5 +15,4 @@
 		 ?>>Berichten</a></li> 
 		</ul>
 	</div>
-	</div>
 </nav>
