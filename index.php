@@ -26,7 +26,7 @@ catch(PDOException $e) {
 	exit;
 }
 
-$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name");
+$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name AND active");
 $stmt->bindParam(":name", $requestedWebsite);
 $stmt->execute();
 

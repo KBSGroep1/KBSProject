@@ -110,7 +110,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
             padding: 64px;
             font-color: black;
-            background-image: url("../img/cms/Stock.jpg");
+            background-image: url("../img/bg/stock.jpg");
             background-repeat: no-repeat;
             background-size: cover;
 
