@@ -5,7 +5,9 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../css/cms.css">
-		<script src="../js/jquery-1.11.3.min.js"></script>	
+		<link href="../css/font-awesome.min.css" rel="stylesheet" />
+
+		<script src="../js/jquery-1.11.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>
 	</head>
 	<body>
