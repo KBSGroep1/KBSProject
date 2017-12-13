@@ -48,7 +48,7 @@ while($t = $stmt2->fetch()) {
 	$texts[$t["textName"]] = $t["text"];
 }
 
-$stmt3 = $dbh->prepare("SELECT * FROM product WHERE websiteID = :id");
+$stmt3 = $dbh->prepare("SELECT * FROM product WHERE websiteID = :id AND active = 1");
 $stmt3->bindParam(":id", $result["websiteID"]);
 $stmt3->execute();
 
