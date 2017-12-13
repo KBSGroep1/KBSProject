@@ -23,14 +23,14 @@ if (isset($_SESSION['site'])) {
 			}
 			$stmt->execute();
 			while ($result = $stmt->fetch()) {
-				print("<tr><td><a href='editProduct.php?product=" . $result["productID"] . "'>" . $result["name"] . "</td><td>" . $result["description"] . "</td><td>&euro;" . number_format($result["price"] / 100, 2,  ',', ' ' ) . "</td><td>");
+				print("<tr><td><a href='editProduct.php?productID=" . $result["productID"] . "'>" . $result["name"] . "</td><td>" . $result["description"] . "</td><td>&euro;" . number_format($result["price"] / 100, 2,  ',', ' ' ) . "</td><td>");
 				if ($result["active"] == 1) {
 					print("Ja");
 				}
 				elseif ($result["active"] == 0) {
 					print("Nee");
 				}
-				print("<td><a class='btn btn-primary' href='delProduct.php?product=" . $result["productID"] . "'>Verwijder</a></td></tr>");
+				print("<td><a class='btn btn-primary' href='delProduct.php?productID=" . $result["productID"] . "'>Verwijder</a></td></tr>");
 			}
 		}
 		else {
@@ -43,5 +43,10 @@ if (isset($_SESSION['site'])) {
 </html>
 <?php
 }
-	$dbh = null;
-	$stmt = null;
+else {
+	echo "<h1>Producten</h1>";
+	echo "Selecteer een website hierboven.";
+}
+
+$dbh = null;
+$stmt = null;

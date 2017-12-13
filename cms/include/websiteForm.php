@@ -88,7 +88,7 @@ $query3 = null;
 <script>
 
 $("input[type=file].imgUpload").on("change", function() {
-	if(this.files[0].type !== "image/png" && this.files[0].type !== "image/jpeg") {
+	if(this.files[0].type !== "image/jpeg") {
 		alert("Je kan alleen .jpg en .png uploaden");
 		return false;
 	}
