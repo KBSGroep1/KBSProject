@@ -28,19 +28,23 @@
 	}
 
 	label[for*='1']:before {
-	  content: '\f1cb';
+	  content: "\f05a";
 	}
 
 	label[for*='2']:before {
-	  content: '\f17d';
+	  content: "\f1c5";
 	}
 
 	label[for*='3']:before {
-	  content: '\f16b';
+	  content: "\f1fc";
 	}
 
 	label[for*='4']:before {
-	  content: '\f1a9';
+	  content: "\f044";
+	}
+
+	.displayNone{
+		display: none;
 	}
 
 	label:hover {
@@ -83,16 +87,16 @@
 <a href="sites.php">Terug naar overzicht</a><br />
 <main>
 
-  <input id="tab1" type="radio" name="tabs" checked>
+  <input class="displayNone" id="tab1" type="radio" name="tabs" checked>
   <label for="tab1">Algemeen</label>
 
-  <input id="tab2" type="radio" name="tabs">
+  <input class="displayNone" id="tab2" type="radio" name="tabs">
   <label for="tab2">Afbeeldingen</label>
 
-  <input id="tab3" type="radio" name="tabs">
+  <input class="displayNone" id="tab3" type="radio" name="tabs">
   <label for="tab3">Kleuren</label>
 
-  <input id="tab4" type="radio" name="tabs">
+  <input class="displayNone" id="tab4" type="radio" name="tabs">
   <label for="tab4">Teksten</label>
 
   <section id="content1">
