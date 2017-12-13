@@ -47,6 +47,16 @@ $texts = [];
 while($t = $stmt2->fetch()) {
 	$texts[$t["textName"]] = $t["text"];
 }
+
+$stmt3 = $dbh->prepare("SELECT * FROM product WHERE websiteID = :id");
+$stmt3->bindParam(":id", $result["websiteID"]);
+$stmt3->execute();
+
+while($p = $stmt3->fetch()) {
+	$productName[$p["productID"]] = $p["name"];
+	$productDesc[$p["productID"]] = $p["description"];
+	$productPrice[$p["productID"]] = $p["price"] / 100;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -112,24 +122,13 @@ while($t = $stmt2->fetch()) {
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
 			});
 
-			$('#hoverProduct1, #product1').hover(function() {
-			  $('#product1').toggle();
-			});
-			$('#hoverProduct2, #product2').hover(function() {
-				$('#product2').toggle();
-			});
-			$('#hoverProduct3, #product3').hover(function() {
-				$('#product3').toggle();
-			});
-			$('#hoverProduct4, #product4').hover(function() {
-				$('#product4').toggle();
-			});
-			$('#hoverProduct5, #product5').hover(function() {
-				$('#product5').toggle();
-			});
-			$('#hoverProduct6, #product6').hover(function() {
-				$('#product6').toggle();
-			});
+			<?php
+			foreach ($productName as $id => $value) {
+				print("$('#hoverProduct" . $id . ", #product" . $id . "').hover(function() {
+			  			$('#product" . $id . "').toggle();
+					});");
+			}
+			?>
 			</script>
 	</body>
 </html>
