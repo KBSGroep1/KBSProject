@@ -97,7 +97,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <head>
     <title>Login</title>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
 
@@ -113,7 +113,11 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             font-color: black;
             background-image: url("../img/bg/stock.jpg");
             background-repeat: no-repeat;
+            -webkit-background-size:cover;
+            -moz-background-size:cover;
+            -o-background-size:cover;
             background-size: cover;
+            background-position: center;
 
         }
 
