@@ -24,6 +24,8 @@ else if(isset($_GET["productID"]) && is_numeric($_GET["productID"])) {
 	print("Weet u zeker dat u <i>" . $result["name"] . "</i> wilt verwijderen<br>");
 	print("<a class='btn btn-primary' href=delProduct.php?productID=" . $_GET["productID"] . "&confirm=1>Ja</a>");
 	print("<a class='btn btn-primary' href=products.php>Nee</a>");
+
+	// TODO: delete images
 }
 else {
 	echo "Wat doe jij nou";

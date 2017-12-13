@@ -5,14 +5,11 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 	$_SESSION["loggedIn"] = false;
 	$_SESSION["userID"] = -1;
 	$_SESSION["username"] = null;
-	$_SESSION["role"] = 0;
+	$_SESSION["role"] = 0; // todo: fix this accross all php scripts
+	$_SESSION["userRole"] = 0;
 }
 
 $config = parse_ini_file("config/config.ini");
-
-
-$requestedWebsite = "toolwelle.com";
-$websiteID = 3;
 
 try {
 	$dbh = new PDO("mysql:"
@@ -26,17 +23,35 @@ catch(PDOException $e) {
 	exit;
 }
 
+if(isset($_SERVER["HTTP_HOST"]))
+	$requestedDomain = $_SERVER["HTTP_HOST"];
+if(isset($_SESSION["domain"]))
+	$requestedDomain = $_SESSION["domain"];
+if(!isset($requestedDomain)) {
+	http_response_code(400);
+	echo "400 Bad Request";
+	
+	// TODO: remove
+	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
+	exit;
+}
+
 $stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name AND active");
-$stmt->bindParam(":name", $requestedWebsite);
+$stmt->bindParam(":name", $requestedDomain);
 $stmt->execute();
 
 if($stmt->rowCount() !== 1) {
 	http_response_code(404);
 	echo "Page not found";
+
+	// TODO: remove
+	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
 	exit;
 }
 
 $result = $stmt->fetch();
+
+$websiteID = $result["websiteID"];
 
 $stmt2 = $dbh->prepare("SELECT * FROM text WHERE websiteID = :id");
 $stmt2->bindParam(":id", $result["websiteID"]);
@@ -100,11 +115,11 @@ while($t = $stmt2->fetch()) {
 		<script src="js/scripts.js" type="text/javascript"></script>
 	    <script type="text/javascript">
 
-			$('#aboutContainer').parallax({
+			$('#homeContainer').parallax({
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
 			});
 
-			$('#homeContainer').parallax({
+			$('#aboutContainer').parallax({
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg2.jpg'
 			});
 
