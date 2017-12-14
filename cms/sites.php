@@ -1,6 +1,7 @@
 <?php
 include "include/init.php";
 include "include/topBar.php";
+include 'include/sideBar.php';
 
 if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 2) {
 	http_send_status(401);
@@ -27,19 +28,7 @@ if(isset($_GET["websiteID"]) && is_numeric($_GET["websiteID"])) {
 
 	$viewingSingleWebsite = true;
 }
-?>
-<nav class="navbar navbar-default sidebar" role="navigation">
-	<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
-		<ul class="nav navbar-nav">
-			<li><a href="products.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Producten</a></li>
-			<li class="active"><a href="sites.php">Websites</a></li>
-			<li><a href="users.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Gebruikers</a></li>
-			<li><a href="messages.php<?php if (isset($_GET["websiteID"])) { print("?site=" . $_GET["websiteID"]); } ?>">Berichten</a></li>
-		</ul>
-	</div>
-</nav>
-<div>
-<?php
+print("<div>");
 if($viewingSingleWebsite) {
 	include "include/websiteForm.php";
 }
