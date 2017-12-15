@@ -367,6 +367,11 @@ textarea {
 .visiblepanel{
   display: none;
 }
+
+.invisible{
+width: 100%;
+display: inline-block;
+}
 .productName{
   color: white;
   opacity: 1.0;
