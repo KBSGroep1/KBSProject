@@ -46,13 +46,13 @@ if(isset($_POST["submit"])) {
 	$stmt = $dbh->prepare("
 		INSERT INTO product (productID, name, description, price, active, websiteID)
 		VALUES (:productID, :name, :description, :price, :active, :websiteID)
-		ON DUPLICATE KEY UPDATE name = :name, description = :description, price = :price, active = :active");
+		ON DUPLICATE KEY UPDATE name = :name, description = :description, price = :price, active = :active ");
 	$stmt->bindParam(":productID", $productID);
 	$stmt->bindParam(":name", $submittedName);
 	$stmt->bindParam(":description", $submittedDescription);
 	$stmt->bindParam(":price", $submittedPrice);
 	$stmt->bindParam(":active", $submittedActive);
-	$stmt->bindParam(":websiteID", $websiteID); // TODO: how do we do this?
+	$stmt->bindParam(":websiteID", $_SESSION['site']); // TODO: how do we do this?
 	$stmt->execute();
 	$stmt = null;
 }
