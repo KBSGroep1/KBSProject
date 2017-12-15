@@ -1,0 +1,23 @@
+<?php
+$TLD = array("aero",
+  "asia",
+  "biz",
+  "cat",
+  "amsterdam",
+  "com",
+  "coop",
+  "info",
+  "int",
+  "jobs",
+  "mobi",
+  "museum",
+  "name",
+  "net",
+  "org",
+  "post",
+  "pro",
+  "tel",
+  "travel",
+  "xxx",
+  );
+?>
