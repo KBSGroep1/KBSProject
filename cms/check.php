@@ -20,7 +20,7 @@ if(empty($_POST["domein"])){ print("voorbeeld: toolwelle");}else{print($_POST["d
 if(empty($_POST["domein"])){
 }else{
  foreach ($TLD as $key => $value) {
- $domainCheck = ($_POST["domein"] . "." . $value);
+ $domainCheck = ($_POST["domein"] . "." . $value . ".");
  print ("<tr><td>" . $domainCheck . "</td>");
  if (gethostbyname($domainCheck) != $domainCheck ) {
  	print ("<td> nee</td></tr>");
