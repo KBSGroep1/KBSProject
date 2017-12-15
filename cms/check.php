@@ -3,10 +3,10 @@ include 'include/init.php';
 include 'include/topBar.php';
 include 'include/sideBar.php';
  $domain = $_POST["domein"];
- if ( gethostbyname($domain) != $domain ) {
+ if (gethostbyname($domain) != $domain ) {
  	print ("Domein is al bezet");
  }else{
- 	print("jahoor die kan");
+ 	print("Jahoor die kan");
  }
 ?>
 	<form method="post" action="#">
