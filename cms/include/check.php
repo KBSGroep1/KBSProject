@@ -19,7 +19,7 @@ $TLD3 = array(
  foreach ($TLD1 as $key => $value) {
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
- if (gethostbyname($domainCheck) != $domainCheck ) {
+ if (gethostbyname($domainCheck . ".") != $domainCheck . ".") {
  	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
@@ -36,7 +36,7 @@ $TLD3 = array(
  foreach ($TLD2 as $key => $value) {
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
- if (gethostbyname($domainCheck) != $domainCheck ) {
+ if (gethostbyname($domainCheck . ".") != $domainCheck . ".") {
  	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
@@ -53,7 +53,7 @@ $TLD3 = array(
  foreach ($TLD3 as $key => $value) {
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
- if (gethostbyname($domainCheck) != $domainCheck ) {
+ if (gethostbyname($domainCheck . ".") != $domainCheck . ".") {
  	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
