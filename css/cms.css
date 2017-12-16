@@ -203,6 +203,15 @@ body,html{
 		margin-left: 8px;
 	}
 
-  .topTextView{
-    margin-top: 15px;
-  }
+ 	.topTextView{
+ 	   margin-top: 15px;
+ 	}
+
+  	.domainTable{
+  		max-width: 250px;
+  		display: inline;
+  	}
+
+	.wrapTableDomain {
+		display: inline;
+	}
