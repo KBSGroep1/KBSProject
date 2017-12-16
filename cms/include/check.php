@@ -4,7 +4,7 @@ if(empty($_POST["websiteName"])){
 	print("niets om te checken");
 }else{
 $TLD1 = array(
-  "asia","biz","com","nl","be","amsterdam","coop","info","int","jobs","mobi","name","net","org","post");
+  "nl","com","net","org","biz","be","amsterdam","coop","info","int","jobs","mobi","name","asia","post");
 $TLD2 = array(  
   "xxx","ae","pro","br","ca","ch","cn","cz","de","dk","es","eu","fr","gb","gr");
 $TLD3 = array(
@@ -20,7 +20,7 @@ $TLD3 = array(
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
  if (gethostbyname($domainCheck) != $domainCheck ) {
- 	print ("<td> nee</td></tr>");
+ 	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
  }
@@ -37,7 +37,7 @@ $TLD3 = array(
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
  if (gethostbyname($domainCheck) != $domainCheck ) {
- 	print ("<td> nee</td></tr>");
+ 	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
  }
@@ -54,7 +54,7 @@ $TLD3 = array(
  $domainCheck = ($_POST["websiteName"] . "." . $value);
  print ("<tr><td>" . $domainCheck . "</td>");
  if (gethostbyname($domainCheck) != $domainCheck ) {
- 	print ("<td> nee</td></tr>");
+ 	print ("<td class='domainNee'> nee</td></tr>");
  }else{
  	print("<td> ja</td></tr>");
  }

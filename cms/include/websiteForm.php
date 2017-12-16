@@ -103,17 +103,19 @@
 		<form method="POST" action="saveWebsite.php" enctype="multipart/form-data">
 			<input type="hidden" name="websiteID" value="<?php echo $websiteID ?>" />
 			<h2>Algemene informatie</h2>
-			Domein website: <input type="text" name="websiteName" placeholder="<?php if(empty($_POST["websiteName"])){print("Voorbeeld: toolwelle.com");} ?>" value="<?php if(empty($_POST["websiteName"])){ echo $result["name"];}else{print($_POST["websiteName"]);} ?>" /><br />
+			Domein website: www.<input type="text" name="websiteName" placeholder="<?php if(empty($_POST["websiteName"])){print("Voorbeeld: toolwelle");} ?>" value="<?php if(empty($_POST["websiteName"])){ echo $result["name"];}else{print($_POST["websiteName"]);} ?>" />.nl/.com enzovoort<br />
 			Website actief: <input type="checkbox" name="websiteActive" <?php if($result["active"] == 1){ print("checked=\" \"");} if($_POST["websiteActive"] == "on"){ print("checked=\" \"");}?><br />
-			<button type="submit" formaction="#">Check</button>
+			<button type="submit" formaction="#">Check</button>		
+			<input type="submit" value="Opslaan" />
 		<?php
+		if($existingWebsite) {
+			echo "<button formaction=\"deleteWebsite.php?websiteID=" . $result["websiteID"] . "\">Delete website</button><br />";
+		}
 		if(empty($_POST["websiteName"])){
 		}else{
 			include 'include/check.php'; 
 		}
-		if($existingWebsite) {
-			echo "<a href=\"deleteWebsite.php?websiteID=" . $result["websiteID"] . "\">Delete website</a><br />";
-		}
+		
 		?>
   </section>
 

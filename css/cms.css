@@ -215,3 +215,9 @@ body,html{
 	.wrapTableDomain {
 		display: inline;
 	}
+
+	.domainNee {
+		font-weight: bold;
+		color: white;
+		background-color: grey;
+	}
