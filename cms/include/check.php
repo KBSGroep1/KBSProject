@@ -1,5 +1,5 @@
+<br>
 <?php
-print("test");
 if(empty($_POST["websiteName"])){
 	print("niets om te checken");
 }else{

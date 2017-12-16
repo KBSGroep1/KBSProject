@@ -103,9 +103,14 @@
 		<form method="POST" action="saveWebsite.php" enctype="multipart/form-data">
 			<input type="hidden" name="websiteID" value="<?php echo $websiteID ?>" />
 			<h2>Algemene informatie</h2>
-			Domein website: <input type="text" name="websiteName" placeholder="Voorbeeld: toolwelle.com" value="<?php echo $result["name"]; ?>" /><br />
-			Website actief: <input type="checkbox" name="websiteActive" <?php echo $result["active"] ? "checked" : ""; ?> /><br />
+			Domein website: <input type="text" name="websiteName" placeholder="<?php if(empty($_POST["websiteName"])){print("Voorbeeld: toolwelle.com");} ?>" value="<?php if(empty($_POST["websiteName"])){ echo $result["name"];}else{print($_POST["websiteName"]);} ?>" /><br />
+			Website actief: <input type="checkbox" name="websiteActive" <?php if($result["active"] == 1){ print("checked=\" \"");} if($_POST["websiteActive"] == "on"){ print("checked=\" \"");}?><br />
+			<button type="submit" formaction="#">Check</button>
 		<?php
+		if(empty($_POST["websiteName"])){
+		}else{
+			include 'include/check.php'; 
+		}
 		if($existingWebsite) {
 			echo "<a href=\"deleteWebsite.php?websiteID=" . $result["websiteID"] . "\">Delete website</a><br />";
 		}
@@ -173,7 +178,7 @@
 		echo "<tr>";
 		echo "<td>" . $t["textName"] . "</td>";
 		echo "<td>" . $t["description"] . "</td>";
-		echo "<td><textarea name=\"" . $t["textName"] . "\" required placeholder=\"Voorbeeld: " . $t["exampleText"] . "\">" . $t["text"] . "</textarea></td>";
+		echo "<td><textarea name=\"" . $t["textName"] . "\" placeholder=\"Voorbeeld: " . $t["exampleText"] . "\">" . $t["text"] . "</textarea></td>";
 		echo "</tr>";
 	}
 	$query3 = null;
