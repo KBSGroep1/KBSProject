@@ -42,15 +42,17 @@ if(strlen($submittedName) < 1
 	exit;
 }
 
+
+
 $to = $submittedEmail;
 $subject = 'Contact opname bevestiging';
-$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $_SESSION["domain"];
+$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $requestedWebsite;
 mail($to, $subject, $message);
 
-$to = 'barryvdvegt@gmail.com';//Moet nog info@blabla.nl worden!!
-$subject = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
-$message = $submittedName . ' heeft contact opgenomen met ' . $requestedWebsite . ' het bericht was: ' . $submittedMessage;
-mail($to, $subject, $message);
+$to1 = 'barryvdvegt@gmail.com';//Moet nog info@blabla.nl worden!!
+$subject1 = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
+$message1 = $submittedName . ' heeft contact opgenomen met ' . $requestedWebsite . ' het bericht was: ' . $submittedMessage;
+mail($to1, $subject1, $message1);
 
 $statement = $dbh->prepare("INSERT INTO contact (customerName, email, text, websiteID) VALUES (:name, :email, :text, :site)");
 $statement->bindParam("name", $submittedName);
