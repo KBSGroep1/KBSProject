@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if ($_SESSION["loggedIn"] === true) {
+if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"] === true) {
     header("Location: /cms/cms.php");
 }
 
 $loginFailed = false;
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if(isset($_POST['username']) && isset($_POST['password'])) {
     $config = parse_ini_file("../config/config.ini");
 
     try {
@@ -35,7 +35,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $antibruteforceStmt->execute();
 
     $antibruteforceResult = $antibruteforceStmt->fetch();
-    if ($antibruteforceResult["COUNT(*)"] > 5) {
+    if($antibruteforceResult["COUNT(*)"] > 5) {
         echo "You are doing this too much.";
         exit;
     }
@@ -47,7 +47,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $saltyStmt = $dbh->prepare("SELECT salt FROM user WHERE username = :username");
     $saltyStmt->bindParam(":username", $submittedUsername);
     $saltyStmt->execute();
-    if ($saltyStmt->rowCount() === 1) {
+    if($saltyStmt->rowCount() === 1) {
         $acquiredSalt = $saltyStmt->fetch()["salt"];
         $hashedPassword = hash('sha512', $submittedPassword . $acquiredSalt);
     }
@@ -60,10 +60,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $stmt->bindParam(":password", $hashedPassword);
     $stmt->execute();
 
-    if ($stmt->rowCount() === 1) {
+    if($stmt->rowCount() === 1) {
         $result = $stmt->fetch();
 
-        if ($result["active"] == 1) {
+        if($result["active"] == 1) {
             $_SESSION["loggedIn"] = true;
             $_SESSION["userID"] = intval($result["userID"]);
             $_SESSION["username"] = $result["username"];
@@ -77,7 +77,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             header("Location: cms.php");
             exit;
         }
-    } else {
+    }
+    else {
         $updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");
         $updateStatement->bindParam(":username", $submittedUsername);
         $updateStatement->bindParam(":ip", $_SERVER["REMOTE_ADDR"]);
@@ -202,7 +203,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     <h1>CMS login</h1>
     <form method="POST">
         <?php
-        if ($loginFailed) {
+        if($loginFailed) {
             ?>
             <div class="error">Incorrect username/password!!!</div>
             <?php

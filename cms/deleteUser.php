@@ -1,11 +1,10 @@
 <?php
-include 'include/init.php';
-include 'include/topBar.php'; 
-include 'include/sideBar.php';
-?>
-<?php
-$stmt = $dbh->prepare("SELECT userID, username, role FROM user WHERE userID=:iduser ");
-$stmt->bindParam(":iduser", $_GET['userID']);
+require_once "include/init.php";
+include "include/topBar.php"; 
+include "include/sideBar.php";
+
+$stmt = $dbh->prepare("SELECT userID, username, role FROM user WHERE userID = :userID");
+$stmt->bindParam(":userID", $_GET['userID']);
 $stmt-> execute();
 $result = $stmt->fetch();
 print("Verwijder: " . $result['username']);

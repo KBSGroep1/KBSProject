@@ -1,53 +1,30 @@
 <?php
-include 'include/init.php';
-include 'include/topBar.php'; 
-include 'include/sideBar.php';
-?>
-<div>
-	<?php
-	if($_SESSION["userRole"] == 3){
-		$stmt = $dbh->prepare("SELECT userID, username, role, active FROM user ");
-		print("<table class='table table-hover tableUser'><thead><tr><th class='tableUsername'>Gebruikersnaam</th><th>Rol</th><th>Actief</th><th>Verwijderen</th></tr></thead>");
-		$stmt->execute();
-		$roleName = "Unkown";
-		while ($result = $stmt->fetch()) {
-			if($result['role'] == 1){
-				$result['role'] = "Grafisch ontwerper";
-			}elseif($result['role'] == 2){
-				$result['role'] = "Contentbeheerder";
-			}elseif($result['role'] == 3){
-				$result['role'] = "Beheerder";
-			}else{
-				$result['role'] = "";
-			}
-			print("<tr></td>\n<td class=\"tableUsername\"><a href='editUser.php?userID=" . $result['userID'] . "'>" . $result["username"]."</td>\n<td>" . $result['role'] . "</td></a>");
-			if ($result["active"] == 1) {
-				$active = "ja";
-			}elseif ($result["active"] == 0) {
-				$active = "nee";
-			}else {
-				$active = $result["active"];
-			}
-			print("<td>" . $active); ?>
-			</td><td><a href="deleteUser.php?userID=<?php print($result['userID']); ?>" class='btn-primary btn' type='submit' value='Submit'>Verwijderen</button></td></tr>
-			</form>
-<?php 
+require_once "include/init.php";
+include "include/topBar.php"; 
+include "include/sideBar.php";
+
+if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 3) {
+	http_response_code(403);
+	echo "403 Forbidden";
+	exit;
 }
-?>
 
-</div>
-</table>
+if(isset($_GET["userID"]) && is_numeric($_GET["userID"])) {
+	$userID = intval($_GET["userID"]);
 
-<div class="addUser">
-	<form action='addUser.php'>
-		<button class='buttonOpslaan btn-primary btn' type="submit" value="Submit">Gebruiker toevoegen</button>
-	</form>
-<?php 
+	$query = $dbh->query("SELECT * FROM user WHERE userID = $userID");
+	$user = $query->fetch(PDO::FETCH_ASSOC);
+
+	include "include/userForm.php";
+}
+else {
+	$users = [];
+	$query = $dbh->query("SELECT userID, username, role, active FROM user");
+	while($user = $query->fetch(PDO::FETCH_ASSOC)) {
+		array_push($users, $user);
 	}
-?>
-</div>
-	</body>
-</html>
-<?php
-	$dbh = null;
-	$stmt = null;
+
+	include "include/userList.php";
+}
+
+echo "</body></html>";
