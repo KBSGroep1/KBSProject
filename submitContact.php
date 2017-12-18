@@ -42,14 +42,17 @@ if(strlen($submittedName) < 1
 	exit;
 }
 
-
+$stmt = $dbh->prepare("SELECT text FROM text WHERE websiteID = :site AND textName = 'contactEmail' ");
+$stmt->bindParam("site", $submittedSite);
+$stmt->execute();
+$result2 = $stmt->fetch();
 
 $to = $submittedEmail;
 $subject = 'Contact opname bevestiging';
 $message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $requestedWebsite;
 mail($to, $subject, $message);
 
-$to1 = 'barryvdvegt@gmail.com';//Moet nog info@blabla.nl worden!!
+$to1 = $result2["text"];
 $subject1 = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
 $message1 = $submittedName . ' heeft contact opgenomen met ' . $requestedWebsite . ' het bericht was: ' . $submittedMessage;
 mail($to1, $subject1, $message1);
