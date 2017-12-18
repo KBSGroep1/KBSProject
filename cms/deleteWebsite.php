@@ -10,8 +10,8 @@ if(!isset($_GET["websiteID"]) || !is_numeric($_GET["websiteID"])) {
 }
 
 if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 3) {
-	http_response_code(401);
-	echo "401 Unauthorized";
+	http_response_code(403);
+	echo "403 Forbidden";
 	exit;
 }
 
