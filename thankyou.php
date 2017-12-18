@@ -12,7 +12,7 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = "toolwelle.com"; // TODO: fix
+$requestedWebsite = $_SESSION["domain"];
 
 try {
 	$dbh = new PDO("mysql:"
