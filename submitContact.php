@@ -25,6 +25,14 @@ $submittedEmail = trim($_POST["email"]);
 $submittedMessage = trim($_POST["message"]);
 $submittedSite = $result["websiteID"];
 
+if(isset($_SERVER["HTTP_HOST"]))
+	$requestedWebsite = $_SERVER["HTTP_HOST"];
+if(isset($_SESSION["domain"]))
+	$requestedWebsite = $_SESSION["domain"];
+else{
+$requestedWebsite = 'sb1.ictm1l.nl';
+}
+
 if(strlen($submittedName) < 1
 || strlen($submittedMessage) < 1
 || (strlen($submittedEmail) > 0 && !filter_var($submittedEmail, FILTER_VALIDATE_EMAIL)))
@@ -36,7 +44,12 @@ if(strlen($submittedName) < 1
 
 $to = $submittedEmail;
 $subject = 'Contact opname bevestiging';
-$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' .$submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $_SESSION["domain"];
+$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $_SESSION["domain"];
+mail($to, $subject, $message);
+
+$to = 'barryvdvegt@gmail.com';//Moet nog info@blabla.nl worden!!
+$subject = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
+$message = $submittedName . ' heeft contact opgenomen met ' . $requestedWebsite . ' het bericht was: ' . $submittedMessage;
 mail($to, $subject, $message);
 
 $statement = $dbh->prepare("INSERT INTO contact (customerName, email, text, websiteID) VALUES (:name, :email, :text, :site)");
