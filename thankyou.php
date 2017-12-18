@@ -12,7 +12,13 @@ if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
 
 $config = parse_ini_file("config/config.ini");
 
-$requestedWebsite = $_SESSION["domain"];
+if(isset($_SERVER["HTTP_HOST"]))
+	$requestedWebsite = $_SERVER["HTTP_HOST"];
+if(isset($_SESSION["domain"]))
+	$requestedWebsite = $_SESSION["domain"];
+else{
+$requestedWebsite = 'sb1.ictm1l.nl';
+}
 
 try {
 	$dbh = new PDO("mysql:"
