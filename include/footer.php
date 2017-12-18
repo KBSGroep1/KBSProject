@@ -39,7 +39,7 @@ if(isset($_SESSION["contactError"]) && !empty($_SESSION["contactError"])) {
 					</div>
 					<div class="col-md-10 col-sm-10 col-xs-10 marginTop12px">
 						<div class="contactIcon marginBottom20">
-							<a class="textCollorEmail" href="tel:+0637119910"><?php echo $texts["contactPhone"]; ?></a>
+							<a class="textCollorEmail" href='tel:<?php print($texts["contactPhone"] . "'>" . $texts["contactPhone"]); ?></a>
 						</div>
 					</div>
 					<div class="col-md-2 col-sm-2 col-xs-2">
@@ -51,7 +51,7 @@ if(isset($_SESSION["contactError"]) && !empty($_SESSION["contactError"])) {
 					</div>
 					<div class="col-md-10 col-sm-10 col-xs-10 marginTop12px">
 						<div class="contactIcon marginBottom20">
-							<a class="textCollorEmail" href="mailto:<?php print($texts['contactEmail']);?>" ><?php echo $texts["contactEmail"]; ?></a>
+							<a class="textCollorEmail" href='mailto:<?php print($texts['contactEmail'] . "'>" . $texts["contactEmail"]); ?></a>
 						</div>
 					</div>
 				</div>
