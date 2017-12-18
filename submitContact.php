@@ -34,6 +34,11 @@ if(strlen($submittedName) < 1
 	exit;
 }
 
+$to = $submittedEmail;
+$subject = 'Contact opname bevestiging';
+$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' .$submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $_SESSION["domain"];
+mail($to, $subject, $message);
+
 $statement = $dbh->prepare("INSERT INTO contact (customerName, email, text, websiteID) VALUES (:name, :email, :text, :site)");
 $statement->bindParam("name", $submittedName);
 $statement->bindParam("email", $submittedEmail);
