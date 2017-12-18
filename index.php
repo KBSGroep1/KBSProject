@@ -1,76 +1,18 @@
 <?php
-session_start();
+// TODO: use colors from database
 
-if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
-	$_SESSION["loggedIn"] = false;
-	$_SESSION["userID"] = -1;
-	$_SESSION["username"] = null;
-	$_SESSION["role"] = 0; // todo: fix this accross all php scripts
-	$_SESSION["userRole"] = 0;
-}
-
-$config = parse_ini_file("config/config.ini");
-
-try {
-	$dbh = new PDO("mysql:"
-		. "host=" . $config["host"]
-		. ";port=" . $config["port"]
-		. ";dbname=" . $config["db"],
-		$config["username"], $config["password"]);
-}
-catch(PDOException $e) {
-	echo "Failed to connect to database";
-	exit;
-}
-
-if(isset($_SERVER["HTTP_HOST"]))
-	$requestedDomain = $_SERVER["HTTP_HOST"];
-if(isset($_SESSION["domain"]))
-	$requestedDomain = $_SESSION["domain"];
-if(!isset($requestedDomain)) {
-	http_response_code(400);
-	echo "400 Bad Request";
-	
-	// TODO: remove
-	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
-	exit;
-}
-
-$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name AND active");
-$stmt->bindParam(":name", $requestedDomain);
-$stmt->execute();
-
-if($stmt->rowCount() !== 1) {
-	http_response_code(404);
-	echo "Page not found";
-
-	// TODO: remove
-	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
-	exit;
-}
-
-$result = $stmt->fetch();
-
-$websiteID = $result["websiteID"];
-
-$stmt2 = $dbh->prepare("SELECT * FROM text WHERE websiteID = :id");
-$stmt2->bindParam(":id", $result["websiteID"]);
-$stmt2->execute();
+require_once "include/init.php";
 
 $texts = [];
-
-while($t = $stmt2->fetch()) {
-	$texts[$t["textName"]] = $t["text"];
+$query1 = $dbh->query("SELECT * FROM text WHERE websiteID = $websiteID");
+while($text = $query1->fetch()) {
+	$texts[$text["textName"]] = $text["text"];
 }
 
-$stmt3 = $dbh->prepare("SELECT * FROM product WHERE websiteID = :id AND active = 1");
-$stmt3->bindParam(":id", $result["websiteID"]);
-$stmt3->execute();
-
-while($p = $stmt3->fetch()) {
-	$productName[$p["productID"]] = $p["name"];
-	$productDesc[$p["productID"]] = $p["description"];
-	$productPrice[$p["productID"]] = $p["price"] / 100;
+$products = [];
+$query2 = $dbh->query("SELECT * FROM product WHERE websiteID = $websiteID AND active");
+while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
+	array_push($products, $product);
 }
 ?>
 <!DOCTYPE html>
@@ -107,23 +49,23 @@ while($p = $stmt3->fetch()) {
 		</style>
 	</head>
 	<body>
-		<?php include 'include/menu.php'; ?>
-		<?php include 'include/home.php'; ?>
-		<?php include 'include/about.php'; ?>
-		<?php include 'include/products.php'; ?>
-		<?php include 'include/footer.php'; ?>
+		<?php include "include/menu.php"; ?>
+		<?php include "include/home.php"; ?>
+		<?php include "include/about.php"; ?>
+		<?php include "include/products.php"; ?>
+		<?php include "include/footer.php"; ?>
 
 		<!-- Libraries -->
-		<script src="js/jquery-1.11.3.min.js" type="text/javascript"></script>
-		<script src="js/jquery.visible.min.js" type="text/javascript"></script>
-		<script src="js/modernizr.js" type="text/javascript"></script>
-		<script src="js/parallax.min.js" type="text/javascript"></script>
-		<script src="js/scroll_anchor.js" type="text/javascript"></script>
-		<script src="js/smoothscroll.js" type="text/javascript"></script>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.visible.min.js"></script>
+		<script src="js/modernizr.js"></script>
+		<script src="js/parallax.min.js"></script>
+		<script src="js/scroll_anchor.js"></script>
+		<!-- <script src="js/smoothscroll.js"></script> -->
 
 		<!-- Own scripts-->
-		<script src="js/scripts.js" type="text/javascript"></script>
-	    <script type="text/javascript">
+		<script src="js/scripts.js"></script>
+		<script>
 
 			$('#homeContainer').parallax({
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
@@ -137,13 +79,15 @@ while($p = $stmt3->fetch()) {
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
 			});
 
-			<?php
-			foreach ($productName as $id => $value) {
-				print("$('#hoverProduct" . $id . ", #product" . $id . "').hover(function() {
-			  			$('#product" . $id . "').toggle();
-					});");
-			}
-			?>
+<?php
+foreach($products as $product) {
+?>
+			$('#hoverProduct<?= $product["productID"] ?>, #product<?= $product["productID"] ?>').hover(function() {
+				$('#product<?= $product["productID"] ?>').toggle();
+			});
+<?php
+}
+?>
 			</script>
 	</body>
 </html>
