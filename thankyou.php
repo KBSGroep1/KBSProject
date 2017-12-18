@@ -1,63 +1,18 @@
 <?php
-// TODO: different colors and fonts for each website
+// TODO: use colors from database
 
-session_start();
-
-if(!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
-	$_SESSION["loggedIn"] = false;
-	$_SESSION["userID"] = -1;
-	$_SESSION["username"] = null;
-	$_SESSION["role"] = 0;
-}
-
-$config = parse_ini_file("config/config.ini");
-
-if(isset($_SERVER["HTTP_HOST"]))
-	$requestedWebsite = $_SERVER["HTTP_HOST"];
-if(isset($_SESSION["domain"]))
-	$requestedWebsite = $_SESSION["domain"];
-else{
-$requestedWebsite = 'sb1.ictm1l.nl';
-}
-
-try {
-	$dbh = new PDO("mysql:"
-		. "host=" . $config["host"]
-		. ";port=" . $config["port"]
-		. ";dbname=" . $config["db"],
-		$config["username"], $config["password"]);
-}
-catch(PDOException $e) {
-	echo "Failed to connect to database";
-	exit;
-}
-
-$stmt = $dbh->prepare("SELECT * FROM website WHERE name = :name");
-$stmt->bindParam(":name", $requestedWebsite);
-$stmt->execute();
-
-if($stmt->rowCount() !== 1) {
-	http_response_code(404);
-	echo "Page not found";
-	exit;
-}
-
-$result = $stmt->fetch();
-
-$stmt2 = $dbh->prepare("SELECT * FROM text WHERE websiteID = :id");
-$stmt2->bindParam(":id", $result["websiteID"]);
-$stmt2->execute();
+require_once "include/init.php";
 
 $texts = [];
-
-while($t = $stmt2->fetch()) {
-	$texts[$t["textName"]] = $t["text"];
+$query = $dbh->query("SELECT * FROM text WHERE websiteID = $websiteID");
+while($text = $query->fetch()) {
+	$texts[$text["textName"]] = $text["text"];
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Toolwelle</title>
+		<title><?= $texts["pageTitle"] ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet" />
@@ -72,7 +27,7 @@ while($t = $stmt2->fetch()) {
 			}
 
 			body {
-				background: url(img/<?php echo $result["bg1Path"]; ?>) no-repeat center center fixed;
+				background: url(img/bg/<?= $websiteID ?>-bg1.jpg) no-repeat center center fixed;
 				background-size: cover;
 			}
 
