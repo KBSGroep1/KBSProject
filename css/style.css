@@ -409,7 +409,7 @@ display: inline-block;
 }
 
 .productText{
-  width: 70%;
+  width: 60%;
   display: inline-block;
 }
 
@@ -441,8 +441,9 @@ display: inline-block;
 }
 
 .price{
-  width: 30%;
+  width: 40%;
   float: right;
+  text-align: right;
   display: inline-block;
   color: #e95b12;
 }
