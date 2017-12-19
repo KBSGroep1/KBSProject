@@ -1,4 +1,4 @@
-<table class="table table-hover tableUser">
+<table class="table table-hover ">
 	<thead>
 		<tr>
 			<th class="tableUsername">Gebruikersnaam</th>
@@ -18,7 +18,7 @@ foreach($users as $user) {
 			</td>
 			<td><?= $roleNames[intval($user["role"])] ?></td>
 			<td><?= $user["active"] == 1 ? "Ja" : "Nee" ?></td>
-			<td><a href="deleteUser.php?userID=<?= $user["userID"] ?>">Verwijderen</a>
+			<td><a class="btn-primary btn" href="deleteUser.php?userID=<?= $user["userID"] ?>">Verwijderen</a>
 		</tr>
 <?php
 }
