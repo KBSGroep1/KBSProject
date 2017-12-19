@@ -22,7 +22,15 @@ foreach($products as $product) {
 					<!-- TODO: what is 'black edition' ?? -->
 					<p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
 				</div>
-				<div class="price">€<?= intval($product["price"]) / 100 ?></div>
+				<?php
+				$price = intval($product["price"]) / 100;
+				if(is_float($price)){
+					 echo "<div class='price'>€ " . str_replace('.', ',', $price) ."</div>";
+					}
+					else {
+						echo "<div class='price'>€ " .$price .",-</div>";
+					}
+				 ?>
 			</figcaption>
 		</figure>
 <?php
