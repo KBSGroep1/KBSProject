@@ -203,6 +203,7 @@ $query3 = null;
 	var currentXHR = null, currentTimeout = null, v = null;
 	$("#domainName").on("input", function() {
 		v = this.value;
+		v = v.split(".")[0];
 
 		if(currentTimeout !== null)
 			window.clearTimeout(currentTimeout);
