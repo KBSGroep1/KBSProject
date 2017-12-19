@@ -28,7 +28,7 @@ if(isset($_GET["websiteID"]) && is_numeric($_GET["websiteID"])) {
 
 	$viewingSingleWebsite = true;
 }
-print("<div>");
+
 if($viewingSingleWebsite) {
 	include "include/websiteForm.php";
 }
@@ -57,7 +57,6 @@ else {
 <?php
 }
 ?>
-</div>
 	</body>
 </html>
 <?php
