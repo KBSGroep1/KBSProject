@@ -7,8 +7,11 @@ if(isset($_GET["confirm"]) && isset($_GET["productID"]) && is_numeric($_GET["pro
 	$stmt = $dbh->prepare("DELETE FROM product WHERE productID = :productID");
 	$stmt->bindParam(":productID", $_GET["productID"]);
 	$stmt->execute();
+	unlink("../img/products/" . $_GET["productID"] . "-large.jpg");
+	unlink("../img/products/" . $_GET["productID"] . "-small.jpg");
 	echo "Product is verwijderd";
 }
+
 else if(isset($_GET["productID"]) && is_numeric($_GET["productID"])) {
 	$stmt = $dbh->prepare("SELECT name FROM product WHERE productID = :productID");
 	$stmt->bindParam(":productID", $_GET["productID"]);
