@@ -56,7 +56,7 @@ mail($to, $subject, $message, $headers);
 $to1 = $result2["text"];
 $subject1 = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
 $message1 = $submittedMessage;
-$headers1 = 'From: ' . $$submittedEmail;
+$headers1 = 'From: ' . $submittedEmail;
 mail($to1, $subject1, $message1, $headers1);
 
 $statement = $dbh->prepare("INSERT INTO contact (customerName, email, text, websiteID) VALUES (:name, :email, :text, :site)");
