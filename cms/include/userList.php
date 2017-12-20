@@ -9,7 +9,7 @@
 	</thead>
 	<tbody>
 <?php
-$roleNames = ["Bezoeker", "Grafisch ontwerper", "Contentbeheerder", "Beheerder"];
+$roleNames = ["Bezoeker", "Productbeheerder", "Contentbeheerder", "Beheerder"];
 foreach($users as $user) {
 ?>
 		<tr>

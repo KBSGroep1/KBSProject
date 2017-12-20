@@ -31,7 +31,7 @@ if(isset($_SESSION["errorPW"]) && !empty($_SESSION["errorPW"])) {
 			</div>
 			<div class="form-group">
 				<label>Rol</label><br />
-				<label for="role1" style="font-weight: normal"><input type="radio" name="role" id="role1" value="1"<?= $user["role"] < 2 ? " checked" : "" ?> /> Grafisch ontwerper</label><br />
+				<label for="role1" style="font-weight: normal"><input type="radio" name="role" id="role1" value="1"<?= $user["role"] < 2 ? " checked" : "" ?> /> Productbeheerder</label><br />
 				<label for="role2" style="font-weight: normal"><input type="radio" name="role" id="role2" value="2"<?= $user["role"] == 2 ? " checked" : "" ?> /> Contentbeheerder</label><br />
 				<label for="role3" style="font-weight: normal"><input type="radio" name="role" id="role3" value="3"<?= $user["role"] == 3 ? " checked" : "" ?> /> Beheerder</label><br />
 			</div>
