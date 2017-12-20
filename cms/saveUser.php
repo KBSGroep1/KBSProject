@@ -50,11 +50,10 @@ $stmt1->bindParam(":active", $submittedActive);
 $stmt1->execute();
 
 if(!empty($submittedPassword1)) {
-	// TODO: this isnt safe - switch to password_hash()
 
 	$hashedPassword = password_hash($submittedPassword1, PASSWORD_BCRYPT);
 
-	$dbh->query("UPDATE user SET password = '$hashedPassword', salt = '$salt' WHERE userID = $submittedUserID");
+	$dbh->query("UPDATE user SET password = '$hashedPassword' WHERE userID = $submittedUserID");
 }
 
 $_SESSION["success"] = "Gebruiker opgeslagen";
