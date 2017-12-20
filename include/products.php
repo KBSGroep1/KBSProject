@@ -15,7 +15,7 @@ foreach($products as $product) {
 				<h2 class="productName"><?= $product["name"] ?></h2>
 				<?= $product["description"] ?>
 			</div>
-			<a class="popup" href="img/products/<?= $product["productID"] ?>-big.jpg" >
+			<a class="popup" href="img/products/<?= $product["productID"] ?>-large.jpg" >
 				<img src="img/products/<?= $product["productID"] ?>-small.jpg" alt="<?= $product["name"] ?>" />
 			</a>
 			<figcaption id="hoverProduct<?= $product["productID"] ?>">
