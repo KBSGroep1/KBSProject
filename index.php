@@ -23,7 +23,7 @@ while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet" />
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
-
+		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'>
 		<style media="screen">
 
 			.contactIcon i, .contact h3:after{
@@ -61,12 +61,14 @@ while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
 		<script src="js/modernizr.js"></script>
 		<script src="js/parallax.min.js"></script>
 		<script src="js/scroll_anchor.js"></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+
+
 		<!-- <script src="js/smoothscroll.js"></script> -->
 
 		<!-- Own scripts-->
 		<script src="js/scripts.js"></script>
 		<script>
-
 			$('#homeContainer').parallax({
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
 			});
@@ -78,6 +80,21 @@ while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
 			$('#productsContainer').parallax({
 				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
 			});
+
+			$('.popup').magnificPopup({
+					type: 'image',
+					closeOnContentClick: true,
+					closeBtnInside: false,
+					fixedContentPos: true,
+					mainClass: 'mfp-no-margins mfp-with-zoom',
+					image: {
+						verticalFit: true
+					},
+					zoom: {
+						enabled: true,
+						duration: 300
+					}
+				});
 
 <?php
 foreach($products as $product) {
