@@ -2,6 +2,12 @@
 include 'include/init.php';
 include 'include/topBar.php'; 
 include 'include/sideBar.php';
+
+if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 2) {
+	http_response_code(403);
+	echo "403 Forbidden";
+	exit;
+}
 ?>
 	<div class="messageHome">
 		<?php 
@@ -19,9 +25,11 @@ include 'include/sideBar.php';
 					print("...");
 				} 
 				print("</a></td>\n<td>" . $result["timestamp"] . "</td><td><a class='btn-primary btn' data-contactID='".$result['contactID']."' >Verwijderen</a></td></tr>");
-			}
+			}	
+			print("</table>");
 		?>
-	</table>
+
+	<a class='btn-primary btn' href="/cms/delMessage.php">Verwijder alles</a>
 		</div>
 	</body>
 	<script>
