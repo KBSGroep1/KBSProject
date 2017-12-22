@@ -49,7 +49,7 @@ $result2 = $stmt->fetch();
 
 $to = $submittedEmail;
 $subject = 'Contact opname bevestiging';
-$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $requestedWebsite;
+$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $requestedWebsite. '. Uw bericht: '. $submittedMessage;
 $headers = 'From: ' . $result2["text"];
 mail($to, $subject, $message, $headers);
 
