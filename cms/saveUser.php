@@ -50,16 +50,10 @@ $stmt1->bindParam(":active", $submittedActive);
 $stmt1->execute();
 
 if(!empty($submittedPassword1)) {
-	// TODO: this isnt safe - switch to password_hash()
 
-	function generateRandomString($length = 10) {
-		return substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil($length/strlen($x)) )),1,$length);
-	}
+	$hashedPassword = password_hash($submittedPassword1, PASSWORD_DEFAULT);
 
-	$salt = generateRandomString(255);
-	$hashedPassword = hash('sha512', $submittedPassword1 . $salt);
-
-	$dbh->query("UPDATE user SET password = '$hashedPassword', salt = '$salt' WHERE userID = $submittedUserID");
+	$dbh->query("UPDATE user SET password = '$hashedPassword' WHERE userID = $submittedUserID");
 }
 
 $_SESSION["success"] = "Gebruiker opgeslagen";
