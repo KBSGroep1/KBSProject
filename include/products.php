@@ -22,7 +22,7 @@ foreach($products as $product) {
 				<div class="productText">
 					<h3><?= $product["name"] ?></h3>
 					<!-- TODO: what is 'black edition' ?? -->
-					<p>Black edition <i class="fa fa-info-circle" aria-hidden="true"></i></p>
+					<p><?= $product["subInfo"] ?> <i class="fa fa-info-circle" aria-hidden="true"></i></p>
 				</div>
 				<?php
 				$price = intval($product["price"]) / 100;
