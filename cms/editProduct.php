@@ -40,15 +40,17 @@ if(isset($_POST["submit"])) {
 
 	$submittedName = trim($_POST["name"]);
 	$submittedDescription = trim($_POST["description"]);
+	$submittedSub = trim($_POST["subInfo"]);
 	$submittedPrice = floatval($_POST["price"]) * 100;
 	$submittedActive = $_POST["active"] === "1" ? true : false;
 
 	$stmt = $dbh->prepare("
-		INSERT INTO product (productID, name, description, price, active, websiteID)
-		VALUES (:productID, :name, :description, :price, :active, :websiteID)
-		ON DUPLICATE KEY UPDATE name = :name, description = :description, price = :price, active = :active ");
+		INSERT INTO product (productID, name, description, subInfo, price, active, websiteID)
+		VALUES (:productID, :name, :description, ,subInfo :price, :active, :websiteID)
+		ON DUPLICATE KEY UPDATE name = :name, description = :description, subInfo = :subInfo, price = :price, active = :active ");
 	$stmt->bindParam(":productID", $productID);
 	$stmt->bindParam(":name", $submittedName);
+	$stmt->bindParam(":subInfo", $submittedSub);
 	$stmt->bindParam(":description", $submittedDescription);
 	$stmt->bindParam(":price", $submittedPrice);
 	$stmt->bindParam(":active", $submittedActive);
@@ -58,7 +60,7 @@ if(isset($_POST["submit"])) {
 }
 
 // The form is displayed no matter if the form has been handled
-$stmt = $dbh->prepare("SELECT productID, name, price, description, active FROM product where productID = :productID");
+$stmt = $dbh->prepare("SELECT productID, name, price, description, subInfo, active FROM product where productID = :productID");
 $stmt->bindParam(":productID", $productID);
 $stmt->execute();
 $result = $stmt->fetch();
@@ -72,6 +74,10 @@ $result = $stmt->fetch();
 	<div class="form-group">
 		<label for="description">Beschrijving</label>
 		<textarea name="description" id="description" class="form-control"><?php echo $result["description"]; ?></textarea>
+	</div>
+	<div class="form-group">
+		<label for="price">Editie, kleur etc.</label>
+		<input type="text" name="subInfo" id="subInfo" class="form-control" value="<?php echo $result["subInfo"]; ?>">
 	</div>
 	<div class="form-group">
 		<label for="price">Prijs (€)</label>
