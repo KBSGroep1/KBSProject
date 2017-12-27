@@ -14,6 +14,13 @@ $query2 = $dbh->query("SELECT * FROM product WHERE websiteID = $websiteID AND ac
 while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
 	array_push($products, $product);
 }
+
+$colors = [];
+$query3 = $dbh->query("SELECT * FROM color WHERE websiteID = $websiteID");
+while($color = $query3->fetch()) {
+	$colors[$color["colorName"]] = $color["hex"];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,23 +33,23 @@ while($product = $query2->fetch(PDO::FETCH_ASSOC)) {
 		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'>
 		<style media="screen">
 
-			.contactIcon i, .contact h3:after{
-				background-color: #e95b12;
+			.contactIcon i, .contact h3:after, .buttonColor{
+				background-color: <?= $colors["headerColor"] ?>;
 			}
 
 			.productName{
-				border-bottom: 2px solid #e95b12;
-			}
-
-			.buttonColor{
-				background-color: #e95b12;
+				border-bottom: 2px solid <?= $colors["headerColor"] ?>;
 			}
 
 			.bodyText{
 				color: #fff;
 			}
-			.titleAbout {
-				color: #e95b12;
+			.titleAbout, .price {
+				color: <?= $colors["headerColor"] ?>;
+			}
+
+			.productCard figcaption {
+			    border-top: 3px solid <?= $colors["headerColor"] ?>;
 			}
 
 
