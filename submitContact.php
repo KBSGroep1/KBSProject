@@ -4,6 +4,19 @@
 
 session_start();
 
+if(isset($_SERVER["HTTP_HOST"]))
+	$requestedDomain = $_SERVER["HTTP_HOST"];
+if(isset($_SESSION["domain"]))
+	$requestedDomain = $_SESSION["domain"];
+if(!isset($requestedDomain)) {
+	http_response_code(404);
+	echo "404 Page Not Found";
+
+	// TODO: remove
+	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
+	exit;
+}
+
 if(!isset($_POST["fullname"]) || !isset($_POST["message"])) {
 	header("Location: /#pageContact");
 	$_SESSION["contactError"] = "Name and message are required fields";
@@ -16,7 +29,7 @@ $dbh = new PDO("mysql:"
 	. ";dbname=" . $config["db"],
 	$config["username"], $config["password"]);
 $stmt = $dbh->prepare("SELECT websiteID, name FROM website WHERE name = :name ");
-$stmt->bindParam("name", $_SESSION["domain"]);
+$stmt->bindParam("name", $requestedDomain);
 $stmt->execute();
 $result = $stmt->fetch();
 
@@ -49,7 +62,7 @@ $result2 = $stmt->fetch();
 
 $to = $submittedEmail;
 $subject = 'Contact opname bevestiging';
-$message = 'Beste ' . $submittedName . ', bij deze een bevestiging van uw verzonden bericht. <Uw bericht> ' . $submittedMessage .' We zullen zo spoedig mogelijk reageren. Met vriendelijke groet, de crew van ' . $requestedWebsite;
+$message = "Beste " . $submittedName . ", \r\n\r\nBij deze een bevestiging van uw verzonden bericht. \r\nWe zullen zo spoedig mogelijk reageren. \r\nMet vriendelijke groet, de crew van " . $requestedWebsite. ". \r\n\r\nUw bericht: ". $submittedMessage;
 $headers = 'From: ' . $result2["text"];
 mail($to, $subject, $message, $headers);
 

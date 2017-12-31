@@ -1,6 +1,6 @@
 <?php
 include 'include/init.php';
-include 'include/topBar.php'; 
+include 'include/topBar.php';
 include 'include/sideBar.php';
 
 if (isset($_SESSION['site'])) {
@@ -15,10 +15,10 @@ if (isset($_SESSION['site'])) {
 		<?php
 		if (isset($_SESSION["site"])) {
 			if ($_SESSION["site"] == 0) {
-				$stmt = $dbh->prepare("SELECT productID, name, price, description, active FROM product");
+				$stmt = $dbh->prepare("SELECT productID, name, price, description, subInfo, active FROM product");
 			}
 			else {
-				$stmt = $dbh->prepare("SELECT productID, name, price, description, active FROM product WHERE websiteID = :websiteID");
+				$stmt = $dbh->prepare("SELECT productID, name, price, description, subInfo, active FROM product WHERE websiteID = :websiteID");
 				$stmt->bindParam(":websiteID", $_SESSION["site"]);
 			}
 			$stmt->execute();
