@@ -1,14 +1,15 @@
 <div class="products" id="pageProducts">
 	<div id="productsContainer" class="paraContainer"><div class="blackLayerProducts"></div></div>
 	<div class="textContainer paddingTopBottom30">
-			<h1 class="titleAbout"><?php echo $texts["productTitle"]; ?></h1>
-			<p class="bodyText">
+			<h1 class="titleAbout"<?= cEditable("productTitle") ?>><?= $texts["productTitle"] ?></h1>
+			<p class="bodyText" <?= cEditable("productText") ?>>
 				<?php echo $texts["productText"]; ?>
 			</p>
 	</div>
 	<div class="textContainer2">
 <?php
-foreach($products as $product) {
+if(isset($editing) && !$editing) {
+	foreach($products as $product) {
 ?>
 		<figure class="productCard">
 			<div class="productInfoLayer visiblepanel" id="product<?= $product["productID"] ?>">
@@ -36,9 +37,13 @@ foreach($products as $product) {
 			</figcaption>
 		</figure>
 <?php
+	}
+?>
+		<!-- dont remove this -->
+		<div class="invisible">...</div>
+<?php
 }
 ?>
-		<!-- TODO: why is this here? -->
-		<div class="invisible">...</div>
+
 	</div>
 </div>

@@ -56,3 +56,7 @@ $result = $stmt->fetch();
 
 $websiteID = intval($result["websiteID"]);
 $websiteDomain = $result["name"];
+
+// These are used by templates for the CMS. Just ignore them.
+$editing = false;
+function cEditable() {}

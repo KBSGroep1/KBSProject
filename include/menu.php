@@ -8,16 +8,16 @@
                     <div class="navContainer clearfix">
                         <ul class="clearfix">
                             <li>
-                                <a title="Brand" href="#pageBrand"><?php echo $texts["menuBrand"]; ?></a>
+                                <a title="Brand" href="#pageBrand" <?= cEditable("menuBrand", true) ?>><?php echo $texts["menuBrand"]; ?></a>
                             </li>
                             <li>
-                                <a title="About Us" href="#pageAbout"><?php echo $texts["menuAbout"]; ?></a>
+                                <a title="About Us" href="#pageAbout" <?= cEditable("menuAbout", true) ?>><?php echo $texts["menuAbout"]; ?></a>
                             </li>
                             <li>
-                                <a title="The product" href="#pageProducts"><?php echo $texts["menuProducts"]; ?></a>
+                                <a title="The product" href="#pageProducts" <?= cEditable("menuProducts", true) ?>><?php echo $texts["menuProducts"]; ?></a>
                             </li>
                             <li>
-                                <a title="Contact Us" href="#pageContact"><?php echo $texts["menuContact"]; ?></a>
+                                <a title="Contact Us" href="#pageContact" <?= cEditable("menuContact", true) ?>><?php echo $texts["menuContact"]; ?></a>
                             </li>
                         </ul>
                     </div>
