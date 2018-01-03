@@ -34,22 +34,22 @@ while($color = $query3->fetch()) {
 		<style media="screen">
 
 			.contactIcon i, .contact h3:after, .buttonColor{
-				background-color: <?= $colors["headerColor"] ?>;
+				background-color: <?= $colors["mainThemeColor"] ?>;
 			}
 
 			.productName{
-				border-bottom: 2px solid <?= $colors["headerColor"] ?>;
+				border-bottom: 2px solid <?= $colors["mainThemeColor"] ?>;
 			}
 
 			.bodyText{
 				color: #fff;
 			}
 			.titleAbout, .price {
-				color: <?= $colors["headerColor"] ?>;
+				color: <?= $colors["mainThemeColor"] ?>;
 			}
 
 			.productCard figcaption {
-			    border-top: 3px solid <?= $colors["headerColor"] ?>;
+			    border-top: 3px solid <?= $colors["mainThemeColor"] ?>;
 			}
 
 
