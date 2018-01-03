@@ -1,5 +1,4 @@
 <?php
-// TODO: use colors from database
 session_start();
 error_reporting(E_ALL);
 
@@ -34,10 +33,17 @@ catch(PDOException $e) {
 }
 
 $texts = [];
+$colors = [];
+
 if($existingWebsite) {
 	$query = $dbh->query("SELECT textName, text FROM text WHERE websiteID = $websiteID");
 	while($text = $query->fetch()) {
 		$texts[$text["textName"]] = $text["text"];
+	}
+
+	$query2 = $dbh->query("SELECT colorName, hex FROM color WHERE websiteID = $websiteID");
+	while($color = $query2->fetch()) {
+		$colors[$color["colorName"]] = $color["hex"];
 	}
 }
 else {
@@ -45,15 +51,20 @@ else {
 	while($text = $query->fetch()) {
 		$texts[$text["textName"]] = $text["textName"];
 	}
+
+	$query2 = $dbh->query("SELECT colorName FROM colorDescription");
+	while($color = $query2->fetch()) {
+		$colors[$color["colorName"]] = $color["colorName"];
+	}
 }
 
 $editing = true;
 
-/* This function eturns a bit of HTML along the likes of
+/* This function returns a bit of HTML along the likes of
    contenteditable data-textname="$name" data-disabledlink="$disabledlink"
    Basically just a shorthand so we don't pollute the HTML */
 function cEditable($name, $disabledLink = false) {
-	return "contenteditable data-textname=\"$name\"" . ($disabledLink ? "data-disabledlink=\"true\" " : "");
+	return "contenteditable data-textname=\"$name\" " . ($disabledLink ? "data-disabledlink=\"true\" " : "");
 }
 ?>
 <!DOCTYPE html>
@@ -66,27 +77,21 @@ function cEditable($name, $disabledLink = false) {
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'>
 		<style media="screen">
-
-			.contactIcon i, .contact h3:after{
-				background-color: #e95b12;
+			.contactIcon i, .contact h3:after, .buttonColor{
+				background-color: <?= $colors["mainThemeColor"] ?>;
 			}
-
 			.productName{
-				border-bottom: 2px solid #e95b12;
+				border-bottom: 2px solid <?= $colors["mainThemeColor"] ?>;
 			}
-
-			.buttonColor{
-				background-color: #e95b12;
-			}
-
 			.bodyText{
 				color: #fff;
 			}
-			.titleAbout {
-				color: #e95b12;
+			.titleAbout, .price {
+				color: <?= $colors["mainThemeColor"] ?>;
 			}
-
-
+			.productCard figcaption {
+			    border-top: 3px solid <?= $colors["mainThemeColor"] ?>;
+			}
 		</style>
 	</head>
 	<body>
@@ -109,15 +114,15 @@ function cEditable($name, $disabledLink = false) {
 		<script>
 
 			$('#homeContainer').parallax({
-				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg1.jpg'
+				imageSrc: 'img/bg/<?= file_exists("img/bg/$websiteID-bg1.jpg") ? "$websiteID-bg1.jpg" : 'nonexistent.png'; ?>'
 			});
 
 			$('#aboutContainer').parallax({
-				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg2.jpg'
+				imageSrc: 'img/bg/<?= file_exists("img/bg/$websiteID-bg2.jpg") ? "$websiteID-bg2.jpg" : 'nonexistent.png'; ?>'
 			});
 
 			$('#productsContainer').parallax({
-				imageSrc: 'img/bg/<?php echo $websiteID; ?>-bg3.jpg'
+				imageSrc: 'img/bg/<?= file_exists("img/bg/$websiteID-bg3.jpg") ? "$websiteID-bg3.jpg" : 'nonexistent.png'; ?>'
 			});
  
 			$("*[data-disabledlink]").removeAttr("href");
