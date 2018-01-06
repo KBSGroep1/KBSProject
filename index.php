@@ -28,6 +28,7 @@ while($color = $query3->fetch()) {
 		<title><?= $texts["pageTitle"] ?></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel='shortcut icon' type='image/x-icon' href='img/logo/<?= $websiteID . "-favicon.ico" ?>' />
 		<link href="css/style.css" rel="stylesheet" />
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">

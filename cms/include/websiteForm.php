@@ -174,7 +174,7 @@ $query3 = null;
 			// Update <img> next to <input> element
 			elem.previousSibling.previousSibling.style.backgroundImage = 'url(' + e.target.result + ')';
 			elem.previousSibling.previousSibling.style.backgroundSize = '100% auto';
-			
+
 			// Update iframe background
 
 			if(elem.dataset.index === undefined) return;
