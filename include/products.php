@@ -1,14 +1,14 @@
 <div class="products" id="pageProducts">
-	<div id="productsContainer" class="paraContainer"><div class="blackLayerProducts"></div></div>
+	<div id="productsContainer" class="paraContainer">
+		<div class="blackLayerProducts"></div>
+	</div>
 	<div class="textContainer paddingTopBottom30">
-			<h1 class="titleAbout"<?= cEditable("productTitle") ?>><?= $texts["productTitle"] ?></h1>
-			<p class="bodyText" <?= cEditable("productText") ?>>
-				<?php echo $texts["productText"]; ?>
-			</p>
+		<h1 class="titleAbout"<?= cEditable("productTitle") ?>><?= $texts["productTitle"] ?></h1>
+		<p class="bodyText" <?= cEditable("productText") ?>><?php echo $texts["productText"]; ?></p>
 	</div>
 	<div class="textContainer2">
 <?php
-if(isset($editing) && !$editing) {
+if($editing !== true) { // $editing might not exist
 	foreach($products as $product) {
 ?>
 		<figure class="productCard">
@@ -22,21 +22,14 @@ if(isset($editing) && !$editing) {
 			<figcaption id="hoverProduct<?= $product["productID"] ?>">
 				<div class="productText">
 					<h3><?= $product["name"] ?></h3>
-					<!-- TODO: what is 'black edition' ?? -->
 					<p><?= $product["subInfo"] ?> <i class="fa fa-info-circle" aria-hidden="true"></i></p>
 				</div>
-				<?php
-				$price = intval($product["price"]) / 100;
-				if(is_float($price)){
-					 echo "<div class='price'>€ " . str_replace('.', ',', $price) ."</div>";
-					}
-					else {
-						echo "<div class='price'>€ " .$price .",-</div>";
-					}
-				 ?>
-			</figcaption>
-		</figure>
 <?php
+		$price = intval($product["price"]) / 100;
+		echo "<div class=\"price\">€ ";
+		echo is_float($price) ? str_replace('.', ',', $price) : $price . ",-";
+		echo "</div>";
+		echo "</figcaption></figure>";
 	}
 ?>
 		<!-- dont remove this -->

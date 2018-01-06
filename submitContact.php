@@ -42,8 +42,9 @@ if(isset($_SERVER["HTTP_HOST"]))
 	$requestedWebsite = $_SERVER["HTTP_HOST"];
 if(isset($_SESSION["domain"]))
 	$requestedWebsite = $_SESSION["domain"];
-else{
-$requestedWebsite = 'sb1.ictm1l.nl';
+else {
+	// TODO: what is this?
+	$requestedWebsite = 'sb1.ictm1l.nl';
 }
 
 if(strlen($submittedName) < 1
@@ -61,13 +62,13 @@ $stmt->execute();
 $result2 = $stmt->fetch();
 
 $to = $submittedEmail;
-$subject = 'Contact opname bevestiging';
+$subject = 'Contactopname bevestiging';
 $message = "Beste " . $submittedName . ", \r\n\r\nBij deze een bevestiging van uw verzonden bericht. \r\nWe zullen zo spoedig mogelijk reageren. \r\nMet vriendelijke groet, de crew van " . $requestedWebsite. ". \r\n\r\nUw bericht: ". $submittedMessage;
 $headers = 'From: ' . $result2["text"];
 mail($to, $subject, $message, $headers);
 
 $to1 = $result2["text"];
-$subject1 = 'Contact opname ' . $requestedWebsite . ' van ' . $submittedName;
+$subject1 = 'Contactopname ' . $requestedWebsite . ' van ' . $submittedName;
 $message1 = $submittedMessage;
 $headers1 = 'From: ' . $submittedEmail;
 mail($to1, $subject1, $message1, $headers1);
