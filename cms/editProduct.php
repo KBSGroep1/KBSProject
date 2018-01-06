@@ -69,24 +69,24 @@ $result = $stmt->fetch();
 <form method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="name">Productnaam</label>
-		<input type="text" name="name" id="name" class="form-control" value="<?php echo $result["name"]; ?>">
+		<input type="text" name="name" id="name" class="form-control" required value="<?php echo $result["name"]; ?>">
 	</div>
 	<div class="form-group">
 		<label for="description">Beschrijving</label>
-		<textarea name="description" id="description" class="form-control"><?php echo $result["description"]; ?></textarea>
+		<textarea name="description" id="description" required class="form-control"><?php echo $result["description"]; ?></textarea>
 	</div>
 	<div class="form-group">
 		<label for="price">Editie, kleur etc.</label>
-		<input type="text" name="subInfo" id="subInfo" class="form-control" value="<?php echo $result["subInfo"]; ?>">
+		<input type="text" name="subInfo" id="subInfo" required class="form-control" value="<?php echo $result["subInfo"]; ?>">
 	</div>
 	<div class="form-group">
 		<label for="price">Prijs (€)</label>
-		<input type="number" name="price" id="price" class="form-control" step="0.01" value="<?php echo $result["price"] / 100; ?>">
+		<input type="number" name="price" id="price" required class="form-control" step="0.01" value="<?php echo $result["price"] / 100; ?>">
 	</div>
 	<div class="form-group">
 		<label for="price">Kleine productafbeelding</label><br />
 		<img height="100" class="imgPreview" src="../img/products/<?php echo $productID; ?>-small.jpg" alt="" /><br />
-		<input type="file" name="imageSmall" id="imageSmall" class="form-control-file imgUpload">
+		<input type="file" name="imageSmall" id="imageSmall"  class="form-control-file imgUpload">
 	</div>
 	<div class="form-group"><br />
 		<label for="imageLarge">Grote productafbeelding</label><br />
