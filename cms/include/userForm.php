@@ -16,7 +16,7 @@ if(isset($_SESSION["errorU"]) && !empty($_SESSION["errorU"])) {
 	$_SESSION["errorU"] = null;
 }
 ?>
-				<input type="text" id="username" name="username" placeholder="Gebruikersnaam" value="<?= $user["username"] ?>" />
+				<input type="text" required id="username" name="username" placeholder="Gebruikersnaam" value="<?= $user["username"] ?>" />
 			</div>
 			<div class="form-group">
 				<label for="password1">Wachtwoord</label><br />
@@ -26,8 +26,8 @@ if(isset($_SESSION["errorPW"]) && !empty($_SESSION["errorPW"])) {
 	$_SESSION["errorPW"] = null;
 }
 ?>
-				<input type="password" id="password1" name="password1" placeholder="Wachtwoord" /><br /><br />
-				<input type="password" name="password2" placeholder="Herhaal wachtwoord" />
+				<input type="password" required id="password1" name="password1" placeholder="Wachtwoord" /><br /><br />
+				<input type="password" required name="password2" placeholder="Herhaal wachtwoord" />
 			</div>
 			<div class="form-group">
 				<label>Rol</label><br />
