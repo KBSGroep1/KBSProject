@@ -30,7 +30,7 @@ while($color = $query3->fetch()) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="css/style.css" rel="stylesheet" />
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
-		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css'>
+		<link rel="stylesheet prefetch" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css">
 		<style media="screen">
 
 			.contactIcon i, .contact h3:after, .buttonColor{

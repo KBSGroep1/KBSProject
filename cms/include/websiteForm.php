@@ -37,17 +37,24 @@
 	</section>
 
 	<section id="content2">
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg1.jpg" alt="" />
+		<script>
+
+			function imageLoad(elem) {
+				elem.style.backgroundImage = 'url(' + this.src + ')';
+				elem.style.backgroundSize = '100% auto';
+			}
+
+		</script>
+
+		<img height="60" class="imagePreview" onload="imageLoad(this)" src="../img/bg/<?= $websiteID ?>-bg1.jpg" alt="" />
 		Eerste achtergrondfoto (1920x1080, .jpg): <input data-index="1" type="file" name="bg1" class="imgUpload" accept="image/jpeg" /><br />
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg2.jpg" alt="" />
+		<img height="60" class="imagePreview" onload="imageLoad(this)" src="../img/bg/<?= $websiteID ?>-bg2.jpg" alt="" />
 		Tweede achtergrondfoto (1920x1080, .jpg): <input data-index="2" type="file" name="bg2" class="imgUpload" accept="image/jpeg" /><br />
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg3.jpg" alt="" />
+		<img height="60" class="imagePreview" onload="imageLoad(this)" src="../img/bg/<?= $websiteID ?>-bg3.jpg" alt="" />
 		Derde achtergrondfoto (1920x1080, .jpg): <input data-index="3" type="file" name="bg3" class="imgUpload" accept="image/jpeg" /><br />
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-smallLogo.svg" alt="" />
-		Klein logo (128x128, .svg): <input type="file" name="smallLogo" class="imgUpload" accept="image/svg+xml" /><br />
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-largeLogo.svg" alt="" />
-		Groot logo(300x78, .svg): <input type="file" name="largeLogo" class="imgUpload" accept="image/svg+xml" /><br />
-		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-favicon.ico" alt="" />
+		<img height="60" class="imagePreview" onload="imageLoad(this)" src="../img/logo/<?= $websiteID ?>-logo.svg" alt="" />
+		Logo (300x78, .svg): <input type="file" name="logo" data-index="4" class="imgUpload" accept="image/svg+xml" /><br />
+		<img height="60" class="imagePreview" onload="imageLoad(this)" src="../img/logo/<?= $websiteID ?>-favicon.ico" alt="" />
 		Favicon (.ico): <input type="file" name="favicon" class="imgUpload" accept="image/x-icon" /><br />
 
 		<input type="submit" value="Opslaan" />
@@ -172,10 +179,15 @@ $query3 = null;
 
 			if(elem.dataset.index === undefined) return;
 
-			// parallax.js makes it tricky to change a background in an iframe, this comes close enough
-			let index = 3 - parseInt(elem.dataset.index, 10);
-			let bg = iframe.contents().find(".parallax-slider");
-			bg[index].src = e.target.result;
+			if(elem.dataset.index === "4") { // Logo in the top bar
+				iframe.contents().find("#topBarLogo")[0].src = e.target.result;
+			}
+			else { // It's a background image
+				// parallax.js makes it tricky to change a background in an iframe, this comes close enough
+				let index = 3 - parseInt(elem.dataset.index, 10);
+				let bg = iframe.contents().find(".parallax-slider");
+				bg[index].src = e.target.result;
+			}
 		});
 
 		reader.readAsDataURL(this.files[0]);

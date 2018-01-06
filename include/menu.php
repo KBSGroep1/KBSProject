@@ -25,7 +25,7 @@
             </div>
           </div>
             <div id="logoContainer" class="logoContainer">
-                <img alt="logo" src="img/logo/1-largeLogo.svg">
+                <img alt="logo" id="topBarLogo" src="img/logo/<?= $websiteID . "-logo.svg" ?>">
             </div>
         </div>
     </nav>

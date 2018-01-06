@@ -46,8 +46,7 @@ function try_to_upload_img($file, $type, $path) {
 try_to_upload_img($_FILES["bg1"], "image/jpeg", "../img/bg/$websiteID-bg1.jpg");
 try_to_upload_img($_FILES["bg2"], "image/jpeg", "../img/bg/$websiteID-bg2.jpg");
 try_to_upload_img($_FILES["bg3"], "image/jpeg", "../img/bg/$websiteID-bg3.jpg");
-try_to_upload_img($_FILES["smallLogo"], "image/svg+xml", "../img/logo/$websiteID-smallLogo.svg");
-try_to_upload_img($_FILES["largeLogo"], "image/svg+xml", "../img/logo/$websiteID-largeLogo.svg");
+try_to_upload_img($_FILES["logo"], "image/svg+xml", "../img/logo/$websiteID-logo.svg");
 try_to_upload_img($_FILES["favicon"], "image/x-icon", "../img/logo/$websiteID-favicon.ico");
 
 // 3. Update colors
