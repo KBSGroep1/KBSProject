@@ -8,7 +8,7 @@ if(isset($_GET["websiteID"]) && is_numeric($_GET["websiteID"])
 	$existingWebsite = intval($_GET["existingWebsite"]) === 1;
 }
 
-if(!$_SESSION["loggedIn"] || $_SESSION["userRole"] < 3) {
+if(!$_SESSION["loggedIn"] || $_SESSION["userRole"] < 2) {
 	http_response_code(403);
 	echo "403 Forbidden";
 	exit;

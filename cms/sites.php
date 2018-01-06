@@ -4,8 +4,8 @@ include "include/topBar.php";
 include 'include/sideBar.php';
 
 if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 2) {
-	http_send_status(401);
-	echo "401 Unauthorized";
+	http_response_code(403);
+	echo "403 Forbidden";
 	exit;
 }
 
