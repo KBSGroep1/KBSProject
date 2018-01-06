@@ -6,7 +6,7 @@
 		}else{
 			print("href='sites.php'");
 		}  
-		?>>Website</a></li>
+		?>>Websites</a></li>
 		<li <?php if (fnmatch("*ser*", $_SERVER["PHP_SELF"])) { print("class='active'");} if ($_SESSION["userRole"] < 3){ print("class='disabled'");}?>> <a <?php if($_SESSION["userRole"] < 3){
 		}else{
 			print("href='users.php'");

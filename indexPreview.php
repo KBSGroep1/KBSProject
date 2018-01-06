@@ -54,7 +54,7 @@ else {
 
 	$query2 = $dbh->query("SELECT colorName FROM colorDescription");
 	while($color = $query2->fetch()) {
-		$colors[$color["colorName"]] = $color["colorName"];
+		$colors[$color["colorName"]] = "#AAA";
 	}
 }
 

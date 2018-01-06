@@ -1,117 +1,4 @@
-<style>
-
-	/* TODO: finish and move to a css file */
-
-	input[type=file] {
-		display: inline-block;
-	}
-
-	section {
-		display: none;
-		padding: 20px 0 0;
-		border-top: 1px solid #ddd;
-	}
-
-	#content5 {
-		padding-top: 0;
-	}
-
-	#content3 th,
-	#content4 th {
-		border-top-width: 0;
-	}
-
-	label {
-		display: inline-block;
-		margin: 0 0 -1px;
-		padding: 8px 25px;
-		font-weight: 600;
-		text-align: center;
-		color: #bbb;
-		border: 1px solid transparent;
-	}
-
-	label:before {
-		font-family: fontawesome;
-		font-weight: normal;
-		margin-right: 10px;
-	}
-
-	label[for*='1']:before {
-		content: "\f05a";
-	}
-
-	label[for*='2']:before {
-		content: "\f1c5";
-	}
-
-	label[for*='3']:before {
-		content: "\f1fc";
-	}
-
-	label[for*='4']:before {
-		content: "\f044";
-	}
-
-	label[for*='5']:before {
-		content: "\f06e";
-	}
-
-	.displayNone {
-		display: none;
-	}
-
-	label:hover {
-		color: #888;
-		cursor: pointer;
-	}
-
-	input:checked + label {
-		color: #555;
-		border: 1px solid #ddd;
-		border-top: 2px solid red;
-		border-bottom: 1px solid #fff;
-	}
-
-	#tab1:checked ~ #content1,
-	#tab2:checked ~ #content2,
-	#tab3:checked ~ #content3,
-	#tab4:checked ~ #content4,
-	#tab5:checked ~ #content5 {
-		display: block;
-	}
-
-	#previewSidebar {
-		display: inline-block;
-		vertical-align: top;
-		max-width: 280px;
-		padding: 8px;
-	}
-
-	@media screen and (max-width: 650px) {
-		label {
-			font-size: 0;
-		}
-		
-		label:before {
-			margin: 0;
-			font-size: 18px;
-		}
-	}
-
-	@media screen and (max-width: 400px) {
-		label {
-			padding: 15px;
-		}
-	}
-
-	@media screen and (max-width: 1900px) {
-		#tab5, label[for*='5'] {
-			display: none;
-		}
-	}
-
-</style>
+<link rel="stylesheet" type="text/css" href="../css/websiteForm.css" />
 <h1><?= $existingWebsite ? $result["name"] : "Nieuwe website" ?></h1>
 
 <!--
@@ -124,6 +11,7 @@
 -->
 
 <main>
+<form method="POST" action="saveWebsite.php" enctype="multipart/form-data">
 	<input class="displayNone" id="tab1" type="radio" name="tabs" checked />
 	<label for="tab1">Algemeen</label>
 
@@ -136,11 +24,10 @@
 	<input class="displayNone" id="tab4" type="radio" name="tabs" />
 	<label for="tab4">Teksten</label>
 
-	<input class="displayNone" id="tab5" type="radio" name="tabs" checked />
+	<input class="displayNone" id="tab5" type="radio" name="tabs" />
 	<label for="tab5">Live preview</label>
 
 	<section id="content1">
-		<form method="POST" action="saveWebsite.php" enctype="multipart/form-data">
 		<input type="hidden" name="websiteID" value="<?php echo $websiteID ?>" />
 		Domeinnaam: <input type="text" name="websiteName" id="domainName" placeholder="Voorbeeld: toolwelle.com" value="<?= $existingWebsite ? $result["name"] : "" ?>" /><br />
 		Website actief: <input type="checkbox" name="websiteActive" <?= $result["active"] == 1 ? "checked" : "" ?>><br />
@@ -163,7 +50,6 @@
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-favicon.ico" alt="" />
 		Favicon (.ico):<input type="file" name="favicon" class="imgUpload" accept="image/x-icon" /><br />
 
-		<input type="reset" value="Annuleren" />
 		<input type="submit" value="Opslaan" />
 	</section>
 
@@ -185,7 +71,7 @@ $query4 = $dbh->query("SELECT cd.colorName, cd.description, c.hex
 		echo "<tr>";
 		echo "<td>" . $t["colorName"] . "</td>";
 		echo "<td>" . $t["description"] . "</td>";
-		echo "<td><input type=\"color\" value=\"" . $t["hex"] . "\" name=\"" . $t["colorName"] . "\" /></td>";
+		echo "<td><input type=\"color\" value=\"" . ($t["hex"] === null ? "#AAAAAA" : $t["hex"]) . "\" name=\"" . $t["colorName"] . "\" /></td>";
 		echo "</tr>";
 	}
 
@@ -210,8 +96,8 @@ $query3 = $dbh->query("SELECT td.textName, td.description, td.exampleText, t.tex
 
 while($t = $query3->fetch()) {
 	echo "<tr>";
-	echo "<td>" . $t["textName"] . "</td>";
-	echo "<td>" . $t["description"] . "</td>";
+	echo "<td class=\"tName\">" . $t["textName"] . "</td>";
+	echo "<td class=\"tDescription\">" . $t["description"] . "</td>";
 	echo "<td><textarea class=\"tab4Input\" data-textname=\"" . $t["textName"] . "\" name=\"" . $t["textName"] . "\" placeholder=\"Voorbeeld: " . $t["exampleText"] . "\">" . $t["text"] . "</textarea></td>";
 	echo "</tr>";
 }
@@ -232,9 +118,8 @@ $query3 = null;
 		</p>
 		<input type="submit" value="Opslaan" />
 	</div>
-</form>
 </section>
-
+</form>
 </main>
 
 <script>
@@ -279,7 +164,9 @@ $query3 = null;
 		var reader = new FileReader();
 		var elem = this;
 		reader.addEventListener("load", function(e) {
-			elem.previousSibling.previousSibling.setAttribute("src", e.target.result);
+			// Update <img> next to <input> element
+			elem.previousSibling.previousSibling.style.backgroundImage = 'url(' + e.target.result + ')';
+			elem.previousSibling.previousSibling.style.backgroundSize = '100% auto';
 			
 			// Update iframe background
 
@@ -316,6 +203,19 @@ $query3 = null;
 				$("#domainCheck").html(r);
 			}})
 		}, 1000);
+	});
+
+	$("input[type=submit]").on("click", function(e) {
+		$("input:not([type=submit], [type=checkbox], [type=radio], [type=file]), textarea").each(function(i, g) {
+			if(this.value.length < 1) {
+				alert("Niet alle vereiste velden zijn ingevuld");
+				e.preventDefault();
+				return false;
+			}
+		});
+
+		// e.preventDefault();
+		// return false;
 	});
 
 </script>

@@ -30,6 +30,7 @@ if(isset($_SESSION["contactError"]) && !empty($_SESSION["contactError"])) {
 				<div class="col-md-4 col-sm-12 col-xs-12">
 					<div class="contact">
 						<h3 class="marginBottom50"<?= cEditable("footerRightTitle") ?>><?php echo $texts["footerRightTitle"]; ?></h3>
+						<p <?= cEditable("footerRightText") ?>><?= $texts["footerRightText"] ?></p>
 					</div>
 					<div class="col-md-2 col-sm-2 col-xs-2">
 						<div class="row">

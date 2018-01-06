@@ -1,0 +1,134 @@
+input[type=file] {
+	display: inline-block;
+}
+
+section {
+	display: none;
+	padding: 20px 0 0;
+	border-top: 1px solid #ddd;
+}
+
+#content5 {
+	padding-top: 0;
+}
+
+#content3 th,
+#content4 th {
+	border-top-width: 0;
+}
+
+label {
+	display: inline-block;
+	margin: 0 0 -1px;
+	padding: 8px 25px;
+	font-weight: 600;
+	text-align: center;
+	color: #bbb;
+	border: 1px solid transparent;
+}
+
+label:before {
+	font-family: fontawesome;
+	font-weight: normal;
+	margin-right: 10px;
+}
+
+label[for*='1']:before {
+	content: "\f05a";
+}
+
+label[for*='2']:before {
+	content: "\f1c5";
+}
+
+label[for*='3']:before {
+	content: "\f1fc";
+}
+
+label[for*='4']:before {
+	content: "\f044";
+}
+
+label[for*='5']:before {
+	content: "\f06e";
+}
+
+.displayNone {
+	display: none;
+}
+
+label:hover {
+	color: #888;
+	cursor: pointer;
+}
+
+input:checked + label {
+	color: #555;
+	border: 1px solid #ddd;
+	border-top: 2px solid red;
+	border-bottom: 1px solid #fff;
+}
+
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4,
+#tab5:checked ~ #content5 {
+	display: block;
+}
+
+#previewSidebar {
+	display: inline-block;
+	vertical-align: top;
+	max-width: 280px;
+	padding: 8px;
+}
+
+.tName {
+	width: 180px;
+}
+
+.tDescription {
+	width: 340px;
+}
+
+.tab4Input {
+	width: 600px;
+	height: 100px;
+}
+
+.imagePreview {
+	min-width: 140px;
+	height: 60px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	margin-right: 8px;
+	margin-bottom: 8px;
+	background-image: url('../img/no-img-uploaded.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 24px;
+}
+
+@media screen and (max-width: 650px) {
+	label {
+		font-size: 0;
+	}
+	
+	label:before {
+		margin: 0;
+		font-size: 18px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	label {
+		padding: 15px;
+	}
+}
+
+@media screen and (max-width: 1900px) {
+	#tab5, label[for*='5'] {
+		display: none;
+	}
+}
