@@ -20,7 +20,6 @@ if(!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = false;
 if(!isset($_SESSION["userID"]))   $_SESSION["userID"] = -1;
 if(!isset($_SESSION["userName"])) $_SESSION["userName"] = null;
 if(!isset($_SESSION["userRole"])) $_SESSION["userRole"] = 0;
-if(!isset($_SESSION["role"]))     $_SESSION["role"] = 0; // TODO: use userRole everywhere
 
 $config = parse_ini_file("config/config.ini");
 

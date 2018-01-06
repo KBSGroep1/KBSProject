@@ -38,17 +38,17 @@
 
 	<section id="content2">
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg1.jpg" alt="" />
-		Eerste achtergrondfoto (.jpg):<input data-index="1" type="file" name="bg1" class="imgUpload" accept="image/jpeg" /><br />
+		Eerste achtergrondfoto (1920x1080, .jpg): <input data-index="1" type="file" name="bg1" class="imgUpload" accept="image/jpeg" /><br />
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg2.jpg" alt="" />
-		Tweede achtergrondfoto (.jpg):<input data-index="2" type="file" name="bg2" class="imgUpload" accept="image/jpeg" /><br />
+		Tweede achtergrondfoto (1920x1080, .jpg): <input data-index="2" type="file" name="bg2" class="imgUpload" accept="image/jpeg" /><br />
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-bg3.jpg" alt="" />
-		Derde achtergrondfoto (.jpg):<input data-index="3" type="file" name="bg3" class="imgUpload" accept="image/jpeg" /><br />
+		Derde achtergrondfoto (1920x1080, .jpg): <input data-index="3" type="file" name="bg3" class="imgUpload" accept="image/jpeg" /><br />
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-smallLogo.svg" alt="" />
-		Klein logo (.png):<input type="file" name="smallLogo" class="imgUpload" accept="image/svg+xml" /><br />
+		Klein logo (128x128, .svg): <input type="file" name="smallLogo" class="imgUpload" accept="image/svg+xml" /><br />
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-largeLogo.svg" alt="" />
-		Groot logo(.png):<input type="file" name="largeLogo" class="imgUpload" accept="image/svg+xml" /><br />
+		Groot logo(300x78, .svg): <input type="file" name="largeLogo" class="imgUpload" accept="image/svg+xml" /><br />
 		<img height="80" class="imagePreview" src="../img/bg/<?= $websiteID ?>-favicon.ico" alt="" />
-		Favicon (.ico):<input type="file" name="favicon" class="imgUpload" accept="image/x-icon" /><br />
+		Favicon (.ico): <input type="file" name="favicon" class="imgUpload" accept="image/x-icon" /><br />
 
 		<input type="submit" value="Opslaan" />
 	</section>

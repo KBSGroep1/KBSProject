@@ -50,9 +50,7 @@ $stmt1->bindParam(":active", $submittedActive);
 $stmt1->execute();
 
 if(!empty($submittedPassword1)) {
-
 	$hashedPassword = password_hash($submittedPassword1, PASSWORD_DEFAULT);
-
 	$dbh->query("UPDATE user SET password = '$hashedPassword' WHERE userID = $submittedUserID");
 }
 

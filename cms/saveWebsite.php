@@ -1,7 +1,11 @@
 <?php
-// TODO: test for user role
+require_once "include/init.php";
 
-include "include/init.php";
+if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 2) {
+	http_response_code(403);
+	echo "403 Forbidden";
+	exit;
+}
 
 if(!isset($_POST["websiteID"]) || !is_numeric($_POST["websiteID"])
 || !isset($_POST["websiteName"]) || empty($_POST["websiteName"])) {
