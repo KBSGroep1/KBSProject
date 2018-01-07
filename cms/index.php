@@ -7,7 +7,7 @@ if(isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
 
 $loginFailed = false;
 
-if(isset($_POST['username']) && isset($_POST['password'])) {
+if(isset($_POST["username"]) && isset($_POST["password"])) {
 	$config = parse_ini_file("../config/config.ini");
 
 	try {

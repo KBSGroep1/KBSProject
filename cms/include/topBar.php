@@ -1,3 +1,14 @@
+<?php
+if(!isset($_SESSION["site"]) || !is_numeric($_SESSION["site"])) {
+	$_SESSION["site"] = 0;
+}
+
+$sites = [];
+$q = $dbh->query("SELECT websiteID, name FROM website");
+while($row = $q->fetch()) {
+	$sites[intval($row["websiteID"])] = $row["name"];
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -20,35 +31,16 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-							<?php
-							if(isset($_SESSION["site"])) {
-								if($_SESSION["site"] == 0) {
-									echo "Alle websites";
-								}
-								else {
-									$stmt = $dbh->prepare("SELECT websiteID, name FROM website");
-									$stmt->execute();
-									while ($result = $stmt->fetch()) {
-										if($result["websiteID"] === $_SESSION["site"]) {
-											echo $result["name"];
-										}
-									}
-								}
-							}
-							else {
-								echo "Selecteer website";
-							}
-							?>
-						<span class="caret"></span></a>
+							<?= $_SESSION["site"] > 0 ? $sites[$_SESSION["site"]] : "Alle websites" ?>
+							<span class="caret"></span>
+						</a>
 						<ul class="dropdown-menu">
 							<li><a href="?site=0">Alle websites</a></li>
-							<?php
-							$stmt = $dbh->prepare("SELECT websiteID, name FROM website");
-							$stmt->execute();
-							while($result = $stmt->fetch()) {
-								echo "<li><a href=\"?site=" . $result["websiteID"] . "\">" . $result["name"] . "</a></li>";
-							}
-							?>
+<?php
+foreach($sites as $index => $site) {
+	echo "<li><a href=\"?site=" . $index . "\">" . $site . "</a></li>";
+}
+?>
 						</ul>
 					</li>
 				</ul>
