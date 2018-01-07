@@ -1,4 +1,7 @@
 <link rel="stylesheet" type="text/css" href="../css/websiteForm.css" />
+
+<main>
+
 <h1><?= $existingWebsite ? $result["name"] : "Nieuwe website" ?></h1>
 
 <!--
@@ -10,7 +13,6 @@
 	<a href="sites.php">Terug naar overzicht</a><br />
 -->
 
-<main>
 <form method="POST" action="saveWebsite.php" enctype="multipart/form-data">
 	<input class="displayNone" id="tab1" type="radio" name="tabs" checked />
 	<label for="tab1">Algemeen</label>

@@ -1,11 +1,17 @@
 <?php
-include "include/init.php";
+require_once "include/init.php";
 include "include/topBar.php";
 include "include/sideBar.php";
 
 if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] < 1) {
 	http_response_code(403);
 	echo "403 Forbidden";
+	exit;
+}
+
+if(!isset($_SESSION["site"]) || !is_numeric($_SESSION["site"])) {
+	// TODO: is this enough?
+	header("Location: products.php");
 	exit;
 }
 
@@ -18,8 +24,6 @@ function try_to_upload_img($file, $type, $path) {
 	return move_uploaded_file($file["tmp_name"], $path);
 }
 
-$websiteID = 1; // TODO: how do we do this?
-
 // Get product ID
 if(isset($_GET["productID"]) && is_numeric($_GET["productID"])) {
 	$productID = $_GET["productID"];
@@ -29,6 +33,8 @@ else {
 	$qResult = $q->fetch();
 	$productID = $qResult["productID"];
 }
+
+$saved = false;
 
 // This form handles itself, and this part handles the form
 if(isset($_POST["submit"])) {
@@ -54,9 +60,11 @@ if(isset($_POST["submit"])) {
 	$stmt->bindParam(":description", $submittedDescription);
 	$stmt->bindParam(":price", $submittedPrice);
 	$stmt->bindParam(":active", $submittedActive);
-	$stmt->bindParam(":websiteID", $_SESSION['site']); // TODO: how do we do this?
+	$stmt->bindParam(":websiteID", $_SESSION["site"]);
 	$stmt->execute();
 	$stmt = null;
+
+	$saved = true;
 }
 
 // The form is displayed no matter if the form has been handled
@@ -66,6 +74,10 @@ $stmt->execute();
 $result = $stmt->fetch();
 ?>
 <div class="topTextView">
+<?php
+if($saved)
+	echo "<div class=\"alert alert-success\" role=\"alert\">Product opgeslagen</div>";
+?>
 <form method="POST" enctype="multipart/form-data">
 	<div class="form-group">
 		<label for="name">Productnaam</label>
@@ -103,9 +115,10 @@ $result = $stmt->fetch();
 </form>
 </div>
 <script>
-$("input[type=file].imgUpload").on("change", function() {
+$("input[type=file].imgUpload").on("change", function(e) {
 	if(this.files[0].type !== "image/jpeg") {
 		alert("Je kan alleen .jpg uploaden");
+		e.preventDefault();
 		return false;
 	}
 
