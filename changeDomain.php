@@ -1,5 +1,9 @@
 <?php
-// TODO: remove this file
+if(true) {
+	http_response_code(404);
+	echo "404 Page Not Found";
+	exit;
+}
 
 session_start();
 

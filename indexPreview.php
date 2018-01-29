@@ -23,8 +23,7 @@ try {
 		. ";dbname=" . $config["db"],
 	$config["username"], $config["password"]);
 
-	// TODO: change so that it hides all errors
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) {
 	http_response_code(500);

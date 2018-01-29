@@ -10,9 +10,7 @@ if(isset($_SESSION["domain"]))
 if(!isset($requestedDomain)) {
 	http_response_code(404);
 	echo "404 Page Not Found";
-	
-	// TODO: remove
-	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
+	// echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
 	exit;
 }
 
@@ -30,8 +28,7 @@ try {
 		. ";dbname=" . $config["db"],
 	$config["username"], $config["password"]);
 
-	// TODO: remove
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	// $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e) {
 	echo "Failed to connect to database";
@@ -45,9 +42,7 @@ $stmt->execute();
 if($stmt->rowCount() !== 1) {
 	http_response_code(404);
 	echo "404 Page not found";
-
-	// TODO: remove
-	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
+	// echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
 	exit;
 }
 

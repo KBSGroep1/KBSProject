@@ -1,8 +1,6 @@
 <?php
 require "include/init.php";
 
-// TODO: style
-
 if(!isset($_GET["websiteID"]) || !is_numeric($_GET["websiteID"])) {
 	http_response_code(400);
 	echo "400 Bad Request";
