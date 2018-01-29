@@ -16,7 +16,7 @@ else {
 	include "include/topBar.php"; 
 	include "include/sideBar.php";
 	if(isset($_GET["delAll"]) && ($_GET["delAll"] == "ja")) {
-		echo "Alle berichten zijn verwijderd";
+		echo "<br />Alle berichten zijn verwijderd";
 		$stmt = $dbh->prepare("DELETE FROM contact");
 		$stmt->execute();
 	}

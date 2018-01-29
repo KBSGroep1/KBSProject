@@ -36,7 +36,7 @@ if(isset($_SERVER["HTTP_HOST"]))
 	$requestedWebsite = $_SERVER["HTTP_HOST"];
 if(isset($_SESSION["domain"]))
 	$requestedWebsite = $_SESSION["domain"];
-else {
+if(!isset($requestedWebsite)) {
 	http_response_code(400);
 	echo "400 Bad Request";
 	exit;
