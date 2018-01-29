@@ -14,9 +14,11 @@ while($row = $q->fetch()) {
 	<head>
 		<title>Wilpe CMS</title>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../css/cms.css">
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/cms.css" />
 		<link href="../css/font-awesome.min.css" rel="stylesheet" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<script src="../js/jquery-1.11.3.min.js"></script>
 		<script src="../js/bootstrap.min.js"></script>

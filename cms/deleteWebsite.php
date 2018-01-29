@@ -31,7 +31,9 @@ if(isset($_GET["sure"])) {
 }
 else {
 	include "include/topBar.php";
+	include "include/sideBar.php";
 ?>
+<br />
 Weet u zeker dat u de website met ID <?= $_GET["websiteID"] ?> wil verwijderen?<br />
 <a href="deleteWebsite.php?websiteID=<?= $_GET["websiteID"] ?>&sure&deleteProducts" class="btn-primary btn">Ja, verwijder website + producten</a><br />
 <a href="deleteWebsite.php?websiteID=<?= $_GET["websiteID"] ?>&sure" class="btn-primary btn">Ja, verwijder website, laat producten bestaan</a><br />

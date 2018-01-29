@@ -22,10 +22,11 @@ else {
 	}
 	else {
 ?>
+<h1>Alle berichten verwijderen</h1>
 Weet u zeker dat u alle berichten van <i>alle sites</i> wil verwijderen?
-<br>
-<a class="btn-primary btn" href="/cms/delMessage.php?delAll=ja">Verwijder alles</a>
-<a class="btn-primary btn" href="/cms/messages.php">Nee, ga terug</a>
+<br><br />
+<a class="btn-primary btn" href="/cms/delMessage.php?delAll=ja" style='width: 80px; text-align: center'>Ja</a>
+<a class="btn-primary btn" href="/cms/messages.php" style='width: 80px; text-align: center'>Nee</a>
 <?php
 	}
 }

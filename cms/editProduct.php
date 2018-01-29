@@ -109,7 +109,7 @@ if($saved)
 		<label><input type="radio" name="active" value="1" <?php if($result["active"] == "1") echo "checked"; ?>>Actief</label>
 	</div>
 	<div class="radio">
-		<label><input type="radio" name="active" value="0" <?php if($result["active"] == "0") echo "checked"; ?>>Niet actief</label>
+		<label><input type="radio" name="active" value="0" <?php if($result["active"] != "1") echo "checked"; ?>>Niet actief</label>
 	</div>
 	<input type="submit" name="submit" class="btn btn-default" value="Opslaan">
 </form>

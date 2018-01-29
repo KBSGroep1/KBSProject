@@ -67,6 +67,11 @@ if(isset($_POST["username"]) && isset($_POST["password"])) {
 			header("Location: cms.php");
 			exit;
 		}
+
+		$updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");
+		$updateStatement->bindParam(":username", $submittedUsername);
+		$updateStatement->bindParam(":ip", $_SERVER["REMOTE_ADDR"]);
+		$updateStatement->execute();
 	}
 	else {
 		$updateStatement = $dbh->prepare("INSERT INTO failedLogin (username, ip) VALUES (:username, :ip)");

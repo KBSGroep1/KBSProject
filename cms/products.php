@@ -51,7 +51,13 @@ else {
 	}
 	echo "</table>";
 }
+
+if($_SESSION["site"] > 0) {
+	echo "<a href=\"editProduct.php\" class=\"btn btn-primary\">Product toevoegen</a>";
+}
+else {
+	echo "Om nieuwe producten toe te voegen moet u eerst een website selecteren in de zwarte balk bovenaan.";
+}
 ?>
-<a href="editProduct.php" class="btn btn-primary">Product toevoegen</a>
 </body>
 </html>

@@ -1,6 +1,4 @@
 <?php
-// TODO: use colors from database
-
 require_once "include/init.php";
 
 $texts = [];
@@ -20,7 +18,6 @@ $query3 = $dbh->query("SELECT * FROM color WHERE websiteID = $websiteID");
 while($color = $query3->fetch()) {
 	$colors[$color["colorName"]] = $color["hex"];
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

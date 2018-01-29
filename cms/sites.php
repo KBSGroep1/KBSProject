@@ -47,7 +47,7 @@ else {
 	while($row = $query->fetch()) {
 		echo "<tr>";
 		echo "<td><a href=\"sites.php?websiteID=" . $row["websiteID"] . "\">" . $row["name"] . "</a></td>";
-		echo "<td>" . ($row["active"] ? "ja" : "nee") . "</td>";
+		echo "<td>" . ($row["active"] ? "Ja" : "Nee") . "</td>";
 		echo "<td><a href=\"deleteWebsite.php?websiteID=" . $row["websiteID"] . "\" class=\"btn-primary btn\">Verwijderen</a></td>";
 		echo "</tr>";
 	}

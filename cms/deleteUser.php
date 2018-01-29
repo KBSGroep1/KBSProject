@@ -32,9 +32,9 @@ $stmt->execute();
 $user = $stmt->fetch();
 ?>
 		<h1>Gebruiker verwijderen</h1>
-		U staat op het punt '<?= $user["username"] ?>' te verwijderen. Weet u het zeker?<br />
-		<a href="deleteUser.php?userID=<?= $user["userID"] ?>&sure" class="btn-primary btn">Ja, verwijder</a>
-		<a href="users.php" class="btn-primary btn">Nee, stop</a>
+		Weet u zeker dat u de gebruiker <i><?= $user["username"] ?></i> wil verwijderen?<br /><br />
+		<a href="deleteUser.php?userID=<?= $user["userID"] ?>&sure" style='width: 80px; text-align: center' class="btn-primary btn">Ja</a>
+		<a href="users.php" style='width: 80px; text-align: center' class="btn-primary btn">Nee</a>
 	</body>
 </html>
 <?php

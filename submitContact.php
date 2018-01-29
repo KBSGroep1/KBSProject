@@ -1,7 +1,4 @@
 <?php
-// TODO: use correct websiteID
-// TODO: actually send emails
-
 session_start();
 
 if(isset($_SERVER["HTTP_HOST"]))
@@ -11,9 +8,6 @@ if(isset($_SESSION["domain"]))
 if(!isset($requestedDomain)) {
 	http_response_code(404);
 	echo "404 Page Not Found";
-
-	// TODO: remove
-	echo "<br />Waarschijnlijk staat de HTTP_HOST niet goed, dat kan je oplossen op /changeDomain.php";
 	exit;
 }
 
@@ -43,8 +37,9 @@ if(isset($_SERVER["HTTP_HOST"]))
 if(isset($_SESSION["domain"]))
 	$requestedWebsite = $_SESSION["domain"];
 else {
-	// TODO: what is this?
-	$requestedWebsite = 'sb1.ictm1l.nl';
+	http_response_code(400);
+	echo "400 Bad Request";
+	exit;
 }
 
 if(strlen($submittedName) < 1
@@ -56,22 +51,29 @@ if(strlen($submittedName) < 1
 	exit;
 }
 
+$texts = [];
+$query1 = $dbh->query("SELECT * FROM text WHERE websiteID = $submittedSite");
+while($text = $query1->fetch()) {
+	$texts[$text["textName"]] = $text["text"];
+}
+
 $stmt = $dbh->prepare("SELECT text FROM text WHERE websiteID = :site AND textName = 'contactEmail' ");
 $stmt->bindParam("site", $submittedSite);
 $stmt->execute();
 $result2 = $stmt->fetch();
 
 $to = $submittedEmail;
-$subject = 'Contactopname bevestiging';
-$message = "Beste " . $submittedName . ", \r\n\r\nBij deze een bevestiging van uw verzonden bericht. \r\nWe zullen zo spoedig mogelijk reageren. \r\nMet vriendelijke groet, de crew van " . $requestedWebsite. ". \r\n\r\nUw bericht: ". $submittedMessage;
+$subject = $texts["mailConfirmationTitle"];
+$message = $submittedName . $texts["mailConfirmationBody"] . $requestedWebsite;
 $headers = 'From: ' . $result2["text"];
-mail($to, $subject, $message, $headers);
+var_dump(mail($to, $subject, $message, $headers));
 
 $to1 = $result2["text"];
 $subject1 = 'Contactopname ' . $requestedWebsite . ' van ' . $submittedName;
 $message1 = $submittedMessage;
 $headers1 = 'From: ' . $submittedEmail;
-mail($to1, $subject1, $message1, $headers1);
+$headers .= "\r\nMIME-Version: 1.0\r\nContent-type: text/plain; charset=UTF-8";
+var_dump(mail($to1, $subject1, $message1, $headers1));
 
 $statement = $dbh->prepare("INSERT INTO contact (customerName, email, text, websiteID) VALUES (:name, :email, :text, :site)");
 $statement->bindParam("name", $submittedName);
